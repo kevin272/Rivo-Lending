@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-navy: #173552;
+  --color-brand-teal: #08B2B0;
+  --color-brand-soft-teal: #E8F7F6;
+  --color-brand-warm: #F7F8F5;
+  --color-brand-text: #173552;
+  --color-brand-text-muted: #506273;
+}
+
+body {
+  color: var(--color-brand-text);
+  background-color: var(--color-brand-warm);
+}
+
+/* Custom range slider styling */
+input[type=range] {
+  -webkit-appearance: none;
+  @apply w-full h-2 bg-slate-200 rounded-full outline-none;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  @apply w-6 h-6 rounded-full bg-brand-teal cursor-pointer shadow-md border-2 border-white transition-transform hover:scale-110;
+}
+input[type=range]::-moz-range-thumb {
+  @apply w-6 h-6 rounded-full bg-brand-teal cursor-pointer shadow-md border-2 border-white transition-transform hover:scale-110;
+}
