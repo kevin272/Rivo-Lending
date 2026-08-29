@@ -37,7 +37,7 @@ export function Navbar() {
             alt="Rivo Lending" 
             width={180} 
             height={50} 
-            className="h-10 w-auto object-contain"
+            className={`h-10 w-auto object-contain ${!isScrolled && !isOpen ? 'bg-white/90 rounded-md p-1' : ''}`}
             priority
           />
         </Link>
@@ -45,12 +45,12 @@ export function Navbar() {
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-6">
           {links.map((link) => (
-            <Link key={link.name} href={link.href} className="text-sm font-bold text-brand-navy hover:text-brand-teal transition-colors tracking-wide">
+            <Link key={link.name} href={link.href} className={`text-sm font-bold transition-colors tracking-wide ${isScrolled ? 'text-brand-navy hover:text-brand-teal' : 'text-white/90 hover:text-white'}`}>
               {link.name}
             </Link>
           ))}
-          <div className="flex items-center gap-6 ml-4 pl-6 border-l border-brand-navy/10">
-            <Link href="tel:0400000000" className="text-brand-navy flex items-center gap-2 text-sm font-bold hover:text-brand-teal transition-colors">
+          <div className={`flex items-center gap-6 ml-4 pl-6 border-l ${isScrolled ? 'border-brand-navy/10' : 'border-white/20'}`}>
+            <Link href="tel:0400000000" className={`flex items-center gap-2 text-sm font-bold transition-colors ${isScrolled ? 'text-brand-navy hover:text-brand-teal' : 'text-white/90 hover:text-white'}`}>
               <Phone className="w-4 h-4" /> 0400 000 000
             </Link>
             <Link href="#contact" className="px-6 py-3 bg-brand-teal text-white text-sm font-bold rounded-full hover:bg-brand-teal/90 transition-all shadow-[0_4px_14px_0_rgba(8,178,176,0.39)] hover:shadow-[0_6px_20px_rgba(8,178,176,0.23)] hover:-translate-y-0.5">
@@ -61,7 +61,7 @@ export function Navbar() {
 
         {/* Mobile Menu Button */}
         <button 
-          className="lg:hidden p-2 text-brand-navy relative z-50"
+          className={`lg:hidden p-2 relative z-50 transition-colors ${isScrolled || isOpen ? 'text-brand-navy' : 'text-white'}`}
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -75,7 +75,7 @@ export function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
+            transition={{ type: "spring", stiffness: 200, damping: 20 }}
             className="lg:hidden fixed inset-0 top-0 pt-24 bg-white z-40 h-screen overflow-y-auto"
           >
             <nav className="flex flex-col p-6 gap-4 max-w-md mx-auto">
