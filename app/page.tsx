@@ -12,10 +12,7 @@ if (typeof window !== "undefined") {
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { 
-  ArrowRight, Plus, Minus, Star, Home, RefreshCcw, Building2, Briefcase, 
-  CheckCircle2, Clock, ShieldCheck, MapPin, Phone, Mail, ChevronRight
-} from "lucide-react";
+import { ArrowRight, Home, RefreshCcw, TrendingUp, Tractor, Landmark, CreditCard, Stethoscope, ChevronRight, CheckCircle2, FileText, Handshake, HeartHandshake, PhoneCall, Star, Plus, Minus, Users, Key, FileCheck, User, Building2, Briefcase, Car, Layers, Clock, ShieldCheck, MapPin, Phone, Mail, HeartPulse } from "lucide-react";
 
 export default function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -106,19 +103,7 @@ export default function HomePage() {
       );
     });
 
-    // 7. Calculator Progress Bars
-    gsap.fromTo(".gsap-progress-fill",
-      { width: "0%" },
-      { width: (idx, target) => target.getAttribute("data-width"), duration: 1.5, ease: "power3.out", stagger: 0.2,
-        scrollTrigger: { trigger: "#calculator", start: "top 75%", toggleActions: "play none none none" }
-      }
-    );
-    gsap.fromTo(".gsap-progress-handle",
-      { left: "0%" },
-      { left: (idx, target) => target.getAttribute("data-left"), duration: 1.5, ease: "power3.out", stagger: 0.2,
-        scrollTrigger: { trigger: "#calculator", start: "top 75%", toggleActions: "play none none none" }
-      }
-    );
+
 
     // 8. Testimonials Slide-in
     gsap.fromTo(".gsap-testimonial-card",
@@ -139,13 +124,20 @@ export default function HomePage() {
     { q: "What is the Best Interests Duty?", a: "The Best Interests Duty is a legal obligation for mortgage brokers to always act in your best interests when providing credit assistance. We take this seriously and ensure our recommendations are genuinely the best fit for you." },
   ];
 
-  const services = [
-    { title: "First Home Buyers", desc: "Grants, schemes and guarantor options explained in plain English. We’ll help you buy sooner, with confidence.", icon: Home, linkText: "Check eligibility", href: "/services/first-home-buyers" },
-    { title: "Refinancing", desc: "Pay less, save more. We review your current loan and hunt down a sharper rate to lower your repayments.", icon: RefreshCcw, linkText: "Review my rate", href: "/services/refinancing" },
-    { title: "Investment Lending", desc: "Build your portfolio with the right structure — interest-only, equity release and tax-smart strategies.", icon: Building2, linkText: "Grow my portfolio", href: "/services/investment-loans" },
-    { title: "Self-Employed", desc: "Non-standard income? We know the lenders and policies that say yes — alt-doc and specialist solutions.", icon: Briefcase, linkText: "Talk to us", href: "/services/self-employed" },
-    { title: "Owner-Occupier Loans", desc: "Upgrading, building or bridging? We structure a loan that fits your life now and flexes as it changes.", icon: Home, linkText: "Get started", href: "/services/owner-occupier" },
-    { title: "Debt Consolidation", desc: "One loan, less stress. Roll multiple debts into your home loan to simplify payments and reduce interest.", icon: ShieldCheck, linkText: "Simplify my debts", href: "/services/debt-consolidation" }
+  
+
+  const lenderLogos = [
+    "https://laxmihomeloans.com.au/wp-content/uploads/2026/04/Bank_Of_Melbourne-e1776064806377.png",
+    "https://laxmihomeloans.com.au/wp-content/uploads/2026/04/Bankwest_new_logo-1.png",
+    "https://laxmihomeloans.com.au/wp-content/uploads/2026/04/Commonwealth_Bank.png",
+    "https://laxmihomeloans.com.au/wp-content/uploads/2026/04/ING_Group_N.V._Logo.svg-1-1024x260-1.png",
+    "https://laxmihomeloans.com.au/wp-content/uploads/2026/04/St_George_Bank_logo-1-1024x321-1.png",
+    "https://laxmihomeloans.com.au/wp-content/uploads/2026/04/Suncorp-Bank-Logo-1-1024x576-1.png",
+    "https://laxmihomeloans.com.au/wp-content/uploads/2026/04/anz-2-logo-png-transparent-1-1024x323-1.png",
+    "https://laxmihomeloans.com.au/wp-content/uploads/2026/04/firstmac-limited-logo-vector-1-1.png",
+    "https://laxmihomeloans.com.au/wp-content/uploads/2026/04/png-transparent-nab-national-australia-bank-logo-thumbnail-1.png",
+    "https://laxmihomeloans.com.au/wp-content/uploads/2026/04/westpac-logo-png_seeklogo-152472-1.png",
+    "https://laxmihomeloans.com.au/wp-content/uploads/2026/04/peppermoney.png"
   ];
 
   return (
@@ -176,23 +168,36 @@ export default function HomePage() {
                 Low Rates, Fast Approvals, And Personal Guidance Every Step Of The Way. We Guide You From Application To Settlement.
               </p>
 
-              <div className="flex justify-center lg:justify-start mb-16 lg:mb-0">
-                <Link href="#contact" className="gsap-hero-el inline-flex items-center justify-center px-10 h-14 bg-white text-brand-navy font-bold rounded shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all uppercase tracking-wider text-sm">
-                  Get Pre-Approved
+              <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-4 mb-4">
+                <Link href="#contact" className="gsap-hero-el inline-flex items-center justify-center px-8 h-14 bg-white text-brand-navy font-bold rounded shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all uppercase tracking-wider text-sm">
+                  I want to buy a home
+                </Link>
+                <Link href="#contact" className="gsap-hero-el inline-flex items-center justify-center px-8 h-14 bg-brand-teal text-white font-bold rounded shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all uppercase tracking-wider text-sm">
+                  I want to refinance
+                </Link>
+              </div>
+              <div className="flex justify-center lg:justify-start mb-8 lg:mb-0">
+                <Link href="/contact" className="gsap-hero-el text-white/80 hover:text-white transition-colors underline decoration-white/30 hover:decoration-white underline-offset-4 text-sm font-medium">
+                  Need help finding property?
                 </Link>
               </div>
 
-              {/* Floating House Card */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5, type: "spring", stiffness: 100 }}
-                className="hidden lg:block mt-8 w-48 h-48 bg-white p-2 rounded-xl shadow-2xl z-20"
-              >
-                <div className="relative w-full h-full rounded-lg overflow-hidden">
-                  <Image src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=400" alt="Home" fill className="object-cover" unoptimized referrerPolicy="no-referrer" />
+              {/* Rating Block */}
+              <div className="gsap-hero-el mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 text-center sm:text-left">
+                <div className="flex gap-1 text-[#FFB800]">
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
                 </div>
-              </motion.div>
+                <div className="text-white text-sm">
+                  <span className="font-bold">5.0</span>
+                  <span className="opacity-80 ml-2">400+ combined verified reviews across all platforms</span>
+                </div>
+              </div>
+
+
             </motion.div>
 
             {/* Right Content - Large Bleeding Image */}
@@ -224,80 +229,152 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Scroll Down Indicator */}
-        <motion.div 
-          animate={{ y: [0, 10, 0] }} 
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70 hover:text-white transition-colors cursor-pointer z-20"
-          onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-        >
-          <div className="w-[1px] h-12 bg-gradient-to-b from-transparent to-white/70"></div>
-          <ArrowRight className="w-4 h-4 rotate-90" />
-          <span className="text-[10px] uppercase tracking-widest font-bold">Scroll Down</span>
-        </motion.div>
+        
       </section>
 
-      {/* 2. RATES / TRUST STRIP */}
-      <section className="bg-brand-navy py-10 md:py-16 text-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="space-y-3 md:space-y-4">
-              <p className="text-brand-teal font-bold tracking-widest text-xs md:text-sm uppercase">Indicative rates today</p>
-              <div className="grid grid-cols-2 gap-4 sm:gap-8">
-                <div>
-                  <p className="text-white/70 text-xs md:text-sm mb-1">Variable from</p>
-                  <p className="text-3xl md:text-4xl font-serif leading-none">5.88<span className="text-xl md:text-2xl">% p.a.*</span></p>
-                </div>
-                <div>
-                  <p className="text-white/70 text-xs md:text-sm mb-1">Comparison rate</p>
-                  <p className="text-3xl md:text-4xl font-serif leading-none">6.08<span className="text-xl md:text-2xl">% p.a.*</span></p>
-                </div>
+      {/* 2. TRUST STRIP */}
+      <section className="bg-white py-12 md:py-16 border-b border-slate-100 overflow-hidden">
+        <div className="text-center mb-10">
+          <p className="text-brand-navy font-bold text-sm md:text-base uppercase tracking-widest">Access to 50+ Leading Lenders</p>
+        </div>
+        
+        <div className="relative flex overflow-hidden group w-full">
+          {/* First Marquee Track */}
+          <div className="animate-marquee whitespace-nowrap flex items-center gap-12 md:gap-24 px-6 md:px-12 flex-shrink-0 group-hover:[animation-play-state:paused]">
+            {lenderLogos.map((src, idx) => (
+              <div key={`m1-${idx}`} className="flex-shrink-0 w-32 h-12 md:w-40 md:h-16 relative flex items-center justify-center">
+                <Image src={src} alt="Lender Logo" fill className="object-contain opacity-90" unoptimized referrerPolicy="no-referrer" />
               </div>
-              <p className="text-xs md:text-sm font-bold text-white/90 pt-1">Owner-occupied · P&I · ≤80% LVR <span className="text-brand-teal mx-1">|</span> 30+ lenders</p>
-              <p className="text-[10px] md:text-xs text-white/50 max-w-md leading-tight">*Indicative only. Serviceability & lending criteria apply. Rates change — ask us for a live comparison.</p>
-            </div>
-            <div className="md:border-l md:border-white/20 md:pl-12 pt-6 md:pt-0 border-t border-white/10 md:border-t-0 mt-2 md:mt-0">
-              <p className="text-white/70 text-xs md:text-sm mb-4 font-bold">Access to Australia’s leading lenders:</p>
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-3 opacity-80">
-                <span className="font-serif text-xl md:text-2xl font-bold">CBA</span>
-                <span className="font-serif text-xl md:text-2xl font-bold">Westpac</span>
-                <span className="font-serif text-xl md:text-2xl font-bold">NAB</span>
-                <span className="font-serif text-xl md:text-2xl font-bold">ANZ</span>
-                <span className="font-serif text-xl md:text-2xl font-bold">Macquarie</span>
-                <span className="font-serif text-xl md:text-2xl font-bold">ING</span>
-                <span className="text-[10px] md:text-sm font-bold bg-white/10 px-2 py-1 rounded-full">+ 25 more</span>
+            ))}
+          </div>
+          {/* Second Marquee Track (Clone) */}
+          <div className="animate-marquee whitespace-nowrap flex items-center gap-12 md:gap-24 px-6 md:px-12 flex-shrink-0 group-hover:[animation-play-state:paused]" aria-hidden="true">
+            {lenderLogos.map((src, idx) => (
+              <div key={`m2-${idx}`} className="flex-shrink-0 w-32 h-12 md:w-40 md:h-16 relative flex items-center justify-center">
+                <Image src={src} alt="Lender Logo" fill className="object-contain opacity-90" unoptimized referrerPolicy="no-referrer" />
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 3. SERVICES GRID */}
-      <section id="services" className="py-24 md:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className="gsap-hero-el text-brand-teal font-bold tracking-widest text-xs uppercase mb-4">What we do</p>
-          <h2 className="font-serif text-4xl md:text-5xl text-brand-navy mb-6">Finance for every stage of property</h2>
-          <p className="text-brand-text-muted text-lg">
-            Whatever you’re trying to achieve, we match you to the right loan from our whole-of-market lender panel.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, idx) => (
-            <div key={idx} className="gsap-service-card bg-white p-6 md:p-10 rounded-[2rem] shadow-sm border border-slate-100 flex flex-col h-full group hover:shadow-xl hover:-translate-y-2 transition-transform duration-300">
-              <div className="w-14 h-14 bg-brand-soft-teal rounded-2xl flex items-center justify-center mb-8 text-brand-teal group-hover:scale-110 transition-transform duration-300">
-                <service.icon className="w-7 h-7" />
-              </div>
-              <h3 className="font-serif text-2xl text-brand-navy mb-4">{service.title}</h3>
-              <p className="text-brand-text-muted leading-relaxed mb-8 flex-grow">{service.desc}</p>
-              <Link href={service.href} className="gsap-hero-el inline-flex items-center text-sm font-bold text-brand-teal group-hover:text-brand-navy transition-colors mt-auto">
-                {service.linkText} <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                        {/* 3. SERVICES OVERVIEW */}
+      <section id="services" className="py-24 bg-slate-50 border-y border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <p className="gsap-hero-el text-brand-teal font-bold tracking-widest text-xs uppercase mb-4">Our Services</p>
+            <h2 className="font-serif text-3xl md:text-5xl text-brand-navy mb-4">Home Loan Solutions for Every Journey</h2>
+            <p className="text-brand-text-muted text-lg leading-relaxed">
+              We provide extensive assistance for all your financing requirements. Regardless of your situation, our skilled team is dedicated to identifying the right options for you.
+            </p>
+          </div>
+          
+          {/* Top 4 Core Services as Pills */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-16 max-w-4xl mx-auto">
+            {[
+              { label: "Home Loans", icon: Home, href: "/services/home-loans" },
+              { label: "First Home Buyers", icon: Key, href: "/services/first-home-buyers" },
+              { label: "Refinance", icon: RefreshCcw, href: "/services/refinancing" },
+              { label: "Investing", icon: TrendingUp, href: "/services/investment-loans" },
+            ].map((pill, idx) => (
+              <Link 
+                key={idx} 
+                href={pill.href} 
+                className="flex items-center gap-2 px-4 py-3 rounded-xl border-2 border-brand-teal/20 bg-white text-brand-navy font-bold hover:bg-brand-teal/10 hover:border-brand-teal transition-all text-sm shadow-sm justify-center sm:justify-start"
+              >
+                <pill.icon className="w-5 h-5 text-brand-teal flex-shrink-0" />
+                <span className="truncate">{pill.label}</span>
               </Link>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <div className="w-full h-px bg-slate-200 mb-16 max-w-5xl mx-auto"></div>
+          
+          {/* Remaining Specialist Services as Compact Cards */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6">
+            {[
+              {
+                title: "Pre Approval",
+                description: "Know your borrowing capacity before making offers with our streamlined pre-approval process.",
+                icon: FileCheck,
+                href: "/services/pre-approval"
+              },
+              {
+                title: "Personal Loans",
+                description: "Spread the cost of major expenses into manageable payments with a consistent repayment plan.",
+                icon: User,
+                href: "/services/personal-loans"
+              },
+              {
+                title: "Registered Nurse",
+                description: "Access exclusive LMI waivers and professional rates specially tailored for healthcare workers.",
+                icon: Stethoscope,
+                href: "/services/healthcare-professionals"
+              },
+              {
+                title: "Commercial Loans",
+                description: "Secure ideal commercial financing tailored to your business structure, cash flow, and financial standing.",
+                icon: Building2,
+                href: "/services/commercial-loans"
+              },
+              {
+                title: "Construction Loans",
+                description: "Navigate funding smoothly with progress payments aligned perfectly to your building timeline.",
+                icon: Tractor,
+                href: "/services/construction-loans"
+              },
+              {
+                title: "Business Lending",
+                description: "Support cash flow, enable expansion, or facilitate new ventures with solutions that fit your operations.",
+                icon: Briefcase,
+                href: "/services/business-lending"
+              },
+              {
+                title: "Vehicle Finance",
+                description: "Access competitive rates and maintain manageable repayment terms for your personal or business vehicle.",
+                icon: Car,
+                href: "/services/vehicle-finance"
+              },
+              {
+                title: "SMSF Finance",
+                description: "Examine lending possibilities and navigate specific regulations to purchase property via your SMSF.",
+                icon: Landmark,
+                href: "/services/smsf-loans"
+              },
+              {
+                title: "Asset Finance",
+                description: "Acquire essential equipment, tools, and machinery without depleting your business cash reserves.",
+                icon: Layers,
+                href: "/services/asset-finance"
+              },
+              {
+                title: "Debt Consolidation",
+                description: "Consolidate multiple personal loans and credit cards into your home loan to reduce monthly commitments.",
+                icon: CreditCard,
+                href: "/services/debt-consolidation"
+              }
+            ].map((service, idx) => (
+              <div 
+                key={idx}
+                className="gsap-service-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-teal group-hover:bg-brand-teal group-hover:text-white transition-colors flex-shrink-0">
+                    <service.icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-serif text-lg font-bold text-brand-navy leading-tight">{service.title}</h3>
+                </div>
+                <p className="text-brand-text-muted text-sm mb-4 flex-grow leading-relaxed">{service.description}</p>
+                <Link href={service.href} className="inline-flex items-center text-xs font-bold text-brand-teal hover:text-brand-navy transition-colors mt-auto">
+                  Learn More <ArrowRight className="w-3 h-3 ml-1" />
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* 4. WHY RIVO */}
+{/* 4. WHY RIVO */}
       <section id="why" className="py-24 bg-white border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -386,69 +463,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. CALCULATOR */}
-      <section id="calculator" className="py-24 md:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <p className="gsap-hero-el text-brand-teal font-bold tracking-widest text-xs uppercase mb-4">Plan with confidence</p>
-              <h2 className="font-serif text-4xl md:text-5xl text-brand-navy mb-6">Estimate your repayments</h2>
-              <p className="text-brand-text-muted text-lg leading-relaxed mb-8">
-                Guesswork can be expensive. Slide to estimate your repayments, then talk to us for a live, tailored comparison across 30+ lenders.
-              </p>
-              <Link href="#contact" className="gsap-hero-el inline-flex items-center justify-center px-8 h-14 bg-brand-teal text-white font-bold rounded-full hover:bg-brand-teal/90 transition-colors shadow-lg">
-                Get a tailored quote
-              </Link>
-            </div>
-
-            {/* Static Visual Mockup of Calculator */}
-            <div className="bg-brand-warm p-6 md:p-10 rounded-[2rem] border border-slate-100 shadow-sm relative">
-              <div className="space-y-8">
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <span className="font-bold text-brand-navy">Loan amount</span>
-                    <span className="font-bold text-brand-teal text-lg">$650,000</span>
-                  </div>
-                  <div className="w-full bg-slate-200 h-2 rounded-full relative">
-                    <div className="gsap-progress-fill absolute top-0 left-0 h-full bg-brand-teal rounded-full w-[0%]" data-width="65%"></div>
-                    <div className="gsap-progress-handle absolute top-1/2 -translate-y-1/2 left-[0%] w-5 h-5 bg-white border-2 border-brand-teal rounded-full shadow" data-left="65%"></div>
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <span className="font-bold text-brand-navy">Interest rate</span>
-                    <span className="font-bold text-brand-teal text-lg">5.88%</span>
-                  </div>
-                  <div className="w-full bg-slate-200 h-2 rounded-full relative">
-                    <div className="gsap-progress-fill absolute top-0 left-0 h-full bg-brand-teal rounded-full w-[0%]" data-width="45%"></div>
-                    <div className="gsap-progress-handle absolute top-1/2 -translate-y-1/2 left-[0%] w-5 h-5 bg-white border-2 border-brand-teal rounded-full shadow" data-left="45%"></div>
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <span className="font-bold text-brand-navy">Loan term</span>
-                    <span className="font-bold text-brand-teal text-lg">30 years</span>
-                  </div>
-                  <div className="w-full bg-slate-200 h-2 rounded-full relative">
-                    <div className="gsap-progress-fill absolute top-0 left-0 h-full bg-brand-teal rounded-full w-[0%]" data-width="100%"></div>
-                    <div className="gsap-progress-handle absolute top-1/2 -translate-y-1/2 left-[0%] w-5 h-5 bg-white border-2 border-brand-teal rounded-full shadow" data-left="100%"></div>
-                  </div>
-                </div>
-
-                <div className="mt-8 pt-8 border-t border-brand-navy/10 text-center">
-                  <p className="text-5xl font-serif text-brand-navy mb-2">$3,847</p>
-                  <p className="text-brand-text-muted font-bold text-sm">estimated monthly repayment (principal & interest)</p>
-                </div>
-              </div>
-              <p className="text-[10px] text-brand-text-muted mt-8 text-center leading-tight">
-                Estimate only and not an offer of credit. Actual repayments depend on the lender, product, fees and your circumstances.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* 8. TESTIMONIALS */}
       <section className="py-24 bg-brand-soft-teal/30">
@@ -476,7 +490,7 @@ export default function HomePage() {
                 <div className="flex gap-1 mb-6">
                   {[1,2,3,4,5].map(s => <Star key={s} className="w-4 h-4 fill-brand-teal text-brand-teal" />)}
                 </div>
-                <p className="text-brand-text-muted italic mb-8 flex-grow leading-relaxed font-serif text-lg">"{review.text}"</p>
+                <p className="text-brand-text-muted italic mb-8 flex-grow leading-relaxed font-serif text-lg">&quot;{review.text}&quot;</p>
                 <div className="flex items-center gap-4 border-t border-slate-100 pt-6">
                   <div className="w-10 h-10 rounded-full bg-brand-navy text-white flex items-center justify-center font-serif text-lg">{review.initial}</div>
                   <div>
@@ -536,7 +550,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <select className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white text-brand-navy/70 appearance-none">
-                    <option value="">I'm looking to…</option>
+                    <option value="">I&apos;m looking to…</option>
                     <option value="first">Buy my first home</option>
                     <option value="upgrade">Buy a home (upgrade/owner-occupier)</option>
                     <option value="refinance">Refinance my current loan</option>
@@ -568,7 +582,7 @@ export default function HomePage() {
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
               <div key={idx} className="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
-                <button onClick={() => setOpenFaq(openFaq === idx ? null : idx)} className="w-full flex items-center justify-between text-left p-6 focus:outline-none group">
+                <button onClick={() => setOpenFaq(openFaq === idx ? null : idx)} className="w-full flex items-center justify-between text-left py-5 px-6 focus:outline-none group">
                   <span className="font-bold text-lg text-brand-navy pr-8">{faq.q}</span>
                   <div className="w-10 h-10 rounded-full bg-brand-warm flex items-center justify-center flex-shrink-0 text-brand-navy group-hover:text-brand-teal transition-colors">
                     {openFaq === idx ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
@@ -576,7 +590,7 @@ export default function HomePage() {
                 </button>
                 <AnimatePresence>
                   {openFaq === idx && (
-                    <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="px-6 pb-6 text-brand-text-muted leading-relaxed">
+                    <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="px-6 pb-5 text-brand-text-muted leading-relaxed">
                       {faq.a}
                     </motion.div>
                   )}

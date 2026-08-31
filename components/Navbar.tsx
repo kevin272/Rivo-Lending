@@ -23,17 +23,34 @@ export function Navbar() {
   const mainLinks = [
     { name: "Why Rivo", href: "/about" },
     { name: "How It Works", href: "/how-it-works" },
-    { name: "Calculator", href: "/calculator" },
     { name: "Contact", href: "/contact" },
   ];
 
-  const serviceLinks = [
-    { name: "First Home Buyers", href: "/services/first-home-buyers" },
-    { name: "Refinancing", href: "/services/refinancing" },
-    { name: "Investment Lending", href: "/services/investment-loans" },
-    { name: "Self-Employed Loans", href: "/services/self-employed" },
-    { name: "Owner-Occupier Loans", href: "/services/owner-occupier" },
-    { name: "Debt Consolidation", href: "/services/debt-consolidation" },
+  const serviceCategories = [
+    {
+      title: "Home Loans",
+      links: [
+        { name: "First Home Buyers", href: "/services/first-home-buyers" },
+        { name: "Refinance", href: "/services/refinancing" },
+      ]
+    },
+    {
+      title: "Other Loans",
+      links: [
+        { name: "Specialist Home loans", href: "/services/home-loans" },
+        { name: "Commercial Loans", href: "/services/commercial-loans" },
+        { name: "Business Lending", href: "/services/business-lending" },
+        { name: "Pre Approval", href: "/services/pre-approval" },
+        { name: "Asset Finance", href: "/services/asset-finance" },
+        { name: "Investment Property", href: "/services/investment-loans" },
+        { name: "Land & Construction Loans", href: "/services/construction-loans" },
+        { name: "Home Loan For RN", href: "/services/healthcare-professionals" },
+        { name: "Personal Loans", href: "/services/personal-loans" },
+        { name: "SMSF Finance", href: "/services/smsf-loans" },
+        { name: "Vehicle Finance", href: "/services/vehicle-finance" },
+        { name: "Debt Consolidation", href: "/services/debt-consolidation" },
+      ]
+    }
   ];
 
   return (
@@ -52,10 +69,10 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-6">
-          {/* Services Dropdown */}
+        <nav className="hidden lg:flex items-center gap-8">
+          
           <div 
-            className="relative group"
+            className="relative"
             onMouseEnter={() => setIsDesktopServicesOpen(true)}
             onMouseLeave={() => setIsDesktopServicesOpen(false)}
           >
@@ -69,19 +86,41 @@ export function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute left-0 top-full pt-4 w-64"
+                  className="absolute left-0 top-full pt-4 w-[600px]"
                 >
-                  <div className="bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden py-2 flex flex-col">
-                    {serviceLinks.map((link) => (
-                      <Link 
-                        key={link.name} 
-                        href={link.href}
-                        className="px-4 py-3 text-sm font-medium text-brand-navy hover:bg-brand-soft-teal hover:text-brand-teal transition-colors"
-                        onClick={() => setIsDesktopServicesOpen(false)}
-                      >
-                        {link.name}
-                      </Link>
-                    ))}
+                  <div className="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden flex">
+                    {/* Home Loans Column */}
+                    <div className="w-1/3 bg-slate-50 p-6 border-r border-slate-100">
+                      <h4 className="font-serif font-bold text-brand-navy mb-4">{serviceCategories[0].title}</h4>
+                      <div className="flex flex-col gap-3">
+                        {serviceCategories[0].links.map((link) => (
+                          <Link 
+                            key={link.name} 
+                            href={link.href}
+                            className="text-sm font-medium text-brand-text-muted hover:text-brand-teal transition-colors"
+                            onClick={() => setIsDesktopServicesOpen(false)}
+                          >
+                            {link.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                    {/* Other Loans Column */}
+                    <div className="w-2/3 p-6">
+                      <h4 className="font-serif font-bold text-brand-navy mb-4">{serviceCategories[1].title}</h4>
+                      <div className="grid grid-cols-2 gap-3 gap-x-6">
+                        {serviceCategories[1].links.map((link) => (
+                          <Link 
+                            key={link.name} 
+                            href={link.href}
+                            className="text-sm font-medium text-brand-text-muted hover:text-brand-teal transition-colors"
+                            onClick={() => setIsDesktopServicesOpen(false)}
+                          >
+                            {link.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -122,7 +161,7 @@ export function Navbar() {
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
             className="lg:hidden fixed inset-0 top-0 pt-24 bg-white z-40 h-screen overflow-y-auto"
           >
-            <nav className="flex flex-col p-6 gap-4 max-w-md mx-auto">
+            <nav className="flex flex-col p-6 gap-4 max-w-md mx-auto pb-32">
               
               <div className="flex flex-col border-b border-slate-50">
                 <button 
@@ -140,16 +179,23 @@ export function Navbar() {
                       exit={{ height: 0, opacity: 0 }}
                       className="overflow-hidden"
                     >
-                      <div className="flex flex-col pl-8 py-2 gap-2">
-                        {serviceLinks.map((link) => (
-                          <Link 
-                            key={link.name} 
-                            href={link.href} 
-                            className="text-lg text-brand-text-muted py-2 hover:text-brand-teal transition-colors"
-                            onClick={() => setIsOpen(false)}
-                          >
-                            {link.name}
-                          </Link>
+                      <div className="flex flex-col px-4 py-2 gap-4">
+                        {serviceCategories.map((cat, idx) => (
+                          <div key={idx} className="mb-2">
+                            <h4 className="font-bold text-brand-navy mb-2 text-sm uppercase tracking-widest">{cat.title}</h4>
+                            <div className="flex flex-col gap-2 pl-2 border-l-2 border-brand-teal/20">
+                              {cat.links.map((link) => (
+                                <Link 
+                                  key={link.name} 
+                                  href={link.href} 
+                                  className="text-lg text-brand-text-muted py-1 hover:text-brand-teal transition-colors"
+                                  onClick={() => setIsOpen(false)}
+                                >
+                                  {link.name}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
                         ))}
                       </div>
                     </motion.div>
@@ -161,22 +207,19 @@ export function Navbar() {
                 <Link 
                   key={link.name} 
                   href={link.href} 
-                  className="text-xl font-serif text-brand-navy py-3 px-4 hover:bg-brand-soft-teal rounded-xl transition-colors border-b border-slate-50"
+                  className="text-xl font-serif text-brand-navy py-3 px-4 hover:bg-brand-soft-teal rounded-xl transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
                 </Link>
               ))}
-              <div className="mt-8 space-y-4">
-                <Link href="tel:0400000000" className="py-4 flex items-center justify-center gap-3 text-brand-navy font-bold text-lg bg-slate-50 rounded-2xl">
-                  <Phone className="w-5 h-5 text-brand-teal" /> 0400 000 000
+              
+              <div className="mt-8 flex flex-col gap-4 px-4">
+                <Link href="tel:0400000000" className="flex items-center justify-center gap-2 px-6 py-4 bg-brand-warm text-brand-navy font-bold rounded-xl" onClick={() => setIsOpen(false)}>
+                  <Phone className="w-5 h-5" /> 0400 000 000
                 </Link>
-                <Link 
-                  href="/contact" 
-                  className="w-full text-center px-5 py-4 bg-brand-teal text-white font-bold text-lg rounded-2xl flex justify-center items-center shadow-lg"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Free Assessment
+                <Link href="/contact" className="flex items-center justify-center px-6 py-4 bg-brand-teal text-white font-bold rounded-xl shadow-lg" onClick={() => setIsOpen(false)}>
+                  Get Your Free Assessment
                 </Link>
               </div>
             </nav>

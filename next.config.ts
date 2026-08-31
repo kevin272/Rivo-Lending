@@ -23,6 +23,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'laxmihomeloans.com.au',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
   output: 'standalone',

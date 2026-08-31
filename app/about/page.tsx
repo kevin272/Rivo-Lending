@@ -58,6 +58,7 @@ export default function AboutPage() {
               alt="Team meeting"
               fill
               className="object-cover"
+              unoptimized
               referrerPolicy="no-referrer"
             />
           </motion.div>
@@ -66,7 +67,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
           >
             <p className="text-brand-teal font-bold tracking-widest text-xs uppercase mb-4">Our Story</p>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-brand-navy mb-8 leading-[1.2]">Built on a simple belief: borrowing should be clear and fair.</h2>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-brand-navy mb-8 leading-[1.2]">Built on a simple belief: borrowing should be clear and fair.</h2>
             
             <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
               <p>
@@ -87,7 +88,7 @@ export default function AboutPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl md:text-4xl text-brand-navy mb-4">Our Core Values</h2>
+            <h2 className="font-serif text-4xl md:text-5xl text-brand-navy mb-4">Our Core Values</h2>
             <p className="text-brand-text-muted text-lg max-w-2xl mx-auto">The principles that drive us every single day.</p>
           </div>
           
@@ -115,7 +116,7 @@ export default function AboutPage() {
       <section className="py-24 bg-brand-warm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="font-serif text-3xl md:text-4xl text-brand-navy mb-6">Why Choose Home Loan Experts?</h2>
+            <h2 className="font-serif text-4xl md:text-5xl text-brand-navy mb-6">Why Choose Home Loan Experts?</h2>
             <p className="text-brand-text-muted text-lg leading-relaxed">
               Our commitment to transparency and integrity means you can trust us to act in your best interests throughout the loan process.
             </p>
@@ -161,7 +162,7 @@ export default function AboutPage() {
             <div className="w-[800px] h-[800px] rounded-full border-[1px] border-white absolute"></div>
          </div>
          <div className="max-w-3xl mx-auto px-4 relative z-10">
-            <h2 className="font-serif text-4xl md:text-5xl mb-6">Connect With Our Expert Brokers</h2>
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-6">Connect With Our Expert Brokers</h2>
             <p className="text-white/80 text-lg mb-10 leading-relaxed">
               Our mortgage brokers are here to help you through the process.<br/>
               Get a reply from us within 24 hours of your enquiry.

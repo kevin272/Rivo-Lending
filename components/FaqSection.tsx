@@ -33,7 +33,7 @@ export default function FaqSection() {
               key={idx} 
               className="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-shadow"
             >
-              <button onClick={() => setOpenFaq(openFaq === idx ? null : idx)} className="w-full flex items-center justify-between text-left p-6 md:p-8 focus:outline-none group">
+              <button onClick={() => setOpenFaq(openFaq === idx ? null : idx)} className="w-full flex items-center justify-between text-left py-5 px-6 md:py-6 md:px-8 focus:outline-none group">
                 <span className="font-bold text-lg md:text-xl text-brand-navy pr-8">{faq.q}</span>
                 <div className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${openFaq === idx ? 'bg-brand-teal text-white' : 'bg-brand-warm text-brand-navy group-hover:bg-brand-soft-teal group-hover:text-brand-teal'}`}>
                   {openFaq === idx ? <Minus className="w-6 h-6" /> : <Plus className="w-6 h-6" />}
@@ -45,7 +45,7 @@ export default function FaqSection() {
                     initial={{ opacity: 0, height: 0 }} 
                     animate={{ opacity: 1, height: 'auto' }} 
                     exit={{ opacity: 0, height: 0 }} 
-                    className="px-6 md:px-8 pb-6 md:pb-8 text-brand-text-muted leading-relaxed text-lg"
+                    className="px-6 pb-5 md:px-8 md:pb-6 text-brand-text-muted leading-relaxed text-lg"
                   >
                     {faq.a}
                   </motion.div>

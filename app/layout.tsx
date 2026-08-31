@@ -3,6 +3,7 @@ import { DM_Serif_Display, Manrope } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { MobileDock } from '@/components/MobileDock';
 
 const serif = DM_Serif_Display({
   weight: '400',
@@ -26,12 +27,13 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${sans.variable} ${serif.variable} font-sans antialiased bg-brand-warm min-h-screen flex flex-col selection:bg-brand-teal/20`} suppressHydrationWarning>
+      <body className={`${sans.variable} ${serif.variable} font-sans antialiased bg-brand-warm min-h-screen flex flex-col selection:bg-brand-teal/20 pb-[env(safe-area-inset-bottom)] md:pb-0`} suppressHydrationWarning>
         <Navbar />
-        <main className="flex-grow">
+        <main className="flex-grow pb-16 md:pb-0">
           {children}
         </main>
         <Footer />
+        <MobileDock />
       </body>
     </html>
   );

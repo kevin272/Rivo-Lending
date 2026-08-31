@@ -46,7 +46,7 @@ export default function FaqsPage() {
         <div className="relative z-10">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-            className="font-serif text-4xl md:text-5xl font-bold mb-4"
+            className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
           >
             Frequently Asked Questions
           </motion.h1>
@@ -100,7 +100,7 @@ export default function FaqsPage() {
                   key={idx} 
                   className="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <button onClick={() => setOpenFaq(openFaq === idx ? null : idx)} className="w-full flex items-center justify-between text-left p-6 md:p-8 focus:outline-none group">
+                  <button onClick={() => setOpenFaq(openFaq === idx ? null : idx)} className="w-full flex items-center justify-between text-left py-5 px-6 md:py-6 md:px-8 focus:outline-none group">
                     <span className="font-bold text-lg md:text-xl text-brand-navy pr-8">{faq.q}</span>
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${openFaq === idx ? 'bg-brand-teal text-white' : 'bg-brand-warm text-brand-navy group-hover:bg-brand-soft-teal group-hover:text-brand-teal'}`}>
                       {openFaq === idx ? <Minus className="w-6 h-6" /> : <Plus className="w-6 h-6" />}
@@ -112,7 +112,7 @@ export default function FaqsPage() {
                         initial={{ opacity: 0, height: 0 }} 
                         animate={{ opacity: 1, height: 'auto' }} 
                         exit={{ opacity: 0, height: 0 }} 
-                        className="px-6 md:px-8 pb-6 md:pb-8 text-brand-text-muted leading-relaxed text-lg"
+                        className="px-6 pb-5 md:px-8 md:pb-6 text-brand-text-muted leading-relaxed text-lg"
                       >
                         {faq.a}
                       </motion.div>
@@ -133,7 +133,7 @@ export default function FaqsPage() {
           <div className="mt-20 text-center bg-brand-warm p-10 md:p-16 rounded-[2rem] border border-slate-100 relative overflow-hidden">
             <div className="absolute top-0 right-0 p-8 opacity-5"><PhoneCall className="w-48 h-48" /></div>
             <div className="relative z-10">
-              <h3 className="font-serif text-3xl md:text-4xl text-brand-navy mb-4">Still have questions?</h3>
+              <h3 className="font-serif text-4xl md:text-5xl text-brand-navy mb-4">Still have questions?</h3>
               <p className="text-brand-text-muted mb-10 max-w-xl mx-auto text-lg">
                 Every situation is unique. If you couldn't find the exact answer you were looking for, our brokers are ready to help.
               </p>

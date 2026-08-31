@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { CheckCircle2, Phone, Mail, MapPin } from "lucide-react";
+import { CheckCircle2, Phone, Mail, MapPin, ChevronDown } from "lucide-react";
 
 const formSchema = z.object({
   firstName: z.string().min(2, { message: "First name is required." }),
@@ -16,6 +16,39 @@ const formSchema = z.object({
   loanAmount: z.string().optional(),
   message: z.string().optional(),
 });
+
+function FaqItem({ q, a }: { q: string, a: string }) {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  return (
+    <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden transition-all duration-300">
+      <button 
+        onClick={() => setIsOpen(!isOpen)} 
+        className="w-full py-5 px-6 text-left flex justify-between items-center focus:outline-none"
+      >
+        <h3 className="font-bold text-brand-navy text-lg">{q}</h3>
+        <span className={`w-8 h-8 flex items-center justify-center rounded-full bg-slate-50 transition-transform duration-300 flex-shrink-0 ml-4 ${isOpen ? 'rotate-180 bg-brand-soft-teal text-brand-teal' : 'text-slate-400'}`}>
+           <ChevronDown className="w-5 h-5" />
+        </span>
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div className="p-6 pt-0 text-slate-600 border-t border-slate-50 mt-2 mx-6 px-0 pb-5">
+              {a}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -36,25 +69,28 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-slate-50 min-h-screen py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+    <div className="bg-slate-50 min-h-screen">
+      {/* HERO SECTION */}
+      <div className="bg-brand-navy py-24 md:py-32 text-center text-white pt-40 relative overflow-hidden">
+        {/* Background Accent */}
+        <div className="absolute top-[-50%] left-[-10%] w-[60%] h-[150%] bg-white/5 skew-x-12"></div>
+        <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="font-serif text-4xl md:text-5xl font-bold text-brand-navy mb-4"
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+            className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
           >
             Get in Touch
           </motion.h1>
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-slate-600 text-lg"
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
+            className="text-white/80 text-lg md:text-xl leading-relaxed"
           >
             Ready to secure your future? Contact our expert brokers for a free, no-obligation consultation today.
           </motion.p>
         </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20 pb-24">
 
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -67,7 +103,7 @@ export default function ContactPage() {
             <div className="absolute top-0 right-0 -mt-16 -mr-16 w-64 h-64 bg-brand-teal/20 rounded-full blur-3xl"></div>
             
             <div className="relative z-10">
-              <h3 className="font-serif text-3xl font-bold mb-8">Contact Information</h3>
+              <h3 className="font-serif text-2xl md:text-3xl font-bold mb-8">Contact Information</h3>
               
               <div className="space-y-8">
                 <div className="flex items-start gap-4">
@@ -113,7 +149,7 @@ export default function ContactPage() {
 
           {/* Form Side */}
           <div className="lg:w-3/5 p-8 md:p-12">
-            <h2 className="font-serif text-3xl font-bold text-brand-navy mb-2">Request a Free Assessment</h2>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-brand-navy mb-4">Request a Free Assessment</h2>
             <p className="text-slate-600 mb-8">Fill out the form below and one of our mortgage specialists will be in touch shortly.</p>
             
             {isSuccess ? (
@@ -216,6 +252,42 @@ export default function ContactPage() {
                 </button>
               </form>
             )}
+          </div>
+        </motion.div>
+
+        {/* Contact FAQ Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-24 max-w-4xl mx-auto"
+        >
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-brand-navy mb-4">Frequently Asked Questions</h2>
+            <p className="text-slate-600">Got a question before you reach out? We've got answers.</p>
+          </div>
+          
+          <div className="space-y-6">
+            {[
+              {
+                q: "Do you charge a fee for your services?",
+                a: "In most cases, our services are completely free to you. We are paid a commission by the lender you choose when your loan settles. We will always disclose any commissions to you upfront."
+              },
+              {
+                q: "How long does it take to get a response?",
+                a: "We aim to respond to all web inquiries within 24 hours during business days. For urgent matters, please call us directly on 1300 123 456."
+              },
+              {
+                q: "Can we meet online instead of in person?",
+                a: "Absolutely! We offer flexible meeting options. We can chat over the phone, arrange a Zoom/Teams video conference, or meet in person at our Sydney office."
+              },
+              {
+                q: "What information should I have ready for our first chat?",
+                a: "For an initial consultation, it's helpful to have a rough idea of your income, expenses, and any current debts. You don't need formal documents just yet—we'll guide you through exactly what's needed when the time comes."
+              }
+            ].map((faq, i) => (
+              <FaqItem key={i} q={faq.q} a={faq.a} />
+            ))}
           </div>
         </motion.div>
       </div>

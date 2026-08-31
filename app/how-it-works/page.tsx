@@ -117,7 +117,7 @@ export default function HowItWorksPage() {
                 
                 <div className="pt-2 md:pt-4 flex-grow">
                   <div className="flex items-end gap-4 mb-4">
-                    <h3 className="font-serif text-3xl md:text-4xl text-brand-navy">{step.title}</h3>
+                    <h3 className="font-serif text-2xl md:text-3xl text-brand-navy">{step.title}</h3>
                     <span className="hidden md:block text-5xl font-serif text-slate-100 font-bold leading-none -mb-1">{step.num}</span>
                   </div>
                   <p className="text-lg text-brand-text-muted leading-relaxed mb-6">
@@ -143,7 +143,7 @@ export default function HowItWorksPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col justify-center">
             <p className="text-brand-teal font-bold tracking-widest text-xs uppercase mb-4">The Rivo Advantage</p>
-            <h3 className="font-serif text-4xl text-brand-navy mb-6">Why use a broker instead of going to a bank?</h3>
+            <h3 className="font-serif text-4xl md:text-5xl text-brand-navy mb-6">Why use a broker instead of going to a bank?</h3>
             <div className="space-y-8 mt-6">
               <div>
                 <h4 className="font-bold text-xl text-brand-navy mb-2">Choice & Competition</h4>
@@ -165,7 +165,7 @@ export default function HowItWorksPage() {
       {/* CTA */}
       <section className="py-24 text-center">
          <div className="max-w-3xl mx-auto px-4">
-            <h2 className="font-serif text-4xl md:text-5xl text-brand-navy mb-6">Ready to get started?</h2>
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-brand-navy mb-6">Ready to get started?</h2>
             <p className="text-brand-text-muted text-lg mb-10">Book a free 15-minute discovery call and we'll let you know exactly where you stand.</p>
             <Link href="/contact" className="inline-flex items-center justify-center px-10 h-16 bg-brand-teal text-white text-lg font-bold rounded-full hover:bg-brand-navy transition-colors shadow-lg hover:-translate-y-1">
               Book a Free Call <ArrowRight className="w-5 h-5 ml-2" />

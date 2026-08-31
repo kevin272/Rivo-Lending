@@ -7,6 +7,13 @@
   --color-brand-warm: #F7F8F5;
   --color-brand-text: #173552;
   --color-brand-text-muted: #506273;
+
+  --animate-marquee: marquee 30s linear infinite;
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
 }
 
 body {
