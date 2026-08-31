@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Check, ArrowRight, Home, Key, FileText, ChevronRight } from "lucide-react";
+import FaqSection from "@/components/FaqSection";
+import ContactSection from "@/components/ContactSection";
 
 type ServiceData = {
   title: string;
@@ -224,27 +226,11 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
       </section>
 
       {/* =========================================
-          3. FINAL CTA
+          3. FAQ & CONTACT
           ========================================= */}
-      <section className="bg-brand-navy py-16 md:py-24 text-center text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 pointer-events-none flex justify-center items-center">
-           <div className="w-[800px] h-[800px] rounded-full border-[1px] border-white absolute -translate-y-[20%] scale-150"></div>
-           <div className="w-[1200px] h-[1200px] rounded-full border-[1px] border-white absolute -translate-y-[20%] scale-150"></div>
-        </div>
+      <FaqSection />
+      <ContactSection />
 
-        <div className="relative z-10 px-4 max-w-4xl mx-auto">
-          <p className="font-bold tracking-widest text-xs uppercase mb-6 text-brand-teal">Get Started</p>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-[64px] mb-8 leading-[1.15]">
-            Ready to find out exactly what you can afford?
-          </h2>
-          
-          <Link href="/#contact" className="inline-flex items-center justify-center h-14 md:h-16 px-10 md:px-12 bg-white text-brand-navy text-base md:text-lg font-bold rounded-full hover:bg-brand-teal hover:text-white transition-all shadow-[0_8px_30px_rgb(255,255,255,0.12)] hover:-translate-y-1">
-            Request a Call Back
-          </Link>
-          
-          <p className="mt-12 text-white/60 font-medium">Prefer to talk? <br/><span className="text-xl md:text-2xl font-serif text-white mt-2 block">0400 000 000</span></p>
-        </div>
-      </section>
 
     </div>
   );
