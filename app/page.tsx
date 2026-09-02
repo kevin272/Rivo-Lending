@@ -518,7 +518,7 @@ export default function HomePage() {
                 <div className="flex items-start gap-4">
                   <div className="bg-brand-soft-teal p-3 rounded-xl text-brand-teal"><Phone className="w-6 h-6" /></div>
                   <div>
-                    <h4 className="font-bold text-lg text-brand-navy">0400 000 000</h4>
+                    <h4 className="font-bold text-lg text-brand-navy">0451 178 375</h4>
                     <p className="text-brand-text-muted text-sm">Mon–Sat, after-hours by appointment</p>
                   </div>
                 </div>

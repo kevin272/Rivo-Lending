@@ -59,11 +59,11 @@ export function Navbar() {
         {/* Rivo Logo */}
         <Link href="/" className="relative flex items-center z-50">
           <Image 
-            src="/logo_rivo.jpeg" 
+            src="/logo_rivo.png" 
             alt="Rivo Lending" 
             width={180} 
             height={50} 
-            className={`h-10 w-auto object-contain ${!isScrolled && !isOpen ? 'bg-white/90 rounded-md p-1' : ''}`}
+            className="h-10 w-auto object-contain"
             priority
           />
         </Link>
@@ -133,8 +133,8 @@ export function Navbar() {
             </Link>
           ))}
           <div className={`flex items-center gap-6 ml-4 pl-6 border-l ${isScrolled ? 'border-brand-navy/10' : 'border-white/20'}`}>
-            <Link href="tel:0400000000" className={`flex items-center gap-2 text-sm font-bold transition-colors ${isScrolled ? 'text-brand-navy hover:text-brand-teal' : 'text-white/90 hover:text-white'}`}>
-              <Phone className="w-4 h-4" /> 0400 000 000
+            <Link href="tel:0451178375" className={`flex items-center gap-2 text-sm font-bold transition-colors ${isScrolled ? 'text-brand-navy hover:text-brand-teal' : 'text-white/90 hover:text-white'}`}>
+              <Phone className="w-4 h-4" /> 0451 178 375
             </Link>
             <Link href="/contact" className="px-6 py-3 bg-brand-teal text-white text-sm font-bold rounded-full hover:bg-brand-teal/90 transition-all shadow-[0_4px_14px_0_rgba(8,178,176,0.39)] hover:shadow-[0_6px_20px_rgba(8,178,176,0.23)] hover:-translate-y-0.5">
               Free Assessment
@@ -215,8 +215,8 @@ export function Navbar() {
               ))}
               
               <div className="mt-8 flex flex-col gap-4 px-4">
-                <Link href="tel:0400000000" className="flex items-center justify-center gap-2 px-6 py-4 bg-brand-warm text-brand-navy font-bold rounded-xl" onClick={() => setIsOpen(false)}>
-                  <Phone className="w-5 h-5" /> 0400 000 000
+                <Link href="tel:0451178375" className="flex items-center justify-center gap-2 px-6 py-4 bg-brand-warm text-brand-navy font-bold rounded-xl" onClick={() => setIsOpen(false)}>
+                  <Phone className="w-5 h-5" /> 0451 178 375
                 </Link>
                 <Link href="/contact" className="flex items-center justify-center px-6 py-4 bg-brand-teal text-white font-bold rounded-xl shadow-lg" onClick={() => setIsOpen(false)}>
                   Get Your Free Assessment

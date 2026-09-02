@@ -106,25 +106,29 @@ export default function ContactPage() {
               <h3 className="font-serif text-2xl md:text-3xl font-bold mb-8">Contact Information</h3>
               
               <div className="space-y-8">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-brand-teal" />
+                  {/* Arun Rizal */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-6 h-6 text-brand-teal" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-white/60 font-medium mb-1">Arun Rizal (Principal)</p>
+                      <p className="text-xl font-semibold">0451 178 375</p>
+                      <a href="mailto:arun@rivolending.com.au" className="text-brand-teal hover:text-white transition-colors text-sm">arun@rivolending.com.au</a>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-sm text-white/60 font-medium mb-1">Call Us Directly</p>
-                    <p className="text-xl font-semibold">1300 123 456</p>
+
+                  {/* Amit Kumar Basnet */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-6 h-6 text-brand-teal" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-white/60 font-medium mb-1">Amit Kumar Basnet (Director)</p>
+                      <p className="text-xl font-semibold">0492 911 299</p>
+                      <a href="mailto:amit@rivolending.com.au" className="text-brand-teal hover:text-white transition-colors text-sm">amit@rivolending.com.au</a>
+                    </div>
                   </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-brand-teal" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-white/60 font-medium mb-1">Email Support</p>
-                    <p className="text-xl font-semibold">info@rivolending.com.au</p>
-                  </div>
-                </div>
                 
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
@@ -132,7 +136,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-sm text-white/60 font-medium mb-1">Office Location</p>
-                    <p className="text-xl font-semibold">123 Finance Street<br/>Sydney NSW 2000</p>
+                    <p className="text-xl font-semibold">Central Coast NSW 2250</p>
                   </div>
                 </div>
               </div>
@@ -197,7 +201,7 @@ export default function ContactPage() {
                     <input 
                       {...register("phone")}
                       className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-shadow bg-slate-50"
-                      placeholder="0400 000 000"
+                      placeholder="0451 178 375"
                     />
                     {errors.phone && <p className="text-red-500 text-xs">{errors.phone.message}</p>}
                   </div>
@@ -275,7 +279,7 @@ export default function ContactPage() {
               },
               {
                 q: "How long does it take to get a response?",
-                a: "We aim to respond to all web inquiries within 24 hours during business days. For urgent matters, please call us directly on 1300 123 456."
+                a: "We aim to respond to all web inquiries within 24 hours during business days. For urgent matters, please call us directly on 0451 178 375."
               },
               {
                 q: "Can we meet online instead of in person?",

@@ -93,7 +93,7 @@ export default function ContactSection() {
                   <input 
                     {...register("phone")}
                     className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-shadow bg-slate-50"
-                    placeholder="0400 000 000"
+                    placeholder="0451 178 375"
                   />
                   {errors.phone && <p className="text-red-500 text-xs">{errors.phone.message}</p>}
                 </div>

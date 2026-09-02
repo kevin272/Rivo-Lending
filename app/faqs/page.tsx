@@ -141,8 +141,8 @@ export default function FaqsPage() {
                 <Link href="/contact" className="inline-flex items-center justify-center px-8 h-14 bg-brand-navy text-white font-bold rounded-full hover:bg-brand-teal transition-all shadow-lg hover:-translate-y-0.5 w-full sm:w-auto">
                   Contact our team <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
-                <Link href="tel:0400000000" className="inline-flex items-center justify-center px-8 h-14 bg-white text-brand-navy font-bold rounded-full hover:bg-slate-50 transition-all border border-slate-200 w-full sm:w-auto">
-                  Call 0400 000 000
+                <Link href="tel:0451178375" className="inline-flex items-center justify-center px-8 h-14 bg-white text-brand-navy font-bold rounded-full hover:bg-slate-50 transition-all border border-slate-200 w-full sm:w-auto">
+                  Call 0451 178 375
                 </Link>
               </div>
             </div>

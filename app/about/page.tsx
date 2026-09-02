@@ -171,7 +171,7 @@ export default function AboutPage() {
               <Link href="/contact" className="inline-flex items-center justify-center px-10 h-16 bg-brand-teal text-white text-lg font-bold rounded-full hover:bg-white hover:text-brand-navy transition-all shadow-lg hover:-translate-y-1 w-full sm:w-auto">
                 Get a free assessment
               </Link>
-              <Link href="tel:0400000000" className="inline-flex items-center justify-center px-10 h-16 bg-white/10 text-white text-lg font-bold rounded-full hover:bg-white/20 transition-all border border-white/20 w-full sm:w-auto">
+              <Link href="tel:0451178375" className="inline-flex items-center justify-center px-10 h-16 bg-white/10 text-white text-lg font-bold rounded-full hover:bg-white/20 transition-all border border-white/20 w-full sm:w-auto">
                 Give us a call
               </Link>
             </div>
