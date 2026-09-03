@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CheckCircle2, FileText, Search, CreditCard, Home, ShieldCheck } from "lucide-react";
 
 export default function HowItWorksPage() {
@@ -65,33 +66,60 @@ export default function HowItWorksPage() {
 
 
   return (
-    <div className="bg-slate-50 min-h-screen">
-      {/* HERO SECTION */}
-      <div className="bg-brand-navy py-24 md:py-32 text-center text-white pt-40 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 pointer-events-none flex justify-center items-center">
-           <div className="w-[100vw] h-[100vw] max-w-[800px] max-h-[800px] rounded-full border-[1px] border-white absolute"></div>
-        </div>
-        <div className="relative z-10">
-          <motion.p 
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-            className="text-brand-teal font-bold tracking-widest text-xs uppercase mb-6"
-          >
-            The Rivo Process
-          </motion.p>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 max-w-4xl mx-auto leading-tight"
-          >
-            A clear path to property, minus the stress.
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-            className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto px-4 leading-relaxed"
-          >
-            We handle the paperwork, the bank negotiations, and the endless follow-ups. Here is exactly what happens when you work with us.
-          </motion.p>
-        </div>
+    <div className="bg-white min-h-screen overflow-x-hidden relative">
+      
+      {/* GLOBAL CONTINUOUS DIAGONAL SIDEBAR */}
+      <div 
+        className="hidden lg:block absolute left-0 w-[45%] h-[1200px] z-10 pointer-events-none block" 
+        style={{ top: '0', clipPath: 'polygon(0 0, 100% 0, 0 100%)' }}
+      >
+        <div className="w-full h-[40vh] md:h-[50vh] bg-[#4673A6]/75"></div>
+        <div className="w-full h-[1200px] bg-[#4673A6]"></div>
       </div>
+
+      {/* HERO SECTION */}
+      <div className="relative h-[40vh] md:h-[50vh] w-full">
+         <Image 
+           src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=1920" 
+           alt="Team working" 
+           fill 
+           className="object-cover object-center" 
+           priority
+         />
+         <div className="absolute inset-0 bg-black/20 z-0"></div>
+      </div>
+
+      {/* MAIN CONTENT SECTION (3-Column Layout) */}
+      <section className="relative pb-12 z-20">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 relative pt-4 lg:pt-8">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+            
+            {/* 1. Left Spacer */}
+            <div className="hidden lg:block lg:w-[28%] xl:w-[28%] flex-shrink-0"></div>
+
+            {/* 2. Middle Text Content */}
+            <div className="w-full lg:w-[42%] xl:w-[42%]">
+               {/* Breadcrumb */}
+               <div className="text-[10px] text-slate-500 font-bold tracking-widest uppercase mb-12">
+                 <Link href="/" className="hover:text-brand-navy transition-colors pointer-events-auto">HOME</Link> &nbsp;&gt;&nbsp; <span className="text-[#4673A6]">HOW IT WORKS</span>
+               </div>
+               
+               <h1 className="font-sans text-4xl md:text-5xl lg:text-[56px] font-bold text-brand-navy mb-8 leading-[1.1]">
+                 A clear path to property, minus the stress.
+               </h1>
+               
+               <div className="space-y-6 text-slate-600 text-base leading-relaxed mb-12">
+                 <p>
+                   We handle the paperwork, the bank negotiations, and the endless follow-ups. Here is exactly what happens when you work with us.
+                 </p>
+               </div>
+            </div>
+            
+            {/* 3. Right Media (Empty for now) */}
+            <div className="w-full lg:w-[30%]"></div>
+          </div>
+        </div>
+      </section>
 
       {/* DETAILED TIMELINE */}
       <section className="py-24 md:py-32 bg-white">
@@ -112,13 +140,13 @@ export default function HowItWorksPage() {
                   <div className="w-16 h-16 md:w-28 md:h-28 bg-brand-warm rounded-2xl md:rounded-[2rem] flex items-center justify-center border-2 border-slate-100 group-hover:border-brand-teal group-hover:bg-brand-soft-teal transition-all duration-300 shadow-sm">
                      <step.icon className="w-8 h-8 md:w-12 md:h-12 text-brand-teal" />
                   </div>
-                  <div className="md:hidden text-4xl font-serif text-slate-200 font-bold">{step.num}</div>
+                  <div className="md:hidden text-4xl font-sans text-slate-200 font-bold">{step.num}</div>
                 </div>
                 
                 <div className="pt-2 md:pt-4 flex-grow">
                   <div className="flex items-end gap-4 mb-4">
-                    <h3 className="font-serif text-2xl md:text-3xl text-brand-navy">{step.title}</h3>
-                    <span className="hidden md:block text-5xl font-serif text-slate-100 font-bold leading-none -mb-1">{step.num}</span>
+                    <h3 className="font-sans text-2xl md:text-3xl text-brand-navy">{step.title}</h3>
+                    <span className="hidden md:block text-5xl font-sans text-slate-100 font-bold leading-none -mb-1">{step.num}</span>
                   </div>
                   <p className="text-lg text-brand-text-muted leading-relaxed mb-6">
                     {step.desc}
@@ -143,7 +171,7 @@ export default function HowItWorksPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col justify-center">
             <p className="text-brand-teal font-bold tracking-widest text-xs uppercase mb-4">The Rivo Advantage</p>
-            <h3 className="font-serif text-4xl md:text-5xl text-brand-navy mb-6">Why use a broker instead of going to a bank?</h3>
+            <h3 className="font-sans text-4xl md:text-5xl text-brand-navy mb-6">Why use a broker instead of going to a bank?</h3>
             <div className="space-y-8 mt-6">
               <div>
                 <h4 className="font-bold text-xl text-brand-navy mb-2">Choice & Competition</h4>
@@ -165,7 +193,7 @@ export default function HowItWorksPage() {
       {/* CTA */}
       <section className="py-24 text-center">
          <div className="max-w-3xl mx-auto px-4">
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-brand-navy mb-6">Ready to get started?</h2>
+            <h2 className="font-sans text-4xl md:text-5xl lg:text-6xl text-brand-navy mb-6">Ready to get started?</h2>
             <p className="text-brand-text-muted text-lg mb-10">Book a free 15-minute discovery call and we'll let you know exactly where you stand.</p>
             <Link href="/contact" className="inline-flex items-center justify-center px-10 h-16 bg-brand-teal text-white text-lg font-bold rounded-full hover:bg-brand-navy transition-colors shadow-lg hover:-translate-y-1">
               Book a Free Call <ArrowRight className="w-5 h-5 ml-2" />

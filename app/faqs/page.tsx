@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
+import Image from "next/image";
 import { Plus, Minus, ArrowRight, Search, PhoneCall } from "lucide-react";
 
 export default function FaqsPage() {
@@ -38,44 +39,75 @@ export default function FaqsPage() {
   });
 
   return (
-    <div className="bg-slate-50 min-h-screen">
-      <div className="bg-brand-navy py-20 text-center text-white pt-32 relative overflow-hidden">
-        {/* Background Accent */}
-        <div className="absolute top-[-50%] left-[-10%] w-[60%] h-[150%] bg-white/5 skew-x-12"></div>
-
-        <div className="relative z-10">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
-          >
-            Frequently Asked Questions
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-            className="text-white/80 text-lg max-w-2xl mx-auto px-4 mb-10"
-          >
-            Everything you need to know about our services, the lending process, and how we can help you achieve your property goals.
-          </motion.p>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-            className="max-w-xl mx-auto px-4"
-          >
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-brand-navy/40 w-5 h-5" />
-              <input 
-                type="text" 
-                placeholder="Search for a question..." 
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 rounded-full text-brand-navy border-none focus:ring-4 focus:ring-brand-teal/50 shadow-lg outline-none font-medium"
-              />
-            </div>
-          </motion.div>
-        </div>
+    <div className="bg-white min-h-screen overflow-x-hidden relative">
+      
+      {/* GLOBAL CONTINUOUS DIAGONAL SIDEBAR */}
+      <div 
+        className="hidden lg:block absolute left-0 w-[45%] h-[1200px] z-10 pointer-events-none block" 
+        style={{ top: '0', clipPath: 'polygon(0 0, 100% 0, 0 100%)' }}
+      >
+        <div className="w-full h-[40vh] md:h-[50vh] bg-[#4673A6]/75"></div>
+        <div className="w-full h-[1200px] bg-[#4673A6]"></div>
       </div>
 
-      <section className="py-16 md:py-24 bg-white">
+      {/* HERO SECTION */}
+      <div className="relative h-[40vh] md:h-[50vh] w-full">
+         <Image 
+           src="https://images.unsplash.com/photo-1577563908411-50cb98976fea?auto=format&fit=crop&q=80&w=1920" 
+           alt="FAQ Team" 
+           fill 
+           className="object-cover object-center" 
+           priority
+         />
+         <div className="absolute inset-0 bg-black/20 z-0"></div>
+      </div>
+
+      {/* MAIN CONTENT SECTION (3-Column Layout) */}
+      <section className="relative pb-12 z-20">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 relative pt-4 lg:pt-8">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+            
+            {/* 1. Left Spacer */}
+            <div className="hidden lg:block lg:w-[28%] xl:w-[28%] flex-shrink-0"></div>
+
+            {/* 2. Middle Text Content */}
+            <div className="w-full lg:w-[42%] xl:w-[42%]">
+               {/* Breadcrumb */}
+               <div className="text-[10px] text-slate-500 font-bold tracking-widest uppercase mb-12">
+                 <Link href="/" className="hover:text-brand-navy transition-colors pointer-events-auto">HOME</Link> &nbsp;&gt;&nbsp; <span className="text-[#4673A6]">FAQS</span>
+               </div>
+               
+               <h1 className="font-sans text-4xl md:text-5xl lg:text-[56px] font-bold text-brand-navy mb-8 leading-[1.1]">
+                 Got questions?<br />We have answers.
+               </h1>
+               
+               <div className="space-y-6 text-slate-600 text-base leading-relaxed mb-10">
+                 <p>
+                   Browse our most frequently asked questions to learn more about the mortgage process, our services, and how we can help you achieve your property goals.
+                 </p>
+               </div>
+               
+               <div className="max-w-xl">
+                 <div className="relative">
+                   <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-brand-navy/40 w-5 h-5 pointer-events-none" />
+                   <input 
+                     type="text" 
+                     placeholder="Search for a question..." 
+                     value={searchQuery}
+                     onChange={(e) => setSearchQuery(e.target.value)}
+                     className="w-full bg-slate-50 text-brand-navy pl-12 pr-4 py-4 rounded-full border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:bg-white transition-all shadow-sm pointer-events-auto"
+                   />
+                 </div>
+               </div>
+            </div>
+            
+            {/* 3. Right Media (Empty) */}
+            <div className="w-full lg:w-[30%]"></div>
+          </div>
+        </div>
+      </section>
+
+      <div className="py-12 bg-slate-50 border-t border-slate-100 max-w-7xl mx-auto">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Categories */}
@@ -148,7 +180,8 @@ export default function FaqsPage() {
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
+

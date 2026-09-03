@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-navy: #173552;
-  --color-brand-teal: #08B2B0;
-  --color-brand-soft-teal: #E8F7F6;
-  --color-brand-warm: #F7F8F5;
-  --color-brand-text: #173552;
-  --color-brand-text-muted: #506273;
+  --color-brand-navy: #365b92;
+  --color-brand-teal: #009dda;
+  --color-brand-soft-teal: #e6f5fc;
+  --color-brand-warm: #ffffff;
+  --color-brand-text: #333333;
+  --color-brand-text-muted: #666666;
+  --color-brand-dark: #2a2a2c;
+  --color-brand-contact: #4872af;
 
   --animate-marquee: marquee 30s linear infinite;
 

@@ -39,7 +39,7 @@ export default function ContactSection() {
     <section className="py-24 bg-white border-t border-slate-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-brand-navy mb-4">Ready to get started?</h2>
+          <h2 className="font-sans text-3xl md:text-4xl font-bold text-brand-navy mb-4">Ready to get started?</h2>
           <p className="text-slate-600 text-lg">Fill out the form below and one of our mortgage specialists will be in touch shortly.</p>
         </div>
 

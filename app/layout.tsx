@@ -1,17 +1,11 @@
 import type {Metadata} from 'next';
-import { DM_Serif_Display, Manrope } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { MobileDock } from '@/components/MobileDock';
 
-const serif = DM_Serif_Display({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-serif',
-});
-
-const sans = Manrope({
+const montserrat = Montserrat({
   subsets: ['latin'],
   variable: '--font-sans',
 });
@@ -27,7 +21,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${sans.variable} ${serif.variable} font-sans antialiased bg-brand-warm min-h-screen flex flex-col selection:bg-brand-teal/20 pb-[env(safe-area-inset-bottom)] md:pb-0`} suppressHydrationWarning>
+      <body className={`${montserrat.variable} font-sans antialiased bg-brand-warm min-h-screen flex flex-col selection:bg-brand-teal/20 pb-[env(safe-area-inset-bottom)] md:pb-0`} suppressHydrationWarning>
         <Navbar />
         <main className="flex-grow pb-16 md:pb-0">
           {children}

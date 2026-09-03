@@ -21,66 +21,93 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="bg-slate-50 min-h-screen overflow-x-hidden">
-      {/* HERO SECTION */}
-      <div className="bg-brand-navy py-24 md:py-32 text-center text-white pt-40 relative">
-        <div className="relative z-10">
-          <motion.p 
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-            className="text-brand-teal font-bold tracking-widest text-xs uppercase mb-6"
-          >
-            About Us
-          </motion.p>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 max-w-4xl mx-auto"
-          >
-            Redefining the mortgage experience.
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-            className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto px-4 leading-relaxed"
-          >
-            We are a team of expert brokers dedicated to leveling the playing field between everyday Australians and the big banks.
-          </motion.p>
-        </div>
+    <div className="bg-white min-h-screen overflow-x-hidden relative">
+      
+      {/* GLOBAL CONTINUOUS DIAGONAL SIDEBAR */}
+      <div 
+        className="hidden lg:block absolute left-0 w-[45%] h-[1200px] z-10 pointer-events-none block" 
+        style={{ top: '0', clipPath: 'polygon(0 0, 100% 0, 0 100%)' }}
+      >
+        <div className="w-full h-[40vh] md:h-[50vh] bg-[#4673A6]/75"></div>
+        <div className="w-full h-[1200px] bg-[#4673A6]"></div>
       </div>
 
-      {/* OUR STORY SECTION */}
-      <section className="py-20 md:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-            className="relative h-[500px] md:h-[600px] rounded-[2rem] overflow-hidden shadow-2xl"
-          >
-            <Image
-              src="https://picsum.photos/seed/broker-meeting-rivo/800/1000"
-              alt="Team meeting"
-              fill
-              className="object-cover"
-              unoptimized
-              referrerPolicy="no-referrer"
-            />
-          </motion.div>
+      {/* HERO SECTION */}
+      <div className="relative h-[40vh] md:h-[50vh] w-full">
+         <Image 
+           src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=1920" 
+           alt="Rivo Lending Team" 
+           fill 
+           className="object-cover object-center" 
+           priority
+         />
+         <div className="absolute inset-0 bg-black/20 z-0"></div>
+      </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-          >
-            <p className="text-brand-teal font-bold tracking-widest text-xs uppercase mb-4">Our Story</p>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-brand-navy mb-8 leading-[1.2]">Built on a simple belief: borrowing should be clear and fair.</h2>
+      {/* MAIN CONTENT SECTION (3-Column Layout) */}
+      <section className="relative pb-24 z-20">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 relative pt-4 lg:pt-8">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
             
-            <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
-              <p>
-                Rivo Lending was founded after witnessing too many people get overwhelmed by the mortgage process, eventually settling for mediocre rates offered by their childhood bank.
-              </p>
-              <p>
-                We realized that what borrowers really needed wasn't just a transactional broker, but a strategic financial partner. Someone who would sit on their side of the table, translate the banking jargon, and structure their debt to actively build wealth.
-              </p>
-              <p>
-                Today, we leverage industry-leading technology and deep relationships across a panel of over 30 lenders to secure the sharpest rates and the most flexible policies for our clients. Whether you're a first home buyer or a seasoned investor, we treat your loan as if it were our own.
-              </p>
+            {/* 1. Left Spacer (matches blue triangle width on desktop) */}
+            <div className="hidden lg:block lg:w-[28%] xl:w-[28%] flex-shrink-0"></div>
+
+            {/* 2. Middle Text Content */}
+            <div className="w-full lg:w-[42%] xl:w-[42%]">
+               {/* Breadcrumb */}
+               <div className="text-[10px] text-slate-500 font-bold tracking-widest uppercase mb-12">
+                 <Link href="/" className="hover:text-brand-navy transition-colors pointer-events-auto">HOME</Link> &nbsp;&gt;&nbsp; <span className="text-[#4673A6]">ABOUT US</span>
+               </div>
+               
+               <h1 className="font-sans text-4xl md:text-5xl lg:text-[56px] font-bold text-brand-navy mb-8 leading-[1.1]">
+                 About Us
+               </h1>
+               
+               <div className="space-y-6 text-slate-600 text-base leading-relaxed mb-12">
+                 <p>
+                   Rivo Lending was established to ensure everyday Australians don't get overwhelmed by the mortgage process, and never settle for mediocre rates offered by their childhood bank.
+                 </p>
+                 <p>
+                   Whether you need advice relating to a relatively minor loan structure, or assistance with the formal application of a complex investment portfolio, you can draw on the knowledge and experience of our expert brokers.
+                 </p>
+               </div>
+
+               <h2 className="font-sans text-2xl font-bold text-[#4673A6] mb-4">Our Approach</h2>
+               <div className="space-y-6 text-slate-600 text-sm leading-relaxed mb-10">
+                 <p>
+                   At Rivo Lending, we work closely with all stakeholders to achieve the best possible outcomes with timely and definitive solutions to your financial challenges. From large-scale commercial loans to boutique first home buyer solutions, our expert team has the knowledge, skills, and experience required to make a difference.
+                 </p>
+               </div>
+               
+               <h2 className="font-sans text-2xl font-bold text-[#4673A6] mb-4">Our Expertise</h2>
+               <div className="space-y-6 text-slate-600 text-sm leading-relaxed mb-10">
+                 <p>
+                   Over the years, our team has helped many individuals, families, small-medium sized enterprises, and large corporations secure the funding they need.
+                 </p>
+                 <p>
+                   We have successfully managed high-profile lending scenarios across multiple states, as well as numerous partnerships and private companies. In each case, our success can be attributed directly to our professional expertise, superior market capabilities, and our dedication to achieving the best possible outcome for the client.
+                 </p>
+               </div>
             </div>
-          </motion.div>
+
+            {/* 3. Right Media Content */}
+            <div className="w-full lg:w-[30%] lg:pt-[120px]">
+              <div className="relative rounded-sm overflow-hidden shadow-2xl aspect-[16/10] group cursor-pointer border-4 border-white">
+                <Image
+                  src="https://picsum.photos/seed/broker-meeting-rivo/800/500"
+                  alt="Team meeting"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                   <div className="w-14 h-10 bg-[#FF0000] text-white rounded-lg flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                   </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
@@ -88,7 +115,7 @@ export default function AboutPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl md:text-5xl text-brand-navy mb-4">Our Core Values</h2>
+            <h2 className="font-sans text-4xl md:text-5xl text-brand-navy mb-4">Our Core Values</h2>
             <p className="text-brand-text-muted text-lg max-w-2xl mx-auto">The principles that drive us every single day.</p>
           </div>
           
@@ -116,7 +143,7 @@ export default function AboutPage() {
       <section className="py-24 bg-brand-warm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="font-serif text-4xl md:text-5xl text-brand-navy mb-6">Why Choose Home Loan Experts?</h2>
+            <h2 className="font-sans text-4xl md:text-5xl text-brand-navy mb-6">Why Choose Home Loan Experts?</h2>
             <p className="text-brand-text-muted text-lg leading-relaxed">
               Our commitment to transparency and integrity means you can trust us to act in your best interests throughout the loan process.
             </p>
@@ -162,7 +189,7 @@ export default function AboutPage() {
             <div className="w-[800px] h-[800px] rounded-full border-[1px] border-white absolute"></div>
          </div>
          <div className="max-w-3xl mx-auto px-4 relative z-10">
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-6">Connect With Our Expert Brokers</h2>
+            <h2 className="font-sans text-4xl md:text-5xl lg:text-6xl mb-6">Connect With Our Expert Brokers</h2>
             <p className="text-white/80 text-lg mb-10 leading-relaxed">
               Our mortgage brokers are here to help you through the process.<br/>
               Get a reply from us within 24 hours of your enquiry.

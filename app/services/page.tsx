@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { ArrowRight, Home, Building2, Briefcase, Landmark, RefreshCcw, TrendingUp, FileCheck, User, Stethoscope, Tractor, Car, Layers, Key, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ServicesPage() {
   const services = [
@@ -106,40 +107,66 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="bg-slate-50 min-h-screen">
-      {/* HERO SECTION */}
-      <div className="bg-brand-navy py-24 md:py-32 text-center text-white pt-40 relative overflow-hidden">
-        <div className="absolute top-[-50%] left-[-10%] w-[60%] h-[150%] bg-white/5 skew-x-12"></div>
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.p 
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-            className="text-brand-teal font-bold tracking-widest text-xs uppercase mb-6"
-          >
-            Services
-          </motion.p>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-          >
-            Make the loan process simple, accessible, and trustworthy.
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
-          >
-            We simplify every step of your loan journey with clear guidance and support. Fast, reliable, and transparent solutions you can trust every time.
-          </motion.p>
-        </div>
+    <div className="bg-white min-h-screen overflow-x-hidden relative">
+      
+      {/* GLOBAL CONTINUOUS DIAGONAL SIDEBAR */}
+      <div 
+        className="hidden lg:block absolute left-0 w-[45%] h-[1200px] z-10 pointer-events-none block" 
+        style={{ top: '0', clipPath: 'polygon(0 0, 100% 0, 0 100%)' }}
+      >
+        <div className="w-full h-[40vh] md:h-[50vh] bg-[#4673A6]/75"></div>
+        <div className="w-full h-[1200px] bg-[#4673A6]"></div>
       </div>
+
+      {/* HERO SECTION */}
+      <div className="relative h-[40vh] md:h-[50vh] w-full">
+         <Image 
+           src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920" 
+           alt="Rivo Lending Services" 
+           fill 
+           className="object-cover object-center" 
+           priority
+         />
+         <div className="absolute inset-0 bg-black/20 z-0"></div>
+      </div>
+
+      {/* MAIN CONTENT SECTION (3-Column Layout) */}
+      <section className="relative pb-12 z-20">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 relative pt-4 lg:pt-8">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+            
+            {/* 1. Left Spacer */}
+            <div className="hidden lg:block lg:w-[28%] xl:w-[28%] flex-shrink-0"></div>
+
+            {/* 2. Middle Text Content */}
+            <div className="w-full lg:w-[42%] xl:w-[42%]">
+               {/* Breadcrumb */}
+               <div className="text-[10px] text-slate-500 font-bold tracking-widest uppercase mb-12">
+                 <Link href="/" className="hover:text-brand-navy transition-colors pointer-events-auto">HOME</Link> &nbsp;&gt;&nbsp; <span className="text-[#4673A6]">SERVICES</span>
+               </div>
+               
+               <h1 className="font-sans text-4xl md:text-5xl lg:text-[56px] font-bold text-brand-navy mb-8 leading-[1.1]">
+                 Make the loan process simple, accessible, and trustworthy.
+               </h1>
+               
+               <div className="space-y-6 text-slate-600 text-base leading-relaxed mb-10">
+                 <p>
+                   From straightforward residential home loans to complex commercial funding, we cover the full spectrum of Australian lending.
+                 </p>
+               </div>
+            </div>
+            
+            {/* 3. Right Media (Empty) */}
+            <div className="w-full lg:w-[30%]"></div>
+          </div>
+        </div>
+      </section>
 
       {/* SERVICES GRID SECTION */}
       <div className="py-24 bg-white relative border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="font-serif text-4xl md:text-5xl text-brand-navy mb-6">Home Loan Solutions for Every Journey</h2>
+            <h2 className="font-sans text-4xl md:text-5xl text-brand-navy mb-6">Home Loan Solutions for Every Journey</h2>
             <p className="text-brand-text-muted text-lg leading-relaxed">
               We provide extensive assistance for all your home loan and financing requirements. Regardless of your situation, our skilled team is dedicated to identifying the right options for you.
             </p>
@@ -158,7 +185,7 @@ export default function ServicesPage() {
                 <div className="w-14 h-14 bg-brand-navy rounded-2xl flex items-center justify-center mb-8 text-white shadow-lg group-hover:bg-brand-teal transition-colors">
                   <service.icon className="w-7 h-7" />
                 </div>
-                <h3 className="font-serif text-2xl md:text-3xl font-bold text-brand-navy mb-4">{service.title}</h3>
+                <h3 className="font-sans text-2xl md:text-3xl font-bold text-brand-navy mb-4">{service.title}</h3>
                 <p className="text-brand-text-muted mb-8 flex-grow leading-relaxed">{service.description}</p>
                 <Link href={service.href} className="inline-flex items-center text-sm font-bold text-brand-teal hover:text-brand-navy transition-colors mt-auto">
                   Learn More <ArrowRight className="w-4 h-4 ml-2" />
@@ -184,7 +211,7 @@ export default function ServicesPage() {
               </motion.p>
               <motion.h2 
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-                className="font-serif text-4xl md:text-5xl text-brand-navy mb-6"
+                className="font-sans text-4xl md:text-5xl text-brand-navy mb-6"
               >
                 What You Need to Prepare
               </motion.h2>
@@ -224,7 +251,7 @@ export default function ServicesPage() {
                         <CheckCircle2 className="w-5 h-5 text-brand-teal" />
                       </div>
                       <div>
-                        <h4 className="font-serif text-2xl md:text-3xl font-bold text-brand-navy mb-2">{doc.title}</h4>
+                        <h4 className="font-sans text-2xl md:text-3xl font-bold text-brand-navy mb-2">{doc.title}</h4>
                         <p className="text-brand-text-muted leading-relaxed text-lg">{doc.description}</p>
                       </div>
                     </motion.div>

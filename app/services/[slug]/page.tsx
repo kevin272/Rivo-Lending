@@ -478,6 +478,83 @@ const servicesData: Record<string, ServiceData> = {
       description: "We'll coordinate the finance so you can focus on finding the perfect home.",
       buttonText: "Discuss your upgrade strategy."
     }
+  },
+  "home-loans": {
+    title: "Home Loans",
+    subtitle: "Your foundation for the future.",
+    description: "A well-structured loan can significantly impact your mortgage's overall cost. With access to a diverse range of lenders, we will assist you in evaluating and selecting a home loan that meets your criteria.",
+    image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=1600",
+    cta: {
+      title: "Ready to explore your home loan options?",
+      description: "Speak with one of our brokers today to find the right loan for you.",
+      buttonText: "Get Started"
+    }
+  },
+  "pre-approval": {
+    title: "Pre Approval",
+    subtitle: "Know your borrowing capacity.",
+    description: "Obtaining pre-approval allows you to know your borrowing capacity before making offers. We will assist you through the steps, prepare your application, and collaborate with the lender to obtain approval.",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1600",
+    cta: {
+      title: "Get your pre-approval sorted.",
+      description: "Contact us to start your pre-approval process today.",
+      buttonText: "Apply Now"
+    }
+  },
+  "personal-loans": {
+    title: "Personal Loans",
+    subtitle: "Finance for your personal needs.",
+    description: "Whether managing debt, financing a significant purchase, or handling major expenses, a personal loan can assist in spreading the cost into manageable payments with a consistent repayment plan.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1600",
+    cta: {
+      title: "Need a personal loan?",
+      description: "We can help you find a competitive personal loan for your needs.",
+      buttonText: "Learn More"
+    }
+  },
+  "commercial-loans": {
+    title: "Commercial Loans",
+    subtitle: "Grow your business with the right finance.",
+    description: "We are an experienced team of commercial brokers that can provide guidance for large-scale development and construction deals as well as a wide array of other commercial transactions.",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1600",
+    cta: {
+      title: "Discuss your commercial finance needs.",
+      description: "Get in touch with our commercial lending experts today.",
+      buttonText: "Contact Us"
+    }
+  },
+  "business-lending": {
+    title: "Business Lending",
+    subtitle: "Fuel your business growth.",
+    description: "We understand that obtaining business loans differs from getting a standard mortgage. We present you with the best loan options from numerous lenders, aiding your business's success.",
+    image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&q=80&w=1600",
+    cta: {
+      title: "Ready to scale your business?",
+      description: "Let's explore your business lending options.",
+      buttonText: "Get Started"
+    }
+  },
+  "vehicle-finance": {
+    title: "Vehicle Finance",
+    subtitle: "Drive away with the right loan.",
+    description: "We help you compare and secure vehicle finance for personal or business use. With access to a wide range of lenders, we'll find a competitive rate and repayment structure that suits you.",
+    image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=1600",
+    cta: {
+      title: "Looking for vehicle finance?",
+      description: "Speak to our team about securing your car loan.",
+      buttonText: "Enquire Now"
+    }
+  },
+  "asset-finance": {
+    title: "Asset Finance",
+    subtitle: "Finance for your equipment and machinery.",
+    description: "Asset finance encompasses lending options tailored for purchasing vehicles, machinery, and equipment. We can provide you with suitable options that align with your requirements.",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600",
+    cta: {
+      title: "Need equipment for your business?",
+      description: "Discover our competitive asset finance solutions.",
+      buttonText: "Learn More"
+    }
   }
 
 };
@@ -491,66 +568,62 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
   }
 
   return (
-    <div className="flex flex-col font-sans overflow-x-hidden bg-white">
+    <div className="flex flex-col font-sans overflow-x-hidden bg-white relative">
       
-      {/* 1. HERO */}
-      <section className="bg-brand-navy pt-32 md:pt-48 pb-16 md:pb-32 relative overflow-hidden">
-        {/* Background Accent */}
-        <div className="absolute top-[-50%] left-[-10%] w-[60%] h-[150%] bg-white/5 skew-x-12"></div>
-        <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full relative z-10">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-            
-            <div className="lg:col-span-6 max-w-2xl">
-              <motion.p 
-                initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                className="text-brand-teal font-bold tracking-widest text-xs uppercase mb-6"
-              >
-                {data.title}
-              </motion.p>
-              <motion.h1 
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-                className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-white leading-[1.1] mb-8"
-              >
-                {data.subtitle}
-              </motion.h1>
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-                className="text-lg text-white/80 mb-12 leading-relaxed max-w-lg whitespace-pre-line"
-              >
-                {data.description}
-              </motion.p>
-              
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-                className="flex flex-col sm:flex-row items-start sm:items-center gap-6"
-              >
-                <Link href="/#contact" className="inline-flex items-center justify-center px-8 h-14 bg-brand-teal text-white font-bold rounded-full hover:bg-brand-teal/90 transition-all shadow-[0_4px_14px_0_rgba(8,178,176,0.39)] hover:shadow-[0_6px_20px_rgba(8,178,176,0.23)] hover:-translate-y-0.5">
-                  Book a consultation
-                </Link>
-              </motion.div>
-            </div>
+      {/* GLOBAL CONTINUOUS DIAGONAL SIDEBAR */}
+      <div 
+        className="hidden lg:block absolute left-0 w-[45%] h-[1200px] z-10 pointer-events-none block" 
+        style={{ top: '0', clipPath: 'polygon(0 0, 100% 0, 0 100%)' }}
+      >
+        <div className="w-full h-[40vh] md:h-[50vh] bg-[#4673A6]/75"></div>
+        <div className="w-full h-[1200px] bg-[#4673A6]"></div>
+      </div>
 
-            <div className="lg:col-span-6 relative h-[350px] md:h-[600px] w-full">
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, ease: "easeOut" }}
-                className="absolute left-10 top-10 w-[85%] h-[85%] bg-white/10 rounded-[3rem] -z-10"
-              />
-              <motion.div
-                initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-                className="absolute right-0 bottom-0 w-[85%] h-[80%] rounded-[2rem] overflow-hidden shadow-2xl"
-              >
-                <Image
-                  src={data.image}
-                  alt={data.title}
-                  fill
-                  className="object-cover"
-                priority
-                unoptimized
-                referrerPolicy="no-referrer"
-              />
-            </motion.div>
+      {/* HERO SECTION */}
+      <div className="relative h-[40vh] md:h-[50vh] w-full">
+         <Image 
+           src={data.image} 
+           alt={data.title} 
+           fill 
+           className="object-cover object-center" 
+           priority
+           unoptimized
+           referrerPolicy="no-referrer"
+         />
+         <div className="absolute inset-0 bg-black/20 z-0"></div>
+      </div>
+
+      {/* MAIN CONTENT SECTION (3-Column Layout) */}
+      <section className="relative pb-12 z-20">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 relative pt-4 lg:pt-8">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+            
+            {/* 1. Left Spacer */}
+            <div className="hidden lg:block lg:w-[28%] xl:w-[28%] flex-shrink-0"></div>
+
+            {/* 2. Middle Text Content */}
+            <div className="w-full lg:w-[42%] xl:w-[42%]">
+               {/* Breadcrumb */}
+               <div className="text-[10px] text-slate-500 font-bold tracking-widest uppercase mb-12">
+                 <Link href="/" className="hover:text-brand-navy transition-colors pointer-events-auto">HOME</Link> &nbsp;&gt;&nbsp; <Link href="/services" className="hover:text-brand-navy transition-colors pointer-events-auto">SERVICES</Link> &nbsp;&gt;&nbsp; <span className="text-[#4673A6]">{data.title.toUpperCase()}</span>
+               </div>
+               
+               <h1 className="font-sans text-4xl md:text-5xl lg:text-[56px] font-bold text-brand-navy mb-8 leading-[1.1]">
+                 {data.subtitle}
+               </h1>
+               
+               <div className="space-y-6 text-slate-600 text-base leading-relaxed mb-10 whitespace-pre-line">
+                 <p>{data.description}</p>
+               </div>
+
+               <Link href="/#contact" className="inline-flex items-center justify-center px-8 h-14 bg-brand-teal text-white font-bold rounded-full hover:bg-brand-teal/90 transition-all shadow-[0_4px_14px_0_rgba(0,157,218,0.39)] hover:shadow-[0_6px_20px_rgba(0,157,218,0.23)] hover:-translate-y-0.5 pointer-events-auto relative z-30">
+                 Book a consultation
+               </Link>
+            </div>
+            
+            {/* 3. Right Media (Empty) */}
+            <div className="w-full lg:w-[30%]"></div>
           </div>
-        </div>
         </div>
       </section>
 
@@ -559,7 +632,7 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
         <section className="py-16 md:py-32 bg-slate-50 border-y border-slate-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="font-serif text-4xl md:text-5xl text-brand-navy mb-4">
+              <h2 className="font-sans text-4xl md:text-5xl text-brand-navy mb-4">
                 {data.processTitle}
               </h2>
               {data.processSubtitle && (
@@ -574,10 +647,10 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
                   initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}
                   className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 relative"
                 >
-                  <div className="text-brand-teal/20 font-serif text-5xl font-bold absolute top-6 right-6 pointer-events-none">
+                  <div className="text-brand-teal/20 font-sans text-5xl font-bold absolute top-6 right-6 pointer-events-none">
                     {step.number}
                   </div>
-                  <h3 className="font-serif text-2xl md:text-3xl text-brand-navy mb-4 pr-12">{step.title}</h3>
+                  <h3 className="font-sans text-2xl md:text-3xl text-brand-navy mb-4 pr-12">{step.title}</h3>
                   <p className="text-brand-text-muted leading-relaxed">
                     {step.description}
                   </p>
@@ -599,7 +672,7 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
                   initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                   className="bg-white border-l-4 border-brand-teal pl-6 md:pl-10"
                 >
-                  <h3 className="font-serif text-2xl md:text-3xl text-brand-navy mb-4">{block.title}</h3>
+                  <h3 className="font-sans text-2xl md:text-3xl text-brand-navy mb-4">{block.title}</h3>
                   {block.description && (
                     <p className="text-lg text-brand-text-muted leading-relaxed mb-6 whitespace-pre-line">
                       {block.description}
@@ -646,7 +719,7 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm text-brand-teal">
                 <ShieldAlert className="w-8 h-8" />
               </div>
-              <h2 className="font-serif text-4xl md:text-5xl text-brand-navy mb-4">
+              <h2 className="font-sans text-4xl md:text-5xl text-brand-navy mb-4">
                 {data.considerationsTitle || "Things to consider"}
               </h2>
             </div>
@@ -674,7 +747,7 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
            <div className="w-[100vw] h-[100vw] max-w-[800px] max-h-[800px] rounded-full border-[2px] border-white absolute"></div>
         </div>
         <div className="relative z-10 px-4 max-w-3xl mx-auto">
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-6">
+          <h2 className="font-sans text-4xl md:text-5xl lg:text-6xl text-white mb-6">
             {data.cta.title}
           </h2>
           <p className="text-lg text-white/80 mb-10 leading-relaxed">

@@ -76,7 +76,7 @@ export function Navbar() {
             onMouseEnter={() => setIsDesktopServicesOpen(true)}
             onMouseLeave={() => setIsDesktopServicesOpen(false)}
           >
-            <button className={`flex items-center gap-1 text-sm font-bold transition-colors tracking-wide ${isScrolled ? 'text-brand-navy hover:text-brand-teal' : 'text-white/90 hover:text-white'}`}>
+            <button className={`flex items-center gap-1 text-sm font-bold transition-colors tracking-wide ${isScrolled ? 'text-brand-navy hover:text-brand-teal' : 'text-white/90 hover:text-white drop-shadow-md'}`}>
               Loan Services <ChevronDown className="w-4 h-4" />
             </button>
             <AnimatePresence>
@@ -91,7 +91,7 @@ export function Navbar() {
                   <div className="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden flex">
                     {/* Home Loans Column */}
                     <div className="w-1/3 bg-slate-50 p-6 border-r border-slate-100">
-                      <h4 className="font-serif font-bold text-brand-navy mb-4">{serviceCategories[0].title}</h4>
+                      <h4 className="font-sans font-bold text-brand-navy mb-4">{serviceCategories[0].title}</h4>
                       <div className="flex flex-col gap-3">
                         {serviceCategories[0].links.map((link) => (
                           <Link 
@@ -107,7 +107,7 @@ export function Navbar() {
                     </div>
                     {/* Other Loans Column */}
                     <div className="w-2/3 p-6">
-                      <h4 className="font-serif font-bold text-brand-navy mb-4">{serviceCategories[1].title}</h4>
+                      <h4 className="font-sans font-bold text-brand-navy mb-4">{serviceCategories[1].title}</h4>
                       <div className="grid grid-cols-2 gap-3 gap-x-6">
                         {serviceCategories[1].links.map((link) => (
                           <Link 
@@ -128,15 +128,15 @@ export function Navbar() {
           </div>
 
           {mainLinks.map((link) => (
-            <Link key={link.name} href={link.href} className={`text-sm font-bold transition-colors tracking-wide ${isScrolled ? 'text-brand-navy hover:text-brand-teal' : 'text-white/90 hover:text-white'}`}>
+            <Link key={link.name} href={link.href} className={`text-sm font-bold transition-colors tracking-wide ${isScrolled ? 'text-brand-navy hover:text-brand-teal' : 'text-white/90 hover:text-white drop-shadow-md'}`}>
               {link.name}
             </Link>
           ))}
           <div className={`flex items-center gap-6 ml-4 pl-6 border-l ${isScrolled ? 'border-brand-navy/10' : 'border-white/20'}`}>
-            <Link href="tel:0451178375" className={`flex items-center gap-2 text-sm font-bold transition-colors ${isScrolled ? 'text-brand-navy hover:text-brand-teal' : 'text-white/90 hover:text-white'}`}>
+            <Link href="tel:0451178375" className={`flex items-center gap-2 text-sm font-bold transition-colors ${isScrolled ? 'text-brand-navy hover:text-brand-teal' : 'text-white/90 hover:text-white drop-shadow-md'}`}>
               <Phone className="w-4 h-4" /> 0451 178 375
             </Link>
-            <Link href="/contact" className="px-6 py-3 bg-brand-teal text-white text-sm font-bold rounded-full hover:bg-brand-teal/90 transition-all shadow-[0_4px_14px_0_rgba(8,178,176,0.39)] hover:shadow-[0_6px_20px_rgba(8,178,176,0.23)] hover:-translate-y-0.5">
+            <Link href="/contact" className="px-6 py-3 bg-brand-teal text-white text-sm font-bold rounded-full hover:bg-brand-teal/90 transition-all shadow-[0_4px_14px_0_rgba(0,157,218,0.39)] hover:shadow-[0_6px_20px_rgba(0,157,218,0.23)] hover:-translate-y-0.5">
               Free Assessment
             </Link>
           </div>
@@ -165,7 +165,7 @@ export function Navbar() {
               
               <div className="flex flex-col border-b border-slate-50">
                 <button 
-                  className="flex items-center justify-between text-xl font-serif text-brand-navy py-3 px-4 hover:bg-brand-soft-teal rounded-xl transition-colors w-full text-left"
+                  className="flex items-center justify-between text-xl font-sans text-brand-navy py-3 px-4 hover:bg-brand-soft-teal rounded-xl transition-colors w-full text-left"
                   onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
                 >
                   Loan Services
@@ -207,7 +207,7 @@ export function Navbar() {
                 <Link 
                   key={link.name} 
                   href={link.href} 
-                  className="text-xl font-serif text-brand-navy py-3 px-4 hover:bg-brand-soft-teal rounded-xl transition-colors"
+                  className="text-xl font-sans text-brand-navy py-3 px-4 hover:bg-brand-soft-teal rounded-xl transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
@@ -229,3 +229,4 @@ export function Navbar() {
     </header>
   );
 }
+
