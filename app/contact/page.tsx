@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useForm } from "react-hook-form";
@@ -72,8 +73,10 @@ export default function ContactPage() {
     <div className="bg-slate-50 min-h-screen">
       {/* HERO SECTION */}
       <div className="bg-brand-navy py-24 md:py-32 text-center text-white pt-40 relative overflow-hidden">
-        {/* Background Accent */}
-        <div className="absolute top-[-50%] left-[-10%] w-[60%] h-[150%] bg-white/5 skew-x-12"></div>
+        {/* Subtle Watermark Texture */}
+        <div className="absolute inset-0 pointer-events-none flex justify-center items-center opacity-[0.03]">
+           <Image src="/logo_rivo.png" alt="" width={1000} height={1000} className="object-contain scale-[2]" unoptimized />
+        </div>
         <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
@@ -100,7 +103,6 @@ export default function ContactPage() {
         >
           {/* Contact Info Side */}
           <div className="lg:w-2/5 bg-brand-navy text-white p-8 md:p-12 relative overflow-hidden flex flex-col justify-between">
-            <div className="absolute top-0 right-0 -mt-16 -mr-16 w-64 h-64 bg-brand-teal/20 rounded-full blur-3xl"></div>
             
             <div className="relative z-10">
               <h3 className="font-serif text-2xl md:text-3xl font-bold mb-8">Contact Information</h3>

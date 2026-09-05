@@ -13,24 +13,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { ArrowRight, Home, RefreshCcw, TrendingUp, Tractor, Landmark, CreditCard, Stethoscope, ChevronRight, CheckCircle2, FileText, Handshake, HeartHandshake, PhoneCall, Star, Plus, Minus, Users, Key, FileCheck, User, Building2, Briefcase, Car, Layers, Clock, ShieldCheck, MapPin, Phone, Mail, HeartPulse } from "lucide-react";
+import { RibbonStripes } from "@/components/RibbonStripes";
 
 export default function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [currentHeroIdx, setCurrentHeroIdx] = useState(0);
-
-  const heroImages = [
-    "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1920",
-    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1920",
-    "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&q=80&w=1920"
+  const [currentVideoIdx, setCurrentVideoIdx] = useState(0);
+  const heroVideos = [
+    "/herovideo/1.mp4",
+    "/herovideo/2.mp4",
+    "/herovideo/3.mp4"
   ];
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentHeroIdx((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
+  const handleVideoEnded = () => {
+    setCurrentVideoIdx((prev) => (prev + 1) % heroVideos.length);
+  };
 
     useGSAP(() => {
     // 1. Hero Parallax
@@ -150,89 +147,76 @@ export default function HomePage() {
 
   return (
     <div ref={containerRef} className="flex flex-col font-sans overflow-x-hidden bg-brand-warm">
-      
-      {/* 1. HERO */}
-      <section id="top" className="relative h-[100vh] min-h-[600px] flex items-center overflow-hidden">
-        {/* Full Bleed Background Images with Crossfade */}
-        <div className="absolute inset-0 z-0 bg-brand-navy">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentHeroIdx}
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.2, ease: "easeInOut" }}
-              className="absolute inset-0 w-full h-full"
-            >
-              <Image 
-                src={heroImages[currentHeroIdx]} 
-                alt="Property" 
-                fill 
-                className="object-cover object-center" 
-                priority 
-                unoptimized 
-                referrerPolicy="no-referrer" 
-              />
-            </motion.div>
-          </AnimatePresence>
-          {/* Dark overlay for mobile to ensure text readability */}
-          <div className="absolute inset-0 bg-black/50 lg:hidden block z-10"></div>
+            {/* 1. HERO */}
+      <section id="top" className="relative h-[450px] md:h-[calc(100vh-7rem)] mt-[124px] md:mt-28 min-h-[400px] md:min-h-[600px] flex items-center overflow-hidden bg-brand-teal">
+        
+        {/* Mobile Background Image (Team) */}
+        <div className="md:hidden absolute inset-0 z-0 bg-brand-navy">
+          <Image 
+            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=1200" 
+            alt="Rivo Lending Team" 
+            fill 
+            className="object-cover object-center" 
+            priority 
+            unoptimized 
+          />
+          <div className="absolute inset-0 bg-black/30 z-10"></div>
+        </div>
+
+        {/* Desktop Background Video */}
+        <div className="hidden md:block absolute inset-y-0 right-0 left-[35%] z-0 bg-brand-navy">
+          <video
+            key={heroVideos[currentVideoIdx]}
+            autoPlay
+            muted
+            playsInline
+            onEnded={handleVideoEnded}
+            className="absolute inset-0 w-full h-full object-cover object-center"
+            poster="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=2000"
+          >
+            <source src={heroVideos[currentVideoIdx]} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div className="absolute inset-0 bg-[#103050]/60 mix-blend-multiply z-10"></div>
         </div>
         
-        {/* The Geometric Diagonal/Diamond Concept Overlay (Desktop only) */}
-        {/* Narrower shape to give MAJOR focus to the changing images on the right */}
-        <div 
-          className="hidden lg:block absolute top-0 left-0 w-full h-full bg-[#4673A6]/95 z-10" 
-          style={{ clipPath: 'polygon(0 0, 55% 0, 45% 100%, 0 100%)' }} 
-        ></div>
+        {/* Organic Wave Overlay */}
+        <div className="hidden md:block absolute top-0 left-0 w-full h-full z-10 overflow-hidden pointer-events-none">
+          <svg viewBox="0 0 1440 1024" className="absolute top-0 left-[-20%] md:left-0 w-[140%] md:w-full h-full" preserveAspectRatio="none">
+            <path 
+              d="M0,0 L800,0 C650,300 900,700 450,1024 L0,1024 Z" 
+              fill="url(#wave-gradient)" 
+            />
+            <defs>
+              <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="var(--color-brand-teal)" />
+                <stop offset="100%" stopColor="var(--color-brand-teal-light)" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
 
-        {/* Content Container - Pushed to the left to fit the narrower blue overlay */}
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 h-full flex flex-col justify-center pt-24 pb-12">
-          
-          <div className="w-full max-w-[540px]">
-            
+        {/* Content Container */}
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 h-full flex flex-col justify-end pb-24 md:justify-center md:pb-20">
+          <div className="w-full max-w-3xl">
             {/* Left Content */}
             <motion.div 
-              initial={{ opacity: 0, y: 30 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              transition={{ type: "spring", stiffness: 80, damping: 20 }} 
-              className="w-full text-left relative"
+              initial={{ opacity: 0, x: -30 }} 
+              animate={{ opacity: 1, x: 0 }} 
+              transition={{ duration: 0.8, ease: "easeOut" }} 
+              className="w-full text-left"
             >
-              <h1 className="font-sans text-4xl sm:text-5xl lg:text-[54px] text-white leading-[1.15] mb-6 font-extrabold tracking-tight drop-shadow-lg">
-                Your Path To Property,<br className="hidden sm:block" /> Made Simple.
+              <h1 className="font-sans text-4xl sm:text-6xl lg:text-[75px] text-white leading-[1.05] font-black tracking-tighter drop-shadow-md">
+                Unlock your<br/>
+                next move.
               </h1>
-              
-              <p className="text-base md:text-lg text-white/90 mb-10 leading-relaxed font-medium drop-shadow-md">
-                Low Rates, Fast Approvals, And Personal Guidance Every Step Of The Way. We Guide You From Application To Settlement.
-              </p>
-
-              <div className="flex flex-col sm:flex-row flex-wrap justify-start gap-4 mb-4">
-                <Link href="#contact" className="gsap-hero-el inline-flex items-center justify-center px-8 h-14 bg-white text-brand-navy font-bold rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all uppercase tracking-wider text-sm w-full sm:w-auto">
-                  I want to buy a home
+              <div className="mt-8 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                <Link href="/contact" className="px-8 py-3.5 bg-brand-navy text-white text-sm font-bold rounded-full hover:bg-[#1a4470] transition-colors shadow-xl uppercase tracking-wider">
+                  Free Assessment
                 </Link>
-                <Link href="#contact" className="gsap-hero-el inline-flex items-center justify-center px-8 h-14 bg-brand-teal text-white font-bold rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all uppercase tracking-wider text-sm w-full sm:w-auto">
-                  I want to refinance
+                <Link href="/services" className="px-8 py-3.5 bg-transparent border-2 border-white text-white text-sm font-bold rounded-full hover:bg-white hover:text-brand-navy transition-colors shadow-xl uppercase tracking-wider">
+                  Our Services
                 </Link>
-              </div>
-              <div className="flex justify-start mb-8 lg:mb-0">
-                <Link href="/contact" className="gsap-hero-el text-white transition-colors underline decoration-white/50 hover:decoration-white underline-offset-4 text-sm font-bold drop-shadow-md">
-                  Need help finding property?
-                </Link>
-              </div>
-
-              {/* Rating Block */}
-              <div className="gsap-hero-el mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-start gap-3 sm:gap-4 text-left">
-                <div className="flex gap-1 text-[#FFB800] drop-shadow-md">
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                </div>
-                <div className="text-white text-sm drop-shadow-md">
-                  <span className="font-bold text-lg">5.0</span>
-                  <span className="opacity-90 ml-2 font-medium">400+ reviews</span>
-                </div>
               </div>
             </motion.div>
           </div>
@@ -265,9 +249,10 @@ export default function HomePage() {
         </div>
       </section>
 
-                        {/* 3. SERVICES OVERVIEW */}
-      <section id="services" className="py-24 bg-white border-y border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 3. SERVICES OVERVIEW */}
+      <section id="services" className="py-24 bg-white border-y border-slate-100 relative">
+        <RibbonStripes position="right" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <p className="gsap-hero-el text-brand-teal font-bold tracking-widest text-xs uppercase mb-4">Our Services</p>
             <h2 className="font-sans text-3xl md:text-5xl text-brand-navy mb-6">Home Loan Solutions for Every Journey</h2>
@@ -317,69 +302,75 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. WHY RIVO */}
-      <section id="why" className="py-24 bg-brand-warm text-brand-navy border-y border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <p className="gsap-hero-el text-brand-teal font-bold tracking-widest text-xs uppercase mb-4">Our promise to you</p>
-            <h2 className="font-sans text-4xl md:text-5xl text-brand-navy mb-6 leading-[1.15]">Smart technology, old-fashioned service</h2>
-            <div className="w-16 h-1 bg-brand-teal mx-auto"></div>
+      {/* 4 & 5. COMBINED RIBBON WRAPPER */}
+      <div className="relative overflow-hidden">
+        <RibbonStripes position="left" />
+
+        {/* 4. WHY RIVO */}
+        <section id="why" className="py-24 bg-gradient-to-b from-brand-teal-light to-brand-teal text-white border-y border-brand-teal">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-16">
+            <p className="gsap-hero-el text-white/90 font-bold tracking-widest text-xs uppercase mb-4">Our promise to you</p>
+            <h2 className="font-sans text-4xl md:text-5xl text-white mb-6 leading-[1.15]">Smart technology, old-fashioned service</h2>
+            <div className="w-16 h-1 bg-white/50 mx-auto"></div>
           </div>
           
           <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
             <div className="gsap-why-item flex flex-col items-center text-center">
               <div className="w-16 h-16 bg-white border border-slate-100 shadow-sm rounded-full flex items-center justify-center text-brand-teal mb-6"><Clock className="w-8 h-8" /></div>
-              <h4 className="font-bold text-2xl text-brand-navy mb-4">Hours, not days</h4>
-              <p className="text-brand-text-muted leading-relaxed">A digital-first process means less paperwork and faster approvals - so you can move quickly on the right property.</p>
+              <h4 className="font-bold text-2xl text-white mb-4">Hours, not days</h4>
+              <p className="text-white/80 leading-relaxed">A digital-first process means less paperwork and faster approvals - so you can move quickly on the right property.</p>
             </div>
             <div className="gsap-why-item flex flex-col items-center text-center">
               <div className="w-16 h-16 bg-white border border-slate-100 shadow-sm rounded-full flex items-center justify-center text-brand-teal mb-6"><ShieldCheck className="w-8 h-8" /></div>
-              <h4 className="font-bold text-2xl text-brand-navy mb-4">Tailored strategy</h4>
-              <p className="text-brand-text-muted leading-relaxed">We don't just quote rates. We analyse your goals and structure a loan that genuinely fits - and grows with you.</p>
+              <h4 className="font-bold text-2xl text-white mb-4">Tailored strategy</h4>
+              <p className="text-white/80 leading-relaxed">We don't just quote rates. We analyse your goals and structure a loan that genuinely fits - and grows with you.</p>
             </div>
             <div className="gsap-why-item flex flex-col items-center text-center">
               <div className="w-16 h-16 bg-white border border-slate-100 shadow-sm rounded-full flex items-center justify-center text-brand-teal mb-6"><CheckCircle2 className="w-8 h-8" /></div>
-              <h4 className="font-bold text-2xl text-brand-navy mb-4">Best interests, always</h4>
-              <p className="text-brand-text-muted leading-relaxed">As licensed brokers we're bound by a Best Interests Duty. Our job isn't done at settlement - free annual reviews keep you on the sharpest deal.</p>
+              <h4 className="font-bold text-2xl text-white mb-4">Best interests, always</h4>
+              <p className="text-white/80 leading-relaxed">As licensed brokers we're bound by a Best Interests Duty. Our job isn't done at settlement - free annual reviews keep you on the sharpest deal.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. HOW IT WORKS */}
-      <section id="process" className="py-24 md:py-32 bg-brand-warm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <p className="gsap-hero-el text-brand-teal font-bold tracking-widest text-xs uppercase mb-4">How it works</p>
-            <h2 className="font-sans text-4xl md:text-5xl text-brand-navy mb-6">Four simple steps to settled</h2>
-            <p className="text-brand-text-muted text-lg">No jargon, no pressure. Just a clear path from first chat to keys in hand.</p>
-          </div>
+        {/* 5. HOW IT WORKS */}
+        <section id="process" className="py-24 md:py-32 bg-gradient-to-b from-brand-teal to-brand-teal-light text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <p className="gsap-hero-el text-white/90 font-bold tracking-widest text-xs uppercase mb-4">How it works</p>
+              <h2 className="font-sans text-4xl md:text-5xl text-white mb-6">Four simple steps to settled</h2>
+              <p className="text-white/80 text-lg">No jargon, no pressure. Just a clear path from first chat to keys in hand.</p>
+            </div>
 
-          <div className="grid md:grid-cols-4 gap-8 relative">
-            {/* Connecting line */}
-            <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-brand-teal/20 -z-10"></div>
-            
-            {[
-              { step: 1, title: "Discovery", desc: "We start with you — your income, lifestyle and goals — to understand the full picture." },
-              { step: 2, title: "Smart strategy", desc: "We compare policies from 30+ lenders to find the one that fits your exact situation." },
-              { step: 3, title: "The heavy lifting", desc: "We package your application for first-time approval and handle the bank negotiations." },
-              { step: 4, title: "Annual health check", desc: "Every year we review your loan to make sure it’s still the best fit as life changes." }
-            ].map((item, idx) => (
-              <div key={idx} className="relative text-center">
-                <div className="gsap-step-bubble w-24 h-24 mx-auto bg-white rounded-full flex items-center justify-center text-3xl font-sans text-brand-teal border-4 border-brand-warm shadow-md mb-6 z-10 relative">
-                  {item.step}
+            <div className="grid md:grid-cols-4 gap-8 relative">
+              {/* Connecting line */}
+              <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-white/30 -z-10"></div>
+              
+              {[
+                { step: 1, title: "Discovery", desc: "We start with you - your income, lifestyle and goals - to understand the full picture." },
+                { step: 2, title: "Smart strategy", desc: "We compare policies from 30+ lenders to find the one that fits your exact situation." },
+                { step: 3, title: "The heavy lifting", desc: "We package your application for first-time approval and handle the bank negotiations." },
+                { step: 4, title: "Annual health check", desc: "Every year we review your loan to make sure it's still the best fit as life changes." }
+              ].map((item, idx) => (
+                <div key={idx} className="relative text-center">
+                  <div className="gsap-step-bubble w-24 h-24 mx-auto bg-white rounded-full flex items-center justify-center text-3xl font-sans text-brand-teal border-4 border-brand-teal-light/50 shadow-md mb-6 z-10 relative">
+                    {item.step}
+                  </div>
+                  <h4 className="font-bold text-xl text-white mb-3">{item.title}</h4>
+                  <p className="text-white/80 leading-relaxed text-sm px-4">{item.desc}</p>
                 </div>
-                <h4 className="font-bold text-xl text-brand-navy mb-3">{item.title}</h4>
-                <p className="text-brand-text-muted leading-relaxed text-sm px-4">{item.desc}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* 6. STATS STRIP */}
-      <section className="bg-brand-navy py-16 text-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-brand-navy py-16 text-center relative overflow-hidden">
+        <RibbonStripes position="left" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { stat: "30+", label: "Lenders on our panel" },
@@ -398,8 +389,9 @@ export default function HomePage() {
 
 
       {/* 8. TESTIMONIALS */}
-      <section className="py-24 bg-brand-soft-teal/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-brand-soft-teal/30 relative">
+        <RibbonStripes position="right" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <p className="gsap-hero-el text-brand-teal font-bold tracking-widest text-xs uppercase mb-4">What our clients say</p>
             <h2 className="font-sans text-4xl md:text-5xl text-brand-navy">Australians who bought smarter</h2>
@@ -438,8 +430,9 @@ export default function HomePage() {
       </section>
 
       {/* 9. CONTACT FORM */}
-      <section id="contact" className="py-24 md:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="contact" className="py-24 md:py-32 bg-white relative">
+        <RibbonStripes position="left" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
             <div>
               <p className="gsap-hero-el text-brand-teal font-bold tracking-widest text-xs uppercase mb-4">Let’s talk</p>
@@ -506,8 +499,9 @@ export default function HomePage() {
       </section>
 
       {/* 10. FAQS */}
-      <section id="faq" className="py-24 bg-brand-warm border-t border-slate-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="faq" className="py-24 bg-brand-warm border-t border-slate-200 relative overflow-hidden">
+        <RibbonStripes position="right" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <p className="gsap-hero-el text-brand-teal font-bold tracking-widest text-xs uppercase mb-4">Good to know</p>
             <h2 className="font-sans text-4xl md:text-5xl text-brand-navy mb-4">Frequently asked questions</h2>

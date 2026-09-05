@@ -570,13 +570,17 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
   return (
     <div className="flex flex-col font-sans overflow-x-hidden bg-white relative">
       
-      {/* GLOBAL CONTINUOUS DIAGONAL SIDEBAR */}
-      <div 
-        className="hidden lg:block absolute left-0 w-[45%] h-[1200px] z-10 pointer-events-none block" 
-        style={{ top: '0', clipPath: 'polygon(0 0, 100% 0, 0 100%)' }}
-      >
-        <div className="w-full h-[40vh] md:h-[50vh] bg-[#4673A6]/75"></div>
-        <div className="w-full h-[1200px] bg-[#4673A6]"></div>
+      {/* GLOBAL CONTINUOUS ORGANIC SIDEBAR */}
+      <div className="hidden lg:block absolute left-0 top-0 w-full h-[1400px] z-10 pointer-events-none overflow-hidden">
+        <svg viewBox="0 0 1440 1024" className="absolute top-0 left-[-20%] md:left-0 w-[140%] md:w-[60%] h-full opacity-95" preserveAspectRatio="none">
+          <path d="M0,0 L800,0 C600,300 900,700 0,950 Z" fill="url(#sidebar-gradient)" />
+          <defs>
+            <linearGradient id="sidebar-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="var(--color-brand-teal)" />
+              <stop offset="100%" stopColor="var(--color-brand-teal-light)" />
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
 
       {/* HERO SECTION */}
