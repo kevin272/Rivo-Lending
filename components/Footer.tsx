@@ -5,33 +5,21 @@ import { Phone, Mail } from "lucide-react";
 export function Footer() {
   return (
     <footer className="bg-black pt-16 md:pt-20 pb-10 text-white/80 relative overflow-hidden">
-      {/* Top White Wave Background - Desktop */}
-      <div className="hidden md:block absolute top-0 left-0 w-full h-[240px] z-0 pointer-events-none">
-        <svg viewBox="0 0 1440 240" className="w-full h-full text-white fill-current" preserveAspectRatio="none">
-          <path d="M0,0 L1440,0 L1440,30 C1000,20 800,30 500,40 C350,50 350,240 0,200 Z" />
-        </svg>
-      </div>
-      {/* Top White Wave Background - Mobile */}
-      <div className="md:hidden absolute top-0 left-0 w-full h-[220px] z-0 pointer-events-none">
-        <svg viewBox="0 0 400 220" className="w-full h-full text-white fill-current" preserveAspectRatio="none">
-          <path d="M0,0 L400,0 L400,30 C300,15 280,20 280,60 C280,180 150,200 0,160 Z" />
-        </svg>
-      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           
           {/* Column 1: Brand */}
-          <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="inline-block relative group">
+          <div className="flex flex-col items-start">
+            <Link href="/" className="inline-block relative group mb-6">
               <Image 
                 src="/logo_rivo.png" 
                 alt="Rivo Lending" 
                 width={280} 
                 height={80} 
-                className="relative z-10 h-16 md:h-20 w-auto object-contain" 
+                className="relative z-10 h-16 md:h-20 w-auto object-contain brightness-0 invert" 
               />
             </Link>
-            <p className="text-sm leading-relaxed mb-6 mt-16 md:mt-24 relative z-20">
+            <p className="text-sm leading-relaxed max-w-sm">
               A premium, advice-led mortgage brokerage. Sydney born, serving all of Australia.
             </p>
           </div>
@@ -59,7 +47,7 @@ export function Footer() {
           </div>
 
           {/* Column 4: Contact */}
-          <div className="col-span-2 md:col-span-1">
+          <div>
             <h4 className="text-white font-bold mb-6">Get in touch</h4>
             <div className="space-y-6 text-sm">
               <div className="space-y-2">
@@ -106,3 +94,4 @@ export function Footer() {
     </footer>
   );
 }
+
