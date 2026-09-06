@@ -164,7 +164,7 @@ export default function HomePage() {
         </div>
 
         {/* Desktop Background Video */}
-        <div className="hidden md:block absolute inset-y-0 right-0 left-[35%] z-0 bg-brand-navy">
+        <div className="hidden md:block absolute inset-y-0 right-0 left-0 z-0 bg-brand-navy">
           <video
             key={heroVideos[currentVideoIdx]}
             autoPlay

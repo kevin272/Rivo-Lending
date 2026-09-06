@@ -4,24 +4,34 @@ import { Phone, Mail } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-black pt-20 pb-10 text-white/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-black pt-16 md:pt-20 pb-10 text-white/80 relative overflow-hidden">
+      {/* Top White Wave Background - Desktop */}
+      <div className="hidden md:block absolute top-0 left-0 w-full h-[240px] z-0 pointer-events-none">
+        <svg viewBox="0 0 1440 240" className="w-full h-full text-white fill-current" preserveAspectRatio="none">
+          <path d="M0,0 L1440,0 L1440,30 C1000,20 800,30 500,40 C350,50 350,240 0,200 Z" />
+        </svg>
+      </div>
+      {/* Top White Wave Background - Mobile */}
+      <div className="md:hidden absolute top-0 left-0 w-full h-[220px] z-0 pointer-events-none">
+        <svg viewBox="0 0 400 220" className="w-full h-full text-white fill-current" preserveAspectRatio="none">
+          <path d="M0,0 L400,0 L400,30 C300,15 280,20 280,60 C280,180 150,200 0,160 Z" />
+        </svg>
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-16">
           
           {/* Column 1: Brand */}
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="inline-block mb-6 relative group">
-              {/* Soft glow behind logo */}
-              <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-white/15 via-brand-teal/10 to-transparent blur-sm" />
+            <Link href="/" className="inline-block relative group">
               <Image 
                 src="/logo_rivo.png" 
                 alt="Rivo Lending" 
-                width={180} 
-                height={50} 
-                className="relative h-12 w-auto object-contain brightness-150 drop-shadow-[0_0_12px_rgba(8,176,176,0.4)]" 
+                width={280} 
+                height={80} 
+                className="relative z-10 h-16 md:h-20 w-auto object-contain" 
               />
             </Link>
-            <p className="text-sm leading-relaxed mb-6">
+            <p className="text-sm leading-relaxed mb-6 mt-16 md:mt-24 relative z-20">
               A premium, advice-led mortgage brokerage. Sydney born, serving all of Australia.
             </p>
           </div>
