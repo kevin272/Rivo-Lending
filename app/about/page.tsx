@@ -15,9 +15,9 @@ export default function AboutPage() {
   ];
 
   const team = [
-    { name: "Michael Chen", role: "Principal Broker", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" },
-    { name: "Sarah Jenkins", role: "Senior Finance Strategist", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" },
-    { name: "David O'Connor", role: "Client Success Manager", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600" },
+    { name: "Michael Chen", role: "Principal Broker", image: "https://images.pexels.com/photos/7599735/pexels-photo-7599735.jpeg?auto=compress&cs=tinysrgb&w=800" },
+    { name: "Sarah Jenkins", role: "Senior Finance Strategist", image: "https://images.pexels.com/photos/28456460/pexels-photo-28456460.jpeg?auto=compress&cs=tinysrgb&w=800" },
+    { name: "David O'Connor", role: "Client Success Manager", image: "https://images.pexels.com/photos/8730057/pexels-photo-8730057.jpeg?auto=compress&cs=tinysrgb&w=800" },
   ];
 
   return (
@@ -39,10 +39,10 @@ export default function AboutPage() {
       {/* HERO SECTION */}
       <div className="relative h-[40vh] md:h-[50vh] w-full">
          <Image 
-           src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=1920" 
+           src="https://images.pexels.com/photos/8730057/pexels-photo-8730057.jpeg?auto=compress&cs=tinysrgb&w=1920" 
            alt="Rivo Lending Team" 
            fill 
-           className="object-cover object-center" 
+           className="object-cover object-top" 
            priority
          />
          <div className="absolute inset-0 bg-black/20 z-0"></div>
@@ -212,3 +212,4 @@ export default function AboutPage() {
     </div>
   );
 }
+

@@ -153,8 +153,8 @@ export default function HomePage() {
         {/* Mobile Background Image (Team) */}
         <div className="md:hidden absolute inset-0 z-0 bg-brand-navy">
           <Image 
-            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=1200" 
-            alt="Rivo Lending Team" 
+            src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1200" 
+            alt="Modern Luxury Home" 
             fill 
             className="object-cover object-center" 
             priority 
@@ -172,7 +172,7 @@ export default function HomePage() {
             playsInline
             onEnded={handleVideoEnded}
             className="absolute inset-0 w-full h-full object-cover object-center"
-            poster="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=2000"
+            poster="https://images.pexels.com/photos/37079556/pexels-photo-37079556.jpeg?auto=compress&cs=tinysrgb&w=2000"
           >
             <source src={heroVideos[currentVideoIdx]} type="video/mp4" />
             Your browser does not support the video tag.
@@ -197,7 +197,7 @@ export default function HomePage() {
         </div>
 
         {/* Content Container */}
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 h-full flex flex-col justify-end pb-24 md:justify-center md:pb-20">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 h-full flex flex-col justify-center pb-8 md:pb-20">
           <div className="w-full max-w-3xl">
             {/* Left Content */}
             <motion.div 

@@ -125,10 +125,10 @@ export default function ServicesPage() {
       {/* HERO SECTION */}
       <div className="relative h-[40vh] md:h-[50vh] w-full">
          <Image 
-           src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920" 
+           src="https://images.pexels.com/photos/28456460/pexels-photo-28456460.jpeg?auto=compress&cs=tinysrgb&w=1920" 
            alt="Rivo Lending Services" 
            fill 
-           className="object-cover object-center" 
+           className="object-cover object-top" 
            priority
          />
          <div className="absolute inset-0 bg-black/20 z-0"></div>

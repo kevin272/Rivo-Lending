@@ -46,7 +46,7 @@ const servicesData: Record<string, ServiceData> = {
     title: "First Home Buyers",
     subtitle: "Your first home starts with the right loan.",
     description: "Buying your first home is a major step. From understanding how much you can borrow to navigating government schemes, contracts and settlement, there is a lot to get right. We make the process easier by helping you understand your options, compare suitable lenders and move confidently from your first assessment to owning your home.",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1600",
+    image: "https://images.pexels.com/photos/7599735/pexels-photo-7599735.jpeg?auto=compress&cs=tinysrgb&w=1600",
     processTitle: "From your first conversation to settlement",
     process: [
       { number: "01", title: "Understand your position", description: "Before you start looking at properties, we assess your income, expenses, existing commitments and deposit to establish your borrowing capacity. You'll know what you can realistically afford — and what your upfront costs may look like." },
@@ -112,7 +112,7 @@ const servicesData: Record<string, ServiceData> = {
     title: "Refinancing",
     subtitle: "Your current home loan doesn't have to be your forever loan.",
     description: "Your financial situation changes. Your home loan should be able to change with it. Refinancing can help you secure a more competitive loan, reduce repayments, access built-up equity or restructure your finances around your next goal. We compare your existing loan against options from a broad panel of lenders and help you understand whether switching actually makes financial sense.",
-    image: "https://images.unsplash.com/photo-1579621970588-a3f5ce599fac?auto=format&fit=crop&q=80&w=1600",
+    image: "https://images.pexels.com/photos/28456460/pexels-photo-28456460.jpeg?auto=compress&cs=tinysrgb&w=1600",
     processTitle: "Before you switch, look at the whole picture.",
     processSubtitle: "The cheapest rate isn't necessarily the best loan. We look at the complete structure.",
     process: [
@@ -182,7 +182,7 @@ const servicesData: Record<string, ServiceData> = {
     title: "Property Investment",
     subtitle: "Build your property portfolio with a financing strategy.",
     description: "Buying an investment property isn't simply about finding a property you like. The way your loans are structured can influence your cash flow, borrowing capacity and ability to purchase again in the future. We help investors structure finance around both the property they're buying today and the portfolio they want to build tomorrow.",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1600",
+    image: "https://images.pexels.com/photos/8730057/pexels-photo-8730057.jpeg?auto=compress&cs=tinysrgb&w=1600",
     processTitle: "Three things every investor should understand",
     process: [
       { number: "01", title: "Cash flow", description: "Interest-only lending can reduce repayments during the interest-only period, potentially improving short-term cash flow. However, because the principal isn't being reduced, repayments can increase when the loan moves to principal and interest. The right structure depends on your overall strategy." },
@@ -245,7 +245,7 @@ const servicesData: Record<string, ServiceData> = {
     title: "Construction Loans",
     subtitle: "Build your home with finance that moves with the build.",
     description: "Construction finance works differently from a standard home loan. Instead of receiving the entire loan amount upfront, funds are released progressively as construction reaches agreed milestones. That means your loan needs to be structured around your land purchase, building contract, construction schedule and expected costs.",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1600",
+    image: "https://images.pexels.com/photos/37253217/pexels-photo-37253217.jpeg?auto=compress&cs=tinysrgb&w=1600",
     processTitle: "How progress payments work",
     processSubtitle: "Construction typically moves through a series of stages. During construction, interest is generally charged only on the amount that has been drawn.",
     process: [
@@ -312,7 +312,7 @@ const servicesData: Record<string, ServiceData> = {
     title: "SMSF Loans",
     subtitle: "Strategic borrowing for your self-managed super fund.",
     description: "Investing in property through your Self-Managed Super Fund (SMSF) requires specialized lending solutions and strict compliance. We guide you through Limited Recourse Borrowing Arrangements (LRBAs) to ensure your fund is structured correctly for residential or commercial property acquisition.",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1600",
+    image: "https://images.pexels.com/photos/33175650/pexels-photo-33175650.jpeg?auto=compress&cs=tinysrgb&w=1600",
     processTitle: "Structured for compliance and growth.",
     processSubtitle: "Navigating SMSF lending requires precision. Here is how we ensure your strategy aligns with regulations.",
     process: [
@@ -347,7 +347,7 @@ const servicesData: Record<string, ServiceData> = {
     title: "Debt Consolidation",
     subtitle: "Regain control with a single, simplified repayment.",
     description: "Multiple personal loans, credit cards, and car loans can create financial stress and attract exorbitant interest rates. By consolidating your debts into your home loan, you can dramatically reduce your overall monthly commitments, simplify your finances, and redirect your cash flow toward wealth creation.",
-    image: "https://images.unsplash.com/photo-1554224154-26032ffc0d04?auto=format&fit=crop&q=80&w=1600",
+    image: "https://images.pexels.com/photos/7876501/pexels-photo-7876501.jpeg?auto=compress&cs=tinysrgb&w=1600",
     processTitle: "A clear path back to financial freedom.",
     processSubtitle: "Consolidating debt is about strategy, not just moving money around.",
     process: [
@@ -381,7 +381,7 @@ const servicesData: Record<string, ServiceData> = {
     title: "Healthcare & Professionals",
     subtitle: "Exclusive lending policies for medical and industry professionals.",
     description: "As a doctor, dentist, accountant, or legal professional, lenders view your income profile differently. You have access to exclusive policy exceptions, including the ability to borrow up to 90% of a property's value without paying Lenders Mortgage Insurance (LMI), and heavily discounted interest rates.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1600",
+    image: "https://images.pexels.com/photos/7579046/pexels-photo-7579046.jpeg?auto=compress&cs=tinysrgb&w=1600",
     processTitle: "Finance tailored to your profession.",
     processSubtitle: "We ensure you capitalize on the industry exceptions available to you.",
     process: [
@@ -415,7 +415,7 @@ const servicesData: Record<string, ServiceData> = {
     title: "Self-Employed Loans",
     subtitle: "Finance built for business owners and entrepreneurs.",
     description: "Getting a loan when you run your own business can feel overly complicated. We speak the language of self-employed finance. Whether you have full financial statements, are using an 'alt-doc' solution with BAS statements, or rely on add-backs, we know how to present your application for a fast approval.",
-    image: "https://images.unsplash.com/photo-1664575198308-3959904fa430?auto=format&fit=crop&q=80&w=1600",
+    image: "https://images.pexels.com/photos/8962225/pexels-photo-8962225.jpeg?auto=compress&cs=tinysrgb&w=1600",
     processTitle: "We look at the reality of your income.",
     processSubtitle: "Your tax return doesn't always tell the full story of your business.",
     process: [
@@ -449,7 +449,7 @@ const servicesData: Record<string, ServiceData> = {
     title: "Owner-Occupier Loans",
     subtitle: "Your next move, expertly financed.",
     description: "Whether you are upgrading to a larger family home, downsizing, or renovating your current property, securing the right owner-occupier loan ensures you have the flexibility you need. We help you structure your finance to accommodate bridging loans, offset accounts, and redraw facilities to support your lifestyle.",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1600",
+    image: "https://images.pexels.com/photos/31664773/pexels-photo-31664773.jpeg?auto=compress&cs=tinysrgb&w=1600",
     processTitle: "Seamless transition to your new home.",
     processSubtitle: "Timing is everything when upgrading or moving.",
     process: [
@@ -483,7 +483,7 @@ const servicesData: Record<string, ServiceData> = {
     title: "Home Loans",
     subtitle: "Your foundation for the future.",
     description: "A well-structured loan can significantly impact your mortgage's overall cost. With access to a diverse range of lenders, we will assist you in evaluating and selecting a home loan that meets your criteria.",
-    image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=1600",
+    image: "https://images.pexels.com/photos/37079556/pexels-photo-37079556.jpeg?auto=compress&cs=tinysrgb&w=1600",
     cta: {
       title: "Ready to explore your home loan options?",
       description: "Speak with one of our brokers today to find the right loan for you.",
@@ -494,7 +494,7 @@ const servicesData: Record<string, ServiceData> = {
     title: "Pre Approval",
     subtitle: "Know your borrowing capacity.",
     description: "Obtaining pre-approval allows you to know your borrowing capacity before making offers. We will assist you through the steps, prepare your application, and collaborate with the lender to obtain approval.",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1600",
+    image: "https://images.pexels.com/photos/11731740/pexels-photo-11731740.jpeg?auto=compress&cs=tinysrgb&w=1600",
     cta: {
       title: "Get your pre-approval sorted.",
       description: "Contact us to start your pre-approval process today.",
@@ -505,7 +505,7 @@ const servicesData: Record<string, ServiceData> = {
     title: "Personal Loans",
     subtitle: "Finance for your personal needs.",
     description: "Whether managing debt, financing a significant purchase, or handling major expenses, a personal loan can assist in spreading the cost into manageable payments with a consistent repayment plan.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1600",
+    image: "https://images.pexels.com/photos/11637810/pexels-photo-11637810.jpeg?auto=compress&cs=tinysrgb&w=1600",
     cta: {
       title: "Need a personal loan?",
       description: "We can help you find a competitive personal loan for your needs.",
@@ -516,7 +516,7 @@ const servicesData: Record<string, ServiceData> = {
     title: "Commercial Loans",
     subtitle: "Grow your business with the right finance.",
     description: "We are an experienced team of commercial brokers that can provide guidance for large-scale development and construction deals as well as a wide array of other commercial transactions.",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1600",
+    image: "https://images.pexels.com/photos/7599735/pexels-photo-7599735.jpeg?auto=compress&cs=tinysrgb&w=1600",
     cta: {
       title: "Discuss your commercial finance needs.",
       description: "Get in touch with our commercial lending experts today.",
@@ -527,7 +527,7 @@ const servicesData: Record<string, ServiceData> = {
     title: "Business Lending",
     subtitle: "Fuel your business growth.",
     description: "We understand that obtaining business loans differs from getting a standard mortgage. We present you with the best loan options from numerous lenders, aiding your business's success.",
-    image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&q=80&w=1600",
+    image: "https://images.pexels.com/photos/28456460/pexels-photo-28456460.jpeg?auto=compress&cs=tinysrgb&w=1600",
     cta: {
       title: "Ready to scale your business?",
       description: "Let's explore your business lending options.",
@@ -538,7 +538,7 @@ const servicesData: Record<string, ServiceData> = {
     title: "Vehicle Finance",
     subtitle: "Drive away with the right loan.",
     description: "We help you compare and secure vehicle finance for personal or business use. With access to a wide range of lenders, we'll find a competitive rate and repayment structure that suits you.",
-    image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=1600",
+    image: "https://images.pexels.com/photos/8730057/pexels-photo-8730057.jpeg?auto=compress&cs=tinysrgb&w=1600",
     cta: {
       title: "Looking for vehicle finance?",
       description: "Speak to our team about securing your car loan.",
@@ -549,7 +549,7 @@ const servicesData: Record<string, ServiceData> = {
     title: "Asset Finance",
     subtitle: "Finance for your equipment and machinery.",
     description: "Asset finance encompasses lending options tailored for purchasing vehicles, machinery, and equipment. We can provide you with suitable options that align with your requirements.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600",
+    image: "https://images.pexels.com/photos/37253217/pexels-photo-37253217.jpeg?auto=compress&cs=tinysrgb&w=1600",
     cta: {
       title: "Need equipment for your business?",
       description: "Discover our competitive asset finance solutions.",
@@ -589,7 +589,7 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
            src={data.image} 
            alt={data.title} 
            fill 
-           className="object-cover object-center" 
+           className="object-cover object-top" 
            priority
            unoptimized
            referrerPolicy="no-referrer"

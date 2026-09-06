@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useForm } from "react-hook-form";
@@ -70,30 +71,67 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-slate-50 min-h-screen">
-      {/* HERO SECTION */}
-      <div className="bg-brand-navy py-24 md:py-32 text-center text-white pt-40 relative overflow-hidden">
-        {/* Subtle Watermark Texture */}
-        <div className="absolute inset-0 pointer-events-none flex justify-center items-center opacity-[0.03]">
-           <Image src="/logo_rivo.png" alt="" width={1000} height={1000} className="object-contain scale-[2]" unoptimized />
-        </div>
-        <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-          >
-            Get in Touch
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-            className="text-white/80 text-lg md:text-xl leading-relaxed"
-          >
-            Ready to secure your future? Contact our expert brokers for a free, no-obligation consultation today.
-          </motion.p>
-        </div>
+    <div className="bg-white min-h-screen overflow-x-hidden relative">
+      
+      {/* GLOBAL CONTINUOUS ORGANIC SIDEBAR */}
+      <div className="hidden lg:block absolute left-0 top-0 w-full h-[1400px] z-10 pointer-events-none overflow-hidden">
+        <svg viewBox="0 0 1440 1024" className="absolute top-0 left-[-20%] md:left-0 w-[140%] md:w-[60%] h-full opacity-95" preserveAspectRatio="none">
+          <path d="M0,0 L800,0 C600,300 900,700 0,950 Z" fill="url(#sidebar-gradient)" />
+          <defs>
+            <linearGradient id="sidebar-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="var(--color-brand-teal)" />
+              <stop offset="100%" stopColor="var(--color-brand-teal-light)" />
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20 pb-24">
+      {/* HERO SECTION */}
+      <div className="relative h-[40vh] md:h-[50vh] w-full">
+         <Image 
+           src="https://images.pexels.com/photos/8962225/pexels-photo-8962225.jpeg?auto=compress&cs=tinysrgb&w=1920" 
+           alt="Contact Us" 
+           fill 
+           className="object-cover object-top" 
+           priority
+         />
+         <div className="absolute inset-0 bg-black/20 z-0"></div>
+      </div>
+
+      {/* MAIN CONTENT SECTION (3-Column Layout) */}
+      <section className="relative pb-12 z-20">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 relative pt-4 lg:pt-8">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+            
+            {/* 1. Left Spacer */}
+            <div className="hidden lg:block lg:w-[28%] xl:w-[28%] flex-shrink-0"></div>
+
+            {/* 2. Middle Text Content */}
+            <div className="w-full lg:w-[42%] xl:w-[42%]">
+               {/* Breadcrumb */}
+               <div className="text-[10px] text-slate-500 font-bold tracking-widest uppercase mb-12">
+                 <Link href="/" className="hover:text-brand-navy transition-colors pointer-events-auto">HOME</Link> &nbsp;&gt;&nbsp; <span className="text-[#4673A6]">CONTACT US</span>
+               </div>
+               
+               <h1 className="font-sans text-4xl md:text-5xl lg:text-[56px] font-bold text-brand-navy mb-8 leading-[1.1]">
+                 Get in Touch
+               </h1>
+               
+               <div className="space-y-6 text-slate-600 text-base leading-relaxed mb-10">
+                 <p>
+                   Ready to secure your future? Contact our expert brokers for a free, no-obligation consultation today.
+                 </p>
+               </div>
+            </div>
+            
+            {/* 3. Right Media (Empty) */}
+            <div className="w-full lg:w-[30%]"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT FORM & INFO */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 pb-24">
 
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

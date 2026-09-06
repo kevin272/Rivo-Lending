@@ -84,10 +84,10 @@ export default function HowItWorksPage() {
       {/* HERO SECTION */}
       <div className="relative h-[40vh] md:h-[50vh] w-full">
          <Image 
-           src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=1920" 
+           src="https://images.pexels.com/photos/7599735/pexels-photo-7599735.jpeg?auto=compress&cs=tinysrgb&w=1920" 
            alt="Team working" 
            fill 
-           className="object-cover object-center" 
+           className="object-cover object-top" 
            priority
          />
          <div className="absolute inset-0 bg-black/20 z-0"></div>
