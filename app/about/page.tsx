@@ -117,7 +117,7 @@ export default function AboutPage() {
 
       {/* CORE VALUES */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
           <div className="text-center mb-16">
             <h2 className="font-sans text-4xl md:text-5xl text-brand-navy mb-4">Our Core Values</h2>
             <p className="text-brand-text-muted text-lg max-w-2xl mx-auto">The principles that drive us every single day.</p>
@@ -145,7 +145,7 @@ export default function AboutPage() {
 
       {/* WHY CHOOSE US */}
       <section className="py-24 bg-brand-warm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <h2 className="font-sans text-4xl md:text-5xl text-brand-navy mb-6">Why Choose Home Loan Experts?</h2>
             <p className="text-brand-text-muted text-lg leading-relaxed">

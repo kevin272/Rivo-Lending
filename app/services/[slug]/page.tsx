@@ -634,7 +634,7 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
       {/* 2. PROCESS / TIMELINE */}
       {data.process && data.process.length > 0 && (
         <section className="py-16 md:py-32 bg-slate-50 border-y border-slate-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="font-sans text-4xl md:text-5xl text-brand-navy mb-4">
                 {data.processTitle}
@@ -718,7 +718,7 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
       {/* 4. CONSIDERATIONS / WARNINGS */}
       {data.considerations && data.considerations.length > 0 && (
         <section className="py-16 md:py-24 bg-brand-warm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm text-brand-teal">
                 <ShieldAlert className="w-8 h-8" />

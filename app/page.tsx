@@ -164,7 +164,7 @@ export default function HomePage() {
         </div>
 
         {/* Desktop Background Video */}
-        <div className="hidden md:block absolute inset-y-0 right-0 left-0 z-0 bg-brand-navy">
+        <div className="hidden md:block absolute inset-y-0 right-0 left-0 z-0 bg-brand-navy w-full h-full">
           <video
             key={heroVideos[currentVideoIdx]}
             autoPlay
@@ -181,7 +181,7 @@ export default function HomePage() {
         </div>
         
         {/* Organic Wave Overlay */}
-        <div className="hidden md:block absolute top-0 left-0 w-full h-full z-10 overflow-hidden pointer-events-none">
+        <div className="hidden md:block absolute top-0 left-0 w-full h-full z-10 overflow-hidden pointer-events-none opacity-40">
           <svg viewBox="0 0 1440 1024" className="absolute top-0 left-[-20%] md:left-0 w-[140%] md:w-full h-full" preserveAspectRatio="none">
             <path 
               d="M0,0 L800,0 C650,300 900,700 450,1024 L0,1024 Z" 
@@ -197,7 +197,7 @@ export default function HomePage() {
         </div>
 
         {/* Content Container */}
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 h-full flex flex-col justify-center pb-8 md:pb-20">
+        <div className="w-full max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 relative z-20 h-full flex flex-col justify-center pb-8 md:pb-20">
           <div className="w-full max-w-3xl">
             {/* Left Content */}
             <motion.div 
@@ -252,7 +252,7 @@ export default function HomePage() {
       {/* 3. SERVICES OVERVIEW */}
       <section id="services" className="py-24 bg-white border-y border-slate-100 relative">
         <RibbonStripes position="right" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <p className="gsap-hero-el text-brand-teal font-bold tracking-widest text-xs uppercase mb-4">Our Services</p>
             <h2 className="font-sans text-3xl md:text-5xl text-brand-navy mb-6">Home Loan Solutions for Every Journey</h2>
@@ -264,37 +264,37 @@ export default function HomePage() {
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {[
-              { title: "Home Loans", description: "", icon: Home, href: "/services/home-loans" },
-              { title: "First Home Buyers", description: "", icon: Key, href: "/services/first-home-buyers" },
-              { title: "Refinance", description: "", icon: RefreshCcw, href: "/services/refinancing" },
-              { title: "Investing", description: "", icon: TrendingUp, href: "/services/investment-loans" },
-              { title: "Pre Approval", description: "Know your borrowing capacity before making offers with our streamlined pre-approval process.", icon: FileCheck, href: "/services/pre-approval" },
-              { title: "Personal Loans", description: "Spread the cost of major expenses into manageable payments with a consistent repayment plan.", icon: User, href: "/services/personal-loans" },
-              { title: "Registered Nurse", description: "Access exclusive LMI waivers and professional rates specially tailored for healthcare workers.", icon: Stethoscope, href: "/services/healthcare-professionals" },
-              { title: "Commercial Loans", description: "Secure ideal commercial financing tailored to your business structure, cash flow, and financial standing.", icon: Building2, href: "/services/commercial-loans" },
-              { title: "Construction Loans", description: "Navigate funding smoothly with progress payments aligned perfectly to your building timeline.", icon: Tractor, href: "/services/construction-loans" },
-              { title: "Business Lending", description: "Support cash flow, enable expansion, or facilitate new ventures with solutions that fit your operations.", icon: Briefcase, href: "/services/business-lending" },
-              { title: "Vehicle Finance", description: "Access competitive rates and maintain manageable repayment terms for your personal or business vehicle.", icon: Car, href: "/services/vehicle-finance" },
-              { title: "SMSF Finance", description: "Examine lending possibilities and navigate specific regulations to purchase property via your SMSF.", icon: Landmark, href: "/services/smsf-loans" },
-              { title: "Asset Finance", description: "Acquire essential equipment, tools, and machinery without depleting your business cash reserves.", icon: Layers, href: "/services/asset-finance" },
-              { title: "Debt Consolidation", description: "Consolidate multiple personal loans and credit cards into your home loan to reduce monthly commitments.", icon: CreditCard, href: "/services/debt-consolidation" }
+              { title: "Home Loans", description: "Find the perfect home loan with competitive rates and flexible features to suit your lifestyle.", img: "https://images.pexels.com/photos/32269918/pexels-photo-32269918.jpeg?auto=compress&cs=tinysrgb&h=350", href: "/services/home-loans" },
+              { title: "First Home Buyers", description: "Take your first step on the property ladder with expert guidance and tailored financing options.", img: "https://images.pexels.com/photos/8482895/pexels-photo-8482895.jpeg?auto=compress&cs=tinysrgb&h=350", href: "/services/first-home-buyers" },
+              { title: "Refinance", description: "Unlock better rates, lower your repayments, or access equity by refinancing your current mortgage.", img: "https://images.pexels.com/photos/29336323/pexels-photo-29336323.jpeg?auto=compress&cs=tinysrgb&h=350", href: "/services/refinancing" },
+              { title: "Investing", description: "Build your property portfolio with expert guidance and access to competitive Investment Loan options.", img: "https://images.pexels.com/photos/5849570/pexels-photo-5849570.jpeg?auto=compress&cs=tinysrgb&h=350", href: "/services/investment-loans" },
+              { title: "Pre Approval", description: "Know your borrowing capacity before making offers with our streamlined pre-approval process.", img: "https://images.pexels.com/photos/8850721/pexels-photo-8850721.jpeg?auto=compress&cs=tinysrgb&h=350", href: "/services/pre-approval" },
+              { title: "Personal Loans", description: "Spread the cost of major expenses into manageable payments with a consistent repayment plan.", img: "https://images.pexels.com/photos/6328899/pexels-photo-6328899.jpeg?auto=compress&cs=tinysrgb&h=350", href: "/services/personal-loans" },
+              { title: "Registered Nurse", description: "Access exclusive LMI waivers and professional rates specially tailored for healthcare workers.", img: "https://images.pexels.com/photos/6129691/pexels-photo-6129691.jpeg?auto=compress&cs=tinysrgb&h=350", href: "/services/healthcare-professionals" },
+              { title: "Commercial Loans", description: "Secure ideal commercial financing tailored to your business structure, cash flow, and financial standing.", img: "https://images.pexels.com/photos/934350/pexels-photo-934350.jpeg?auto=compress&cs=tinysrgb&h=350", href: "/services/commercial-loans" },
+              { title: "Construction Loans", description: "Navigate funding smoothly with progress payments aligned perfectly to your building timeline.", img: "https://images.pexels.com/photos/6082416/pexels-photo-6082416.jpeg?auto=compress&cs=tinysrgb&h=350", href: "/services/construction-loans" },
+              { title: "Business Lending", description: "Support cash flow, enable expansion, or facilitate new ventures with solutions that fit your operations.", img: "https://images.pexels.com/photos/6949865/pexels-photo-6949865.jpeg?auto=compress&cs=tinysrgb&h=350", href: "/services/business-lending" },
+              { title: "Vehicle Finance", description: "Access competitive rates and maintain manageable repayment terms for your personal or business vehicle.", img: "https://images.pexels.com/photos/15549900/pexels-photo-15549900.jpeg?auto=compress&cs=tinysrgb&h=350", href: "/services/vehicle-finance" },
+              { title: "SMSF Finance", description: "Examine lending possibilities and navigate specific regulations to purchase property via your SMSF.", img: "https://images.pexels.com/photos/11743789/pexels-photo-11743789.jpeg?auto=compress&cs=tinysrgb&h=350", href: "/services/smsf-loans" },
+              { title: "Asset Finance", description: "Acquire essential equipment, tools, and machinery without depleting your business cash reserves.", img: "https://images.pexels.com/photos/39345876/pexels-photo-39345876.png?auto=compress&cs=tinysrgb&h=350", href: "/services/asset-finance" },
+              { title: "Debt Consolidation", description: "Consolidate multiple personal loans and credit cards into your home loan to reduce monthly commitments.", img: "https://images.pexels.com/photos/7821726/pexels-photo-7821726.jpeg?auto=compress&cs=tinysrgb&h=350", href: "/services/debt-consolidation" }
             ].map((service, idx) => (
               <Link 
                 key={idx} 
                 href={service.href} 
-                className="gsap-service-card group bg-white border border-slate-200 hover:border-brand-teal hover:shadow-lg p-8 flex flex-col items-start transition-all duration-300 rounded-xl"
+                className="gsap-service-card group bg-white border border-slate-200 hover:border-brand-teal hover:shadow-lg flex flex-col items-start transition-all duration-300 rounded-[1.25rem] overflow-hidden"
               >
-                <div className="w-12 h-12 bg-brand-warm group-hover:bg-brand-teal flex items-center justify-center rounded-full mb-6 transition-colors">
-                  <service.icon className="w-6 h-6 text-brand-teal group-hover:text-white transition-colors" />
+                <div className="relative w-full h-48 sm:h-56 [perspective:1000px]">
+                  <Image src={service.img} alt={service.title} fill className="object-cover transition-transform duration-700 group-hover:[transform:rotateY(180deg)]" unoptimized referrerPolicy="no-referrer" />
                 </div>
-                <h4 className="font-sans font-bold text-xl text-brand-navy mb-3 transition-colors">{service.title}</h4>
-                {service.description && (
-                  <p className="text-brand-text-muted leading-relaxed transition-colors text-sm mb-6 flex-grow">
+                <div className="p-6 md:p-8 flex flex-col flex-grow w-full">
+                  <h4 className="font-sans text-xl text-slate-500 mb-3 transition-colors group-hover:text-brand-teal">{service.title}</h4>
+                  <p className="text-slate-500 leading-relaxed text-sm mb-6 flex-grow transition-colors">
                     {service.description}
                   </p>
-                )}
-                <div className="mt-auto font-bold text-brand-teal group-hover:text-brand-navy transition-colors flex items-center gap-2 text-sm">
-                  Learn more <ArrowRight className="w-4 h-4" />
+                  <div className="mt-auto font-bold text-brand-navy flex items-center gap-2 text-sm transition-colors group-hover:text-brand-teal">
+                    {service.title}
+                  </div>
                 </div>
               </Link>
             ))}
@@ -308,7 +308,7 @@ export default function HomePage() {
 
         {/* 4. WHY RIVO */}
         <section id="why" className="py-24 bg-gradient-to-b from-brand-teal-light to-brand-teal text-white border-y border-brand-teal">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
             <div className="text-center mb-16">
             <p className="gsap-hero-el text-white/90 font-bold tracking-widest text-xs uppercase mb-4">Our promise to you</p>
             <h2 className="font-sans text-4xl md:text-5xl text-white mb-6 leading-[1.15]">Smart technology, old-fashioned service</h2>
@@ -337,7 +337,7 @@ export default function HomePage() {
 
         {/* 5. HOW IT WORKS */}
         <section id="process" className="py-24 md:py-32 bg-gradient-to-b from-brand-teal to-brand-teal-light text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <p className="gsap-hero-el text-white/90 font-bold tracking-widest text-xs uppercase mb-4">How it works</p>
               <h2 className="font-sans text-4xl md:text-5xl text-white mb-6">Four simple steps to settled</h2>
@@ -369,8 +369,7 @@ export default function HomePage() {
 
       {/* 6. STATS STRIP */}
       <section className="bg-brand-navy py-16 text-center relative overflow-hidden">
-        <RibbonStripes position="left" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { stat: "30+", label: "Lenders on our panel" },
@@ -391,7 +390,7 @@ export default function HomePage() {
       {/* 8. TESTIMONIALS */}
       <section className="py-24 bg-brand-soft-teal/30 relative">
         <RibbonStripes position="right" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
           <div className="text-center mb-16">
             <p className="gsap-hero-el text-brand-teal font-bold tracking-widest text-xs uppercase mb-4">What our clients say</p>
             <h2 className="font-sans text-4xl md:text-5xl text-brand-navy">Australians who bought smarter</h2>
@@ -432,7 +431,7 @@ export default function HomePage() {
       {/* 9. CONTACT FORM */}
       <section id="contact" className="py-24 md:py-32 bg-white relative">
         <RibbonStripes position="left" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
             <div>
               <p className="gsap-hero-el text-brand-teal font-bold tracking-widest text-xs uppercase mb-4">Let’s talk</p>
@@ -451,7 +450,7 @@ export default function HomePage() {
                 <div className="flex items-start gap-4">
                   <div className="bg-brand-soft-teal p-3 rounded-xl text-brand-teal"><Mail className="w-6 h-6" /></div>
                   <div>
-                    <h4 className="font-bold text-lg text-brand-navy">hello@rivolending.com.au</h4>
+                    <h4 className="font-bold text-lg text-brand-navy">info@rivolending.com.au</h4>
                     <p className="text-brand-text-muted text-sm">We reply within one business day</p>
                   </div>
                 </div>
@@ -465,17 +464,17 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="bg-brand-warm p-6 md:p-12 rounded-[2rem] border border-slate-100 shadow-lg">
+            <div className="bg-white p-6 md:p-12 rounded-[2rem] border border-slate-100 shadow-xl">
               <form className="space-y-6">
                 <div>
-                  <input type="text" placeholder="Full name" className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white" />
+                  <input type="text" placeholder="Full name" className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-teal transition-shadow bg-slate-50 text-brand-navy" />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
-                  <input type="tel" placeholder="Phone" className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white" />
-                  <input type="email" placeholder="Email" className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white" />
+                  <input type="tel" placeholder="Phone" className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-teal transition-shadow bg-slate-50 text-brand-navy" />
+                  <input type="email" placeholder="Email" className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-teal transition-shadow bg-slate-50 text-brand-navy" />
                 </div>
                 <div>
-                  <select className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white text-brand-navy/70 appearance-none">
+                  <select className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-teal transition-shadow bg-slate-50 text-brand-navy/70 appearance-none">
                     <option value="">I&apos;m looking to…</option>
                     <option value="first">Buy my first home</option>
                     <option value="upgrade">Buy a home (upgrade/owner-occupier)</option>
@@ -486,9 +485,9 @@ export default function HomePage() {
                   </select>
                 </div>
                 <div>
-                  <textarea placeholder="Message (optional)" rows={4} className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white resize-none"></textarea>
+                  <textarea placeholder="Message (optional)" rows={4} className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-teal transition-shadow bg-slate-50 resize-none text-brand-navy"></textarea>
                 </div>
-                <button type="button" className="w-full py-4 bg-brand-navy text-white font-bold rounded-xl hover:bg-brand-teal transition-colors shadow-lg flex items-center justify-center gap-2">
+                <button type="button" className="w-full py-4 bg-brand-teal text-white text-lg font-bold rounded-xl hover:bg-brand-teal/90 transition-colors shadow-lg flex items-center justify-center gap-2 mt-4">
                   Request a Call Back <ChevronRight className="w-5 h-5" />
                 </button>
                 <p className="text-xs text-brand-text-muted text-center mt-4">By submitting you agree to be contacted about your enquiry. We never sell your data.</p>
@@ -529,7 +528,7 @@ export default function HomePage() {
       </section>
 
       {/* 11. FINAL CTA */}
-      <section className="bg-brand-teal py-20 md:py-32 text-center text-white relative overflow-hidden">
+      <section className="bg-gradient-to-b from-brand-navy to-[#18181b] py-20 md:py-32 text-center text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none flex justify-center items-center">
            <div className="w-[100vw] h-[100vw] max-w-[800px] max-h-[800px] rounded-full border-[1px] border-white absolute"></div>
            <div className="w-[150vw] h-[150vw] max-w-[1200px] max-h-[1200px] rounded-full border-[1px] border-white absolute"></div>
@@ -539,7 +538,7 @@ export default function HomePage() {
           <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
             Book a free, no-obligation assessment and we’ll show you what’s possible — and how much you could save.
           </p>
-          <Link href="#contact" className="gsap-hero-el inline-flex items-center justify-center h-14 md:h-16 px-10 md:px-12 bg-white text-brand-navy text-lg font-bold rounded-full hover:bg-brand-navy hover:text-white transition-all shadow-xl hover:-translate-y-1">
+          <Link href="#contact" className="gsap-hero-el inline-flex items-center justify-center h-14 md:h-16 px-10 md:px-12 bg-white text-brand-navy text-lg font-bold rounded-full hover:bg-brand-teal hover:text-white transition-all shadow-xl hover:-translate-y-1">
             Book a Free Assessment
           </Link>
         </div>

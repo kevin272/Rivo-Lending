@@ -111,7 +111,7 @@ export default function FaqsPage() {
         </div>
       </section>
 
-      <div className="py-12 bg-slate-50 border-t border-slate-100 max-w-7xl mx-auto">
+      <div className="py-12 bg-slate-50 border-t border-slate-100 max-w-[90rem] 2xl:max-w-[120rem] mx-auto">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Categories */}
