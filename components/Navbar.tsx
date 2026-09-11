@@ -66,7 +66,7 @@ export function Navbar() {
         </Link>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
         <div className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-16' : 'h-20 lg:h-28'}`}>
           {/* Left: Logo */}
           <Link href="/" className="flex-shrink-0 relative z-50 flex items-center">

@@ -168,7 +168,7 @@ export default function ServicesPage() {
 
       {/* SERVICES GRID SECTION */}
       <div className="py-24 bg-white relative border-y border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="font-sans text-4xl md:text-5xl text-brand-navy mb-6">Home Loan Solutions for Every Journey</h2>
             <p className="text-brand-text-muted text-lg leading-relaxed">
@@ -202,7 +202,7 @@ export default function ServicesPage() {
 
       {/* WHAT YOU NEED TO PREPARE SECTION */}
       <div className="py-24 bg-brand-soft-teal">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             
             {/* Left Content */}

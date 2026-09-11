@@ -139,7 +139,7 @@ export default function ContactPage() {
       </section>
 
       {/* CONTACT FORM & INFO */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 pb-24">
+      <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-20 pb-24">
 
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

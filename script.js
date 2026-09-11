@@ -1,0 +1,1 @@
+const fs = require('fs'); const content = fs.readFileSync('app/services/[slug]/page.tsx', 'utf8'); const regex = /^[ \t]+"([a-z0-9-]+)": \{/gm; let match; while ((match = regex.exec(content)) !== null) { console.log(match[1]); }
