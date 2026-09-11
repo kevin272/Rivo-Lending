@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { CheckCircle2 } from "lucide-react";
+import { submitWeb3Form } from "@/lib/web3forms";
 
 const formSchema = z.object({
   firstName: z.string().min(2, { message: "First name is required." }),
@@ -20,6 +21,7 @@ const formSchema = z.object({
 export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -27,12 +29,18 @@ export default function ContactSection() {
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    reset();
-    setTimeout(() => setIsSuccess(false), 5000);
+    setSubmitError(null);
+
+    try {
+      await submitWeb3Form(data, "New contact request from Rivo Lending");
+      setIsSuccess(true);
+      reset();
+      setTimeout(() => setIsSuccess(false), 5000);
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : "We couldn't send your request. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -132,6 +140,7 @@ export default function ContactSection() {
               >
                 {isSubmitting ? "Sending..." : "Request Assessment"}
               </button>
+              {submitError && <p className="text-red-600 text-sm text-center">{submitError}</p>}
             </form>
           )}
         </motion.div>

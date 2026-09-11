@@ -11,14 +11,18 @@ if (typeof window !== "undefined") {
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type FormEvent } from "react";
 import { ArrowRight, Home, RefreshCcw, TrendingUp, Tractor, Landmark, CreditCard, Stethoscope, ChevronRight, CheckCircle2, FileText, Handshake, HeartHandshake, PhoneCall, Star, Plus, Minus, Users, Key, FileCheck, User, Building2, Briefcase, Car, Layers, Clock, ShieldCheck, MapPin, Phone, Mail, HeartPulse } from "lucide-react";
 import { RibbonStripes } from "@/components/RibbonStripes";
+import { submitWeb3Form } from "@/lib/web3forms";
 
 export default function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [currentVideoIdx, setCurrentVideoIdx] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const heroVideos = [
     "/herovideo/1.mp4",
     "/herovideo/2.mp4",
@@ -27,6 +31,26 @@ export default function HomePage() {
 
   const handleVideoEnded = () => {
     setCurrentVideoIdx((prev) => (prev + 1) % heroVideos.length);
+  };
+
+  const handleContactSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const fields = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
+
+    setIsSubmitting(true);
+    setIsSuccess(false);
+    setSubmitError(null);
+
+    try {
+      await submitWeb3Form(fields, "New callback request from Rivo Lending");
+      form.reset();
+      setIsSuccess(true);
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : "We couldn't send your request. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
     useGSAP(() => {
@@ -466,16 +490,16 @@ export default function HomePage() {
             </div>
 
             <div className="bg-brand-warm p-6 md:p-12 rounded-[2rem] border border-slate-100 shadow-lg">
-              <form className="space-y-6">
+              <form onSubmit={handleContactSubmit} className="space-y-6">
                 <div>
-                  <input type="text" placeholder="Full name" className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white" />
+                  <input name="name" type="text" placeholder="Full name" required className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white" />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
-                  <input type="tel" placeholder="Phone" className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white" />
-                  <input type="email" placeholder="Email" className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white" />
+                  <input name="phone" type="tel" placeholder="Phone" required className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white" />
+                  <input name="email" type="email" placeholder="Email" required className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white" />
                 </div>
                 <div>
-                  <select className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white text-brand-navy/70 appearance-none">
+                  <select name="loanPurpose" className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white text-brand-navy/70 appearance-none">
                     <option value="">I&apos;m looking to…</option>
                     <option value="first">Buy my first home</option>
                     <option value="upgrade">Buy a home (upgrade/owner-occupier)</option>
@@ -486,11 +510,13 @@ export default function HomePage() {
                   </select>
                 </div>
                 <div>
-                  <textarea placeholder="Message (optional)" rows={4} className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white resize-none"></textarea>
+                  <textarea name="message" placeholder="Message (optional)" rows={4} className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white resize-none"></textarea>
                 </div>
-                <button type="button" className="w-full py-4 bg-brand-navy text-white font-bold rounded-xl hover:bg-brand-teal transition-colors shadow-lg flex items-center justify-center gap-2">
-                  Request a Call Back <ChevronRight className="w-5 h-5" />
+                <button type="submit" disabled={isSubmitting} className="w-full py-4 bg-brand-navy text-white font-bold rounded-xl hover:bg-brand-teal transition-colors shadow-lg flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
+                  {isSubmitting ? "Sending..." : "Request a Call Back"} {!isSubmitting && <ChevronRight className="w-5 h-5" />}
                 </button>
+                {isSuccess && <p className="text-sm text-teal-700 text-center">Thanks, your request has been sent. We&apos;ll be in touch shortly.</p>}
+                {submitError && <p className="text-sm text-red-600 text-center">{submitError}</p>}
                 <p className="text-xs text-brand-text-muted text-center mt-4">By submitting you agree to be contacted about your enquiry. We never sell your data.</p>
               </form>
             </div>
