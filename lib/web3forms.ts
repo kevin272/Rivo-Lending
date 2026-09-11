@@ -2,13 +2,34 @@ export async function submitWeb3Form(
   fields: Record<string, string | undefined>,
   subject: string,
 ) {
-  const response = await fetch("/api/contact", {
+  const configResponse = await fetch("/api/contact");
+  const configText = await configResponse.text();
+  let config: { accessKey?: string; message?: string };
+
+  try {
+    config = configText
+      ? JSON.parse(configText) as { accessKey?: string; message?: string }
+      : { message: "Web3Forms configuration returned an empty response." };
+  } catch {
+    throw new Error("Web3Forms configuration returned an invalid response.");
+  }
+
+  if (!configResponse.ok || !config.accessKey) {
+    throw new Error(config.message || "Web3Forms access key is not configured.");
+  }
+
+  const response = await fetch("https://api.web3forms.com/submit", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
-    body: JSON.stringify({ subject, ...fields }),
+    body: JSON.stringify({
+      access_key: config.accessKey,
+      subject,
+      from_name: "Rivo Lending website",
+      ...fields,
+    }),
   });
 
   const responseText = await response.text();

@@ -2,6 +2,19 @@ import { NextResponse } from "next/server";
 
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
+export function GET() {
+  const accessKey = process.env.web3forms_access_key;
+
+  if (!accessKey) {
+    return NextResponse.json(
+      { message: "Web3Forms access key is not configured." },
+      { status: 500 },
+    );
+  }
+
+  return NextResponse.json({ accessKey });
+}
+
 export async function POST(request: Request) {
   const accessKey = process.env.web3forms_access_key;
 
