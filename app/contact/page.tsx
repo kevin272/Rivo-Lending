@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { CheckCircle2, Phone, Mail, MapPin, ChevronDown } from "lucide-react";
 import { submitWeb3Form } from "@/lib/web3forms";
+import { Toast } from "@/components/Toast";
 
 const formSchema = z.object({
   firstName: z.string().min(2, { message: "First name is required." }),
@@ -57,6 +58,7 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -69,10 +71,13 @@ export default function ContactPage() {
     try {
       await submitWeb3Form(data, "New contact request from Rivo Lending");
       setIsSuccess(true);
+      setToast({ message: "Your request has been sent successfully.", type: "success" });
       reset();
       setTimeout(() => setIsSuccess(false), 5000);
     } catch (error) {
-      setSubmitError(error instanceof Error ? error.message : "We couldn't send your request. Please try again.");
+      const message = error instanceof Error ? error.message : "We couldn't send your request. Please try again.";
+      setSubmitError(message);
+      setToast({ message, type: "error" });
     } finally {
       setIsSubmitting(false);
     }
@@ -80,6 +85,7 @@ export default function ContactPage() {
 
   return (
     <div className="bg-white min-h-screen overflow-x-hidden relative">
+      {toast && <Toast {...toast} onDismiss={() => setToast(null)} />}
       
       {/* GLOBAL CONTINUOUS ORGANIC SIDEBAR */}
       <div className="hidden lg:block absolute left-0 top-0 w-full h-[1400px] z-10 pointer-events-none overflow-hidden">

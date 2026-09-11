@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { CheckCircle2 } from "lucide-react";
 import { submitWeb3Form } from "@/lib/web3forms";
+import { Toast } from "@/components/Toast";
 
 const formSchema = z.object({
   firstName: z.string().min(2, { message: "First name is required." }),
@@ -22,6 +23,7 @@ export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -34,10 +36,13 @@ export default function ContactSection() {
     try {
       await submitWeb3Form(data, "New contact request from Rivo Lending");
       setIsSuccess(true);
+      setToast({ message: "Your request has been sent successfully.", type: "success" });
       reset();
       setTimeout(() => setIsSuccess(false), 5000);
     } catch (error) {
-      setSubmitError(error instanceof Error ? error.message : "We couldn't send your request. Please try again.");
+      const message = error instanceof Error ? error.message : "We couldn't send your request. Please try again.";
+      setSubmitError(message);
+      setToast({ message, type: "error" });
     } finally {
       setIsSubmitting(false);
     }
@@ -45,6 +50,7 @@ export default function ContactSection() {
 
   return (
     <section className="py-24 bg-white border-t border-slate-200">
+      {toast && <Toast {...toast} onDismiss={() => setToast(null)} />}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="font-sans text-3xl md:text-4xl font-bold text-brand-navy mb-4">Ready to get started?</h2>

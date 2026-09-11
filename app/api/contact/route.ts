@@ -27,6 +27,19 @@ export async function POST(request: Request) {
     }),
   });
 
-  const result = await response.json() as { success?: boolean; message?: string };
-  return NextResponse.json(result, { status: response.status });
+  const responseText = await response.text();
+  let result: { success?: boolean; message?: string };
+
+  try {
+    result = responseText
+      ? JSON.parse(responseText) as { success?: boolean; message?: string }
+      : { success: false, message: "Web3Forms returned an empty response." };
+  } catch {
+    result = {
+      success: false,
+      message: responseText || "Web3Forms returned an invalid response.",
+    };
+  }
+
+  return NextResponse.json(result, { status: response.ok ? 200 : response.status });
 }

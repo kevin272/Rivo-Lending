@@ -15,6 +15,7 @@ import { useState, useEffect, useRef, type FormEvent } from "react";
 import { ArrowRight, Home, RefreshCcw, TrendingUp, Tractor, Landmark, CreditCard, Stethoscope, ChevronRight, CheckCircle2, FileText, Handshake, HeartHandshake, PhoneCall, Star, Plus, Minus, Users, Key, FileCheck, User, Building2, Briefcase, Car, Layers, Clock, ShieldCheck, MapPin, Phone, Mail, HeartPulse } from "lucide-react";
 import { RibbonStripes } from "@/components/RibbonStripes";
 import { submitWeb3Form } from "@/lib/web3forms";
+import { Toast } from "@/components/Toast";
 
 export default function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -23,6 +24,7 @@ export default function HomePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
   const heroVideos = [
     "/herovideo/1.mp4",
     "/herovideo/2.mp4",
@@ -46,8 +48,11 @@ export default function HomePage() {
       await submitWeb3Form(fields, "New callback request from Rivo Lending");
       form.reset();
       setIsSuccess(true);
+      setToast({ message: "Your callback request has been sent successfully.", type: "success" });
     } catch (error) {
-      setSubmitError(error instanceof Error ? error.message : "We couldn't send your request. Please try again.");
+      const message = error instanceof Error ? error.message : "We couldn't send your request. Please try again.";
+      setSubmitError(message);
+      setToast({ message, type: "error" });
     } finally {
       setIsSubmitting(false);
     }
@@ -171,6 +176,7 @@ export default function HomePage() {
 
   return (
     <div ref={containerRef} className="flex flex-col font-sans overflow-x-hidden bg-brand-warm">
+      {toast && <Toast {...toast} onDismiss={() => setToast(null)} />}
             {/* 1. HERO */}
       <section id="top" className="relative h-[450px] md:h-[calc(100vh-7rem)] mt-[124px] md:mt-28 min-h-[400px] md:min-h-[600px] flex items-center overflow-hidden bg-brand-teal">
         
