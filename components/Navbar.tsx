@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, ChevronDown, Facebook, Instagram, Linkedin } from "lucide-react";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,6 +23,7 @@ export function Navbar() {
   const mainLinks = [
     { name: "Why Rivo", href: "/about" },
     { name: "How It Works", href: "/how-it-works" },
+    { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -66,7 +67,7 @@ export function Navbar() {
         </Link>
       </div>
 
-      <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+      <div className="max-w-[90rem] 2xl:max-w-[120rem] 3xl:max-w-[140rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
         <div className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-16' : 'h-20 lg:h-28'}`}>
           {/* Left: Logo */}
           <Link href="/" className="flex-shrink-0 relative z-50 flex items-center">
@@ -110,9 +111,38 @@ export function Navbar() {
               <Link href="tel:0451178375" className="flex items-center gap-2 text-brand-navy font-semibold text-sm hover:text-brand-teal transition-colors">
                 <Phone className="w-4 h-4" /> 0451 178 375
               </Link>
-              <Link href="#" className="w-7 h-7 rounded-full border border-brand-navy flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-colors text-xs font-bold">
-                in
-              </Link>
+              <div className="flex items-center gap-1.5">
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  title="Facebook"
+                  className="w-7 h-7 rounded-full border border-brand-navy flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-all text-xs"
+                >
+                  <Facebook className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  title="Instagram"
+                  className="w-7 h-7 rounded-full border border-brand-navy flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-all text-xs"
+                >
+                  <Instagram className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  title="LinkedIn"
+                  className="w-7 h-7 rounded-full border border-brand-navy flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-all text-xs"
+                >
+                  <Linkedin className="w-3.5 h-3.5" />
+                </a>
+              </div>
               <Link href="/contact" className="px-5 py-1.5 bg-[#4673A6] text-white text-sm font-bold rounded-full hover:bg-[#365b92] transition-colors ml-2">
                 Free Assessment
               </Link>
@@ -262,6 +292,38 @@ export function Navbar() {
               ))}
 
               <div className="mt-6 flex flex-col gap-4 px-4">
+                <div className="flex items-center justify-center gap-3 py-1">
+                  <a
+                    href="https://facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                    title="Facebook"
+                    className="w-9 h-9 rounded-full border border-brand-navy flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-all"
+                  >
+                    <Facebook className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    title="Instagram"
+                    className="w-9 h-9 rounded-full border border-brand-navy flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-all"
+                  >
+                    <Instagram className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    title="LinkedIn"
+                    className="w-9 h-9 rounded-full border border-brand-navy flex items-center justify-center text-brand-navy hover:bg-brand-navy hover:text-white transition-all"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                  </a>
+                </div>
                 <Link href="tel:0451178375" className="flex items-center justify-center gap-2 px-6 py-4 bg-slate-100 text-brand-navy font-bold rounded-xl" onClick={() => setIsOpen(false)}>
                   <Phone className="w-5 h-5" /> 0451 178 375
                 </Link>

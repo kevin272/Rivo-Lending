@@ -49,12 +49,12 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="py-24 bg-white border-t border-slate-200">
+    <section className="py-24 2xl:py-32 bg-white border-t border-slate-200">
       {toast && <Toast {...toast} onDismiss={() => setToast(null)} />}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="font-sans text-3xl md:text-4xl font-bold text-brand-navy mb-4">Ready to get started?</h2>
-          <p className="text-slate-600 text-lg">Fill out the form below and one of our mortgage specialists will be in touch shortly.</p>
+      <div className="max-w-4xl 2xl:max-w-5xl 3xl:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+        <div className="text-center mb-12 2xl:mb-16">
+          <h2 className="font-sans text-3xl md:text-4xl 2xl:text-5xl font-bold text-brand-navy mb-4">Ready to get started?</h2>
+          <p className="text-slate-600 text-lg 2xl:text-xl">Fill out the form below and one of our mortgage specialists will be in touch shortly.</p>
         </div>
 
         <motion.div 
@@ -76,7 +76,7 @@ export default function ContactSection() {
                   <label className="text-sm font-semibold text-brand-navy">First Name <span className="text-red-500">*</span></label>
                   <input 
                     {...register("firstName")}
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-shadow bg-slate-50"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 shadow-xs focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-brand-teal transition-all bg-white text-brand-navy placeholder:text-slate-400"
                     placeholder="John"
                   />
                   {errors.firstName && <p className="text-red-500 text-xs">{errors.firstName.message}</p>}
@@ -85,7 +85,7 @@ export default function ContactSection() {
                   <label className="text-sm font-semibold text-brand-navy">Last Name <span className="text-red-500">*</span></label>
                   <input 
                     {...register("lastName")}
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-shadow bg-slate-50"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 shadow-xs focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-brand-teal transition-all bg-white text-brand-navy placeholder:text-slate-400"
                     placeholder="Doe"
                   />
                   {errors.lastName && <p className="text-red-500 text-xs">{errors.lastName.message}</p>}
@@ -97,7 +97,7 @@ export default function ContactSection() {
                   <label className="text-sm font-semibold text-brand-navy">Email Address <span className="text-red-500">*</span></label>
                   <input 
                     {...register("email")}
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-shadow bg-slate-50"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 shadow-xs focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-brand-teal transition-all bg-white text-brand-navy placeholder:text-slate-400"
                     placeholder="john@example.com"
                   />
                   {errors.email && <p className="text-red-500 text-xs">{errors.email.message}</p>}
@@ -106,7 +106,7 @@ export default function ContactSection() {
                   <label className="text-sm font-semibold text-brand-navy">Phone Number <span className="text-red-500">*</span></label>
                   <input 
                     {...register("phone")}
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-shadow bg-slate-50"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 shadow-xs focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-brand-teal transition-all bg-white text-brand-navy placeholder:text-slate-400"
                     placeholder="0451 178 375"
                   />
                   {errors.phone && <p className="text-red-500 text-xs">{errors.phone.message}</p>}
@@ -117,7 +117,7 @@ export default function ContactSection() {
                 <label className="text-sm font-semibold text-brand-navy">What are you looking to do? <span className="text-red-500">*</span></label>
                 <select 
                   {...register("loanPurpose")}
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-shadow bg-slate-50 appearance-none"
+                  className="w-full px-4 py-3 rounded-lg border border-slate-300 shadow-xs focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-brand-teal transition-all bg-white appearance-none text-brand-navy"
                 >
                   <option value="">Select an option</option>
                   <option value="first-home">Buy my first home</option>
@@ -134,7 +134,7 @@ export default function ContactSection() {
                 <textarea 
                   {...register("message")}
                   rows={4}
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-shadow bg-slate-50 resize-none"
+                  className="w-full px-4 py-3 rounded-lg border border-slate-300 shadow-xs focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-brand-teal transition-all bg-white resize-none text-brand-navy placeholder:text-slate-400"
                   placeholder="Tell us a bit about your situation..."
                 />
               </div>

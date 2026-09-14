@@ -227,8 +227,8 @@ export default function HomePage() {
         </div>
 
         {/* Content Container */}
-        <div className="w-full max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 relative z-20 h-full flex flex-col justify-center pb-8 md:pb-20">
-          <div className="w-full max-w-3xl">
+        <div className="w-full max-w-[90rem] 2xl:max-w-[120rem] 3xl:max-w-[140rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 relative z-20 h-full flex flex-col justify-center pb-8 md:pb-20">
+          <div className="w-full max-w-3xl 2xl:max-w-4xl 3xl:max-w-5xl">
             {/* Left Content */}
             <motion.div 
               initial={{ opacity: 0, x: -30 }} 
@@ -236,15 +236,15 @@ export default function HomePage() {
               transition={{ duration: 0.8, ease: "easeOut" }} 
               className="w-full text-left"
             >
-              <h1 className="font-sans text-4xl sm:text-6xl lg:text-[75px] text-white leading-[1.05] font-black tracking-tighter drop-shadow-md">
+              <h1 className="font-sans text-4xl sm:text-6xl lg:text-[75px] 2xl:text-[90px] 3xl:text-[104px] text-white leading-[1.05] font-black tracking-tighter drop-shadow-md">
                 Unlock your<br/>
                 next move.
               </h1>
               <div className="mt-8 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-                <Link href="/contact" className="px-8 py-3.5 bg-brand-navy text-white text-sm font-bold rounded-full hover:bg-[#1a4470] transition-colors shadow-xl uppercase tracking-wider">
+                <Link href="/contact" className="px-8 py-3.5 2xl:px-10 2xl:py-4 bg-brand-navy text-white text-sm 2xl:text-base font-bold rounded-full hover:bg-[#1a4470] transition-colors shadow-xl uppercase tracking-wider">
                   Free Assessment
                 </Link>
-                <Link href="/services" className="px-8 py-3.5 bg-transparent border-2 border-white text-white text-sm font-bold rounded-full hover:bg-white hover:text-brand-navy transition-colors shadow-xl uppercase tracking-wider">
+                <Link href="/services" className="px-8 py-3.5 2xl:px-10 2xl:py-4 bg-transparent border-2 border-white text-white text-sm 2xl:text-base font-bold rounded-full hover:bg-white hover:text-brand-navy transition-colors shadow-xl uppercase tracking-wider">
                   Our Services
                 </Link>
               </div>
@@ -280,19 +280,19 @@ export default function HomePage() {
       </section>
 
       {/* 3. SERVICES OVERVIEW */}
-      <section id="services" className="py-24 bg-white border-y border-slate-100 relative">
+      <section id="services" className="py-24 2xl:py-32 bg-white border-y border-slate-100 relative">
         <RibbonStripes position="right" />
-        <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <p className="gsap-hero-el text-brand-teal font-bold tracking-widest text-xs uppercase mb-4">Our Services</p>
-            <h2 className="font-sans text-3xl md:text-5xl text-brand-navy mb-6">Home Loan Solutions for Every Journey</h2>
+        <div className="max-w-[90rem] 2xl:max-w-[120rem] 3xl:max-w-[140rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
+          <div className="text-center max-w-3xl 2xl:max-w-4xl mx-auto mb-16 2xl:mb-20">
+            <p className="gsap-hero-el text-brand-teal font-bold tracking-widest text-xs 2xl:text-sm uppercase mb-4">Our Services</p>
+            <h2 className="font-sans text-3xl md:text-5xl 2xl:text-6xl text-brand-navy mb-6">Home Loan Solutions for Every Journey</h2>
             <div className="w-16 h-1 bg-brand-teal mx-auto mb-6"></div>
-            <p className="text-brand-text-muted text-lg leading-relaxed">
+            <p className="text-brand-text-muted text-lg 2xl:text-xl leading-relaxed">
               We provide extensive assistance for all your financing requirements. Regardless of your situation, our skilled team is dedicated to identifying the right options for you.
             </p>
           </div>
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 3xl:grid-cols-5 gap-6">
             {[
               { title: "Home Loans", description: "Find the perfect home loan with competitive rates and flexible features to suit your lifestyle.", img: "https://images.pexels.com/photos/32269918/pexels-photo-32269918.jpeg?auto=compress&cs=tinysrgb&h=350", href: "/services/home-loans" },
               { title: "First Home Buyers", description: "Take your first step on the property ladder with expert guidance and tailored financing options.", img: "https://images.pexels.com/photos/8482895/pexels-photo-8482895.jpeg?auto=compress&cs=tinysrgb&h=350", href: "/services/first-home-buyers" },
@@ -312,10 +312,10 @@ export default function HomePage() {
               <Link 
                 key={idx} 
                 href={service.href} 
-                className="gsap-service-card group bg-white border border-slate-200 hover:border-brand-teal hover:shadow-lg flex flex-col items-start transition-all duration-300 rounded-[1.25rem] overflow-hidden"
+                className="gsap-service-card group bg-white border border-slate-200 hover:border-brand-teal hover:shadow-xl hover:-translate-y-1 flex flex-col items-start transition-all duration-300 rounded-[1.25rem] overflow-hidden"
               >
-                <div className="relative w-full h-48 sm:h-56 [perspective:1000px]">
-                  <Image src={service.img} alt={service.title} fill className="object-cover transition-transform duration-700 group-hover:[transform:rotateY(180deg)]" unoptimized referrerPolicy="no-referrer" />
+                <div className="relative w-full h-48 sm:h-56 overflow-hidden">
+                  <Image src={service.img} alt={service.title} fill className="object-cover transition-transform duration-500 ease-out group-hover:scale-105" unoptimized referrerPolicy="no-referrer" />
                 </div>
                 <div className="p-6 md:p-8 flex flex-col flex-grow w-full">
                   <h4 className="font-sans text-xl text-slate-500 mb-3 transition-colors group-hover:text-brand-teal">{service.title}</h4>
@@ -337,46 +337,46 @@ export default function HomePage() {
         <RibbonStripes position="left" />
 
         {/* 4. WHY RIVO */}
-        <section id="why" className="py-24 bg-gradient-to-b from-brand-teal-light to-brand-teal text-white border-y border-brand-teal">
-          <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
-            <div className="text-center mb-16">
-            <p className="gsap-hero-el text-white/90 font-bold tracking-widest text-xs uppercase mb-4">Our promise to you</p>
-            <h2 className="font-sans text-4xl md:text-5xl text-white mb-6 leading-[1.15]">Smart technology, old-fashioned service</h2>
+        <section id="why" className="py-24 2xl:py-32 bg-gradient-to-b from-brand-teal-light to-brand-teal text-white border-y border-brand-teal">
+          <div className="max-w-[90rem] 2xl:max-w-[120rem] 3xl:max-w-[140rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
+            <div className="text-center mb-16 2xl:mb-20">
+            <p className="gsap-hero-el text-white/90 font-bold tracking-widest text-xs 2xl:text-sm uppercase mb-4">Our promise to you</p>
+            <h2 className="font-sans text-4xl md:text-5xl 2xl:text-6xl text-white mb-6 leading-[1.15]">Smart technology, old-fashioned service</h2>
             <div className="w-16 h-1 bg-white/50 mx-auto"></div>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
+          <div className="grid md:grid-cols-3 gap-12 lg:gap-16 max-w-7xl 3xl:max-w-[110rem] mx-auto">
             <div className="gsap-why-item flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-white border border-slate-100 shadow-sm rounded-full flex items-center justify-center text-brand-teal mb-6"><Clock className="w-8 h-8" /></div>
-              <h4 className="font-bold text-2xl text-white mb-4">Hours, not days</h4>
-              <p className="text-white/80 leading-relaxed">A digital-first process means less paperwork and faster approvals - so you can move quickly on the right property.</p>
+              <div className="w-16 h-16 2xl:w-20 2xl:h-20 bg-white border border-slate-100 shadow-sm rounded-full flex items-center justify-center text-brand-teal mb-6"><Clock className="w-8 h-8 2xl:w-10 2xl:h-10" /></div>
+              <h4 className="font-bold text-2xl 2xl:text-3xl text-white mb-4">Hours, not days</h4>
+              <p className="text-white/80 2xl:text-lg leading-relaxed">A digital-first process means less paperwork and faster approvals - so you can move quickly on the right property.</p>
             </div>
             <div className="gsap-why-item flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-white border border-slate-100 shadow-sm rounded-full flex items-center justify-center text-brand-teal mb-6"><ShieldCheck className="w-8 h-8" /></div>
-              <h4 className="font-bold text-2xl text-white mb-4">Tailored strategy</h4>
-              <p className="text-white/80 leading-relaxed">We don't just quote rates. We analyse your goals and structure a loan that genuinely fits - and grows with you.</p>
+              <div className="w-16 h-16 2xl:w-20 2xl:h-20 bg-white border border-slate-100 shadow-sm rounded-full flex items-center justify-center text-brand-teal mb-6"><ShieldCheck className="w-8 h-8 2xl:w-10 2xl:h-10" /></div>
+              <h4 className="font-bold text-2xl 2xl:text-3xl text-white mb-4">Tailored strategy</h4>
+              <p className="text-white/80 2xl:text-lg leading-relaxed">We don't just quote rates. We analyse your goals and structure a loan that genuinely fits - and grows with you.</p>
             </div>
             <div className="gsap-why-item flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-white border border-slate-100 shadow-sm rounded-full flex items-center justify-center text-brand-teal mb-6"><CheckCircle2 className="w-8 h-8" /></div>
-              <h4 className="font-bold text-2xl text-white mb-4">Best interests, always</h4>
-              <p className="text-white/80 leading-relaxed">As licensed brokers we're bound by a Best Interests Duty. Our job isn't done at settlement - free annual reviews keep you on the sharpest deal.</p>
+              <div className="w-16 h-16 2xl:w-20 2xl:h-20 bg-white border border-slate-100 shadow-sm rounded-full flex items-center justify-center text-brand-teal mb-6"><CheckCircle2 className="w-8 h-8 2xl:w-10 2xl:h-10" /></div>
+              <h4 className="font-bold text-2xl 2xl:text-3xl text-white mb-4">Best interests, always</h4>
+              <p className="text-white/80 2xl:text-lg leading-relaxed">As licensed brokers we're bound by a Best Interests Duty. Our job isn't done at settlement - free annual reviews keep you on the sharpest deal.</p>
             </div>
           </div>
         </div>
       </section>
 
         {/* 5. HOW IT WORKS */}
-        <section id="process" className="py-24 md:py-32 bg-gradient-to-b from-brand-teal to-brand-teal-light text-white">
-          <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <p className="gsap-hero-el text-white/90 font-bold tracking-widest text-xs uppercase mb-4">How it works</p>
-              <h2 className="font-sans text-4xl md:text-5xl text-white mb-6">Four simple steps to settled</h2>
-              <p className="text-white/80 text-lg">No jargon, no pressure. Just a clear path from first chat to keys in hand.</p>
+        <section id="process" className="py-24 md:py-32 2xl:py-36 bg-gradient-to-b from-brand-teal to-brand-teal-light text-white">
+          <div className="max-w-[90rem] 2xl:max-w-[120rem] 3xl:max-w-[140rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
+            <div className="text-center max-w-3xl 2xl:max-w-4xl mx-auto mb-16 2xl:mb-20">
+              <p className="gsap-hero-el text-white/90 font-bold tracking-widest text-xs 2xl:text-sm uppercase mb-4">How it works</p>
+              <h2 className="font-sans text-4xl md:text-5xl 2xl:text-6xl text-white mb-6">Four simple steps to settled</h2>
+              <p className="text-white/80 text-lg 2xl:text-xl">No jargon, no pressure. Just a clear path from first chat to keys in hand.</p>
             </div>
 
-            <div className="grid md:grid-cols-4 gap-8 relative">
+            <div className="grid md:grid-cols-4 gap-8 2xl:gap-12 relative max-w-7xl 3xl:max-w-[110rem] mx-auto">
               {/* Connecting line */}
-              <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-white/30 -z-10"></div>
+              <div className="hidden md:block absolute top-12 2xl:top-14 left-[10%] right-[10%] h-0.5 bg-white/30 -z-10"></div>
               
               {[
                 { step: 1, title: "Discovery", desc: "We start with you - your income, lifestyle and goals - to understand the full picture." },
@@ -385,11 +385,11 @@ export default function HomePage() {
                 { step: 4, title: "Annual health check", desc: "Every year we review your loan to make sure it's still the best fit as life changes." }
               ].map((item, idx) => (
                 <div key={idx} className="relative text-center">
-                  <div className="gsap-step-bubble w-24 h-24 mx-auto bg-white rounded-full flex items-center justify-center text-3xl font-sans text-brand-teal border-4 border-brand-teal-light/50 shadow-md mb-6 z-10 relative">
+                  <div className="gsap-step-bubble w-24 h-24 2xl:w-28 2xl:h-28 mx-auto bg-white rounded-full flex items-center justify-center text-3xl 2xl:text-4xl font-sans text-brand-teal border-4 border-brand-teal-light/50 shadow-md mb-6 z-10 relative">
                     {item.step}
                   </div>
-                  <h4 className="font-bold text-xl text-white mb-3">{item.title}</h4>
-                  <p className="text-white/80 leading-relaxed text-sm px-4">{item.desc}</p>
+                  <h4 className="font-bold text-xl 2xl:text-2xl text-white mb-3">{item.title}</h4>
+                  <p className="text-white/80 2xl:text-white/90 leading-relaxed text-sm 2xl:text-base px-4">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -398,9 +398,9 @@ export default function HomePage() {
       </div>
 
       {/* 6. STATS STRIP */}
-      <section className="bg-brand-navy py-16 text-center relative overflow-hidden">
-        <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <section className="bg-brand-navy py-16 2xl:py-20 text-center relative overflow-hidden">
+        <div className="max-w-[90rem] 2xl:max-w-[120rem] 3xl:max-w-[140rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 2xl:gap-12">
             {[
               { stat: "30+", label: "Lenders on our panel" },
               { stat: "1000s", label: "Loan products compared" },
@@ -408,8 +408,8 @@ export default function HomePage() {
               { stat: "$0", label: "Cost to you*" }
             ].map((item, idx) => (
               <div key={idx} className="flex flex-col items-center">
-                <span className="gsap-stat-num font-sans text-4xl md:text-5xl text-brand-teal mb-2" data-target={item.stat}>{item.stat}</span>
-                <span className="text-white/80 font-bold text-sm uppercase tracking-wider">{item.label}</span>
+                <span className="gsap-stat-num font-sans text-4xl md:text-5xl 2xl:text-6xl text-brand-teal mb-2" data-target={item.stat}>{item.stat}</span>
+                <span className="text-white/80 font-bold text-sm 2xl:text-base uppercase tracking-wider">{item.label}</span>
               </div>
             ))}
           </div>
@@ -418,14 +418,14 @@ export default function HomePage() {
 
 
       {/* 8. TESTIMONIALS */}
-      <section className="py-24 bg-brand-soft-teal/30 relative">
+      <section className="py-24 2xl:py-32 bg-brand-soft-teal/30 relative">
         <RibbonStripes position="right" />
-        <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
-          <div className="text-center mb-16">
-            <p className="gsap-hero-el text-brand-teal font-bold tracking-widest text-xs uppercase mb-4">What our clients say</p>
-            <h2 className="font-sans text-4xl md:text-5xl text-brand-navy">Australians who bought smarter</h2>
+        <div className="max-w-[90rem] 2xl:max-w-[120rem] 3xl:max-w-[140rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
+          <div className="text-center mb-16 2xl:mb-20">
+            <p className="gsap-hero-el text-brand-teal font-bold tracking-widest text-xs 2xl:text-sm uppercase mb-4">What our clients say</p>
+            <h2 className="font-sans text-4xl md:text-5xl 2xl:text-6xl text-brand-navy">Australians who bought smarter</h2>
           </div>
-          <div className="gsap-testimonial-container grid md:grid-cols-3 gap-8">
+          <div className="gsap-testimonial-container grid md:grid-cols-3 gap-8 2xl:gap-10">
             {[
               {
                 text: "Rivo found me a loan I didn’t think I’d qualify for and made my first home feel achievable. Clear advice the whole way.",
@@ -440,16 +440,16 @@ export default function HomePage() {
                 name: "Sarah J.", role: "Self-employed · Manly, NSW", initial: "S"
               }
             ].map((review, idx) => (
-              <div key={idx} className="gsap-testimonial-card bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-100 flex flex-col hover:shadow-lg hover:-translate-y-2 transition-transform duration-300">
+              <div key={idx} className="gsap-testimonial-card bg-white p-6 md:p-8 2xl:p-10 rounded-3xl shadow-sm border border-slate-100 flex flex-col hover:shadow-lg hover:-translate-y-2 transition-transform duration-300">
                 <div className="flex gap-1 mb-6">
                   {[1,2,3,4,5].map(s => <Star key={s} className="w-4 h-4 fill-brand-teal text-brand-teal" />)}
                 </div>
-                <p className="text-brand-text-muted italic mb-8 flex-grow leading-relaxed font-sans text-lg">&quot;{review.text}&quot;</p>
+                <p className="text-brand-text-muted italic mb-8 flex-grow leading-relaxed font-sans text-lg 2xl:text-xl">&quot;{review.text}&quot;</p>
                 <div className="flex items-center gap-4 border-t border-slate-100 pt-6">
-                  <div className="w-10 h-10 rounded-full bg-brand-navy text-white flex items-center justify-center font-sans text-lg">{review.initial}</div>
+                  <div className="w-10 h-10 2xl:w-12 2xl:h-12 rounded-full bg-brand-navy text-white flex items-center justify-center font-sans text-lg 2xl:text-xl">{review.initial}</div>
                   <div>
-                    <p className="font-bold text-brand-navy">{review.name}</p>
-                    <p className="text-xs text-brand-text-muted uppercase tracking-wider mt-1">{review.role}</p>
+                    <p className="font-bold text-brand-navy 2xl:text-lg">{review.name}</p>
+                    <p className="text-xs 2xl:text-sm text-brand-text-muted uppercase tracking-wider mt-1">{review.role}</p>
                   </div>
                 </div>
               </div>
@@ -459,52 +459,52 @@ export default function HomePage() {
       </section>
 
       {/* 9. CONTACT FORM */}
-      <section id="contact" className="py-24 md:py-32 bg-white relative">
+      <section id="contact" className="py-24 md:py-32 2xl:py-36 bg-white relative">
         <RibbonStripes position="left" />
-        <div className="max-w-[90rem] 2xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
+        <div className="max-w-[90rem] 2xl:max-w-[120rem] 3xl:max-w-[140rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 2xl:gap-24 items-center">
             <div>
-              <p className="gsap-hero-el text-brand-teal font-bold tracking-widest text-xs uppercase mb-4">Let’s talk</p>
-              <h2 className="font-sans text-4xl md:text-5xl text-brand-navy mb-6">Request a free call back</h2>
-              <p className="text-brand-text-muted text-lg leading-relaxed mb-10">
+              <p className="gsap-hero-el text-brand-teal font-bold tracking-widest text-xs 2xl:text-sm uppercase mb-4">Let’s talk</p>
+              <h2 className="font-sans text-4xl md:text-5xl 2xl:text-6xl text-brand-navy mb-6">Request a free call back</h2>
+              <p className="text-brand-text-muted text-lg 2xl:text-xl leading-relaxed mb-10">
                 Whether you’re buying your first home, refinancing or investing, send your details and we’ll call you to talk through your options — no obligation.
               </p>
               <div className="space-y-8">
                 <div className="flex items-start gap-4">
-                  <div className="bg-brand-soft-teal p-3 rounded-xl text-brand-teal"><Phone className="w-6 h-6" /></div>
+                  <div className="bg-brand-soft-teal p-3 2xl:p-4 rounded-xl text-brand-teal"><Phone className="w-6 h-6 2xl:w-7 2xl:h-7" /></div>
                   <div>
-                    <h4 className="font-bold text-lg text-brand-navy">0451 178 375</h4>
-                    <p className="text-brand-text-muted text-sm">Mon–Sat, after-hours by appointment</p>
+                    <h4 className="font-bold text-lg 2xl:text-xl text-brand-navy">0451 178 375</h4>
+                    <p className="text-brand-text-muted text-sm 2xl:text-base">Mon–Sat, after-hours by appointment</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="bg-brand-soft-teal p-3 rounded-xl text-brand-teal"><Mail className="w-6 h-6" /></div>
+                  <div className="bg-brand-soft-teal p-3 2xl:p-4 rounded-xl text-brand-teal"><Mail className="w-6 h-6 2xl:w-7 2xl:h-7" /></div>
                   <div>
-                    <h4 className="font-bold text-lg text-brand-navy">info@rivolending.com.au</h4>
-                    <p className="text-brand-text-muted text-sm">We reply within one business day</p>
+                    <h4 className="font-bold text-lg 2xl:text-xl text-brand-navy">info@rivolending.com.au</h4>
+                    <p className="text-brand-text-muted text-sm 2xl:text-base">We reply within one business day</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="bg-brand-soft-teal p-3 rounded-xl text-brand-teal"><MapPin className="w-6 h-6" /></div>
+                  <div className="bg-brand-soft-teal p-3 2xl:p-4 rounded-xl text-brand-teal"><MapPin className="w-6 h-6 2xl:w-7 2xl:h-7" /></div>
                   <div>
-                    <h4 className="font-bold text-lg text-brand-navy">Sydney, NSW</h4>
-                    <p className="text-brand-text-muted text-sm">Serving clients Australia-wide</p>
+                    <h4 className="font-bold text-lg 2xl:text-xl text-brand-navy">Sydney, NSW</h4>
+                    <p className="text-brand-text-muted text-sm 2xl:text-base">Serving clients Australia-wide</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-brand-warm p-6 md:p-12 rounded-[2rem] border border-slate-100 shadow-lg">
+            <div className="bg-brand-warm p-6 md:p-12 2xl:p-14 rounded-[2rem] border border-slate-100 shadow-lg">
               <form onSubmit={handleContactSubmit} className="space-y-6">
                 <div>
-                  <input name="name" type="text" placeholder="Full name" required className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white" />
+                  <input name="name" type="text" placeholder="Full name" required className="w-full px-5 py-4 rounded-xl border border-slate-300/80 shadow-xs focus:ring-2 focus:ring-brand-teal focus:border-brand-teal focus:outline-none transition-all bg-white text-brand-navy placeholder:text-slate-400" />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
-                  <input name="phone" type="tel" placeholder="Phone" required className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white" />
-                  <input name="email" type="email" placeholder="Email" required className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white" />
+                  <input name="phone" type="tel" placeholder="Phone" required className="w-full px-5 py-4 rounded-xl border border-slate-300/80 shadow-xs focus:ring-2 focus:ring-brand-teal focus:border-brand-teal focus:outline-none transition-all bg-white text-brand-navy placeholder:text-slate-400" />
+                  <input name="email" type="email" placeholder="Email" required className="w-full px-5 py-4 rounded-xl border border-slate-300/80 shadow-xs focus:ring-2 focus:ring-brand-teal focus:border-brand-teal focus:outline-none transition-all bg-white text-brand-navy placeholder:text-slate-400" />
                 </div>
                 <div>
-                  <select name="loanPurpose" className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white text-brand-navy/70 appearance-none">
+                  <select name="loanPurpose" className="w-full px-5 py-4 rounded-xl border border-slate-300/80 shadow-xs focus:ring-2 focus:ring-brand-teal focus:border-brand-teal focus:outline-none transition-all bg-white text-brand-navy/80 appearance-none">
                     <option value="">I&apos;m looking to…</option>
                     <option value="first">Buy my first home</option>
                     <option value="upgrade">Buy a home (upgrade/owner-occupier)</option>
@@ -515,7 +515,7 @@ export default function HomePage() {
                   </select>
                 </div>
                 <div>
-                  <textarea name="message" placeholder="Message (optional)" rows={4} className="w-full px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-brand-teal bg-white resize-none"></textarea>
+                  <textarea name="message" placeholder="Message (optional)" rows={4} className="w-full px-5 py-4 rounded-xl border border-slate-300/80 shadow-xs focus:ring-2 focus:ring-brand-teal focus:border-brand-teal focus:outline-none transition-all bg-white resize-none text-brand-navy placeholder:text-slate-400"></textarea>
                 </div>
                 <button type="submit" disabled={isSubmitting} className="w-full py-4 bg-brand-navy text-white font-bold rounded-xl hover:bg-brand-teal transition-colors shadow-lg flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
                   {isSubmitting ? "Sending..." : "Request a Call Back"} {!isSubmitting && <ChevronRight className="w-5 h-5" />}
@@ -530,25 +530,25 @@ export default function HomePage() {
       </section>
 
       {/* 10. FAQS */}
-      <section id="faq" className="py-24 bg-brand-warm border-t border-slate-200 relative overflow-hidden">
+      <section id="faq" className="py-24 2xl:py-32 bg-brand-warm border-t border-slate-200 relative overflow-hidden">
         <RibbonStripes position="right" />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-4xl 2xl:max-w-5xl 3xl:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <p className="gsap-hero-el text-brand-teal font-bold tracking-widest text-xs uppercase mb-4">Good to know</p>
-            <h2 className="font-sans text-4xl md:text-5xl text-brand-navy mb-4">Frequently asked questions</h2>
+            <p className="gsap-hero-el text-brand-teal font-bold tracking-widest text-xs 2xl:text-sm uppercase mb-4">Good to know</p>
+            <h2 className="font-sans text-4xl md:text-5xl 2xl:text-6xl text-brand-navy mb-4">Frequently asked questions</h2>
           </div>
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
               <div key={idx} className="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
                 <button onClick={() => setOpenFaq(openFaq === idx ? null : idx)} className="w-full flex items-center justify-between text-left py-5 px-6 focus:outline-none group">
-                  <span className="font-bold text-lg text-brand-navy pr-8">{faq.q}</span>
-                  <div className="w-10 h-10 rounded-full bg-brand-warm flex items-center justify-center flex-shrink-0 text-brand-navy group-hover:text-brand-teal transition-colors">
+                  <span className="font-bold text-lg 2xl:text-xl text-brand-navy pr-8">{faq.q}</span>
+                  <div className="w-10 h-10 2xl:w-12 2xl:h-12 rounded-full bg-brand-warm flex items-center justify-center flex-shrink-0 text-brand-navy group-hover:text-brand-teal transition-colors">
                     {openFaq === idx ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                   </div>
                 </button>
                 <AnimatePresence>
                   {openFaq === idx && (
-                    <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="px-6 pb-5 text-brand-text-muted leading-relaxed">
+                    <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="px-6 pb-5 text-brand-text-muted 2xl:text-lg leading-relaxed">
                       {faq.a}
                     </motion.div>
                   )}
@@ -560,17 +560,17 @@ export default function HomePage() {
       </section>
 
       {/* 11. FINAL CTA */}
-      <section className="bg-gradient-to-b from-brand-navy to-[#18181b] py-20 md:py-32 text-center text-white relative overflow-hidden">
+      <section className="bg-gradient-to-b from-brand-navy to-[#18181b] py-20 md:py-32 2xl:py-40 text-center text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none flex justify-center items-center">
-           <div className="w-[100vw] h-[100vw] max-w-[800px] max-h-[800px] rounded-full border-[1px] border-white absolute"></div>
-           <div className="w-[150vw] h-[150vw] max-w-[1200px] max-h-[1200px] rounded-full border-[1px] border-white absolute"></div>
+           <div className="w-[100vw] h-[100vw] max-w-[800px] 2xl:max-w-[1200px] max-h-[800px] 2xl:max-h-[1200px] rounded-full border-[1px] border-white absolute"></div>
+           <div className="w-[150vw] h-[150vw] max-w-[1200px] 2xl:max-w-[1800px] max-h-[1200px] 2xl:max-h-[1800px] rounded-full border-[1px] border-white absolute"></div>
         </div>
-        <div className="relative z-10 px-4 max-w-4xl mx-auto">
-          <h2 className="font-sans text-4xl md:text-5xl lg:text-6xl mb-6 leading-[1.15]">Ready to take the first step?</h2>
-          <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+        <div className="relative z-10 px-4 max-w-4xl 2xl:max-w-5xl 3xl:max-w-6xl mx-auto">
+          <h2 className="font-sans text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl mb-6 leading-[1.15]">Ready to take the first step?</h2>
+          <p className="text-lg md:text-xl 2xl:text-2xl text-white/90 mb-10 max-w-2xl 2xl:max-w-3xl mx-auto">
             Book a free, no-obligation assessment and we’ll show you what’s possible — and how much you could save.
           </p>
-          <Link href="#contact" className="gsap-hero-el inline-flex items-center justify-center h-14 md:h-16 px-10 md:px-12 bg-white text-brand-navy text-lg font-bold rounded-full hover:bg-brand-teal hover:text-white transition-all shadow-xl hover:-translate-y-1">
+          <Link href="#contact" className="gsap-hero-el inline-flex items-center justify-center h-14 md:h-16 2xl:h-18 px-10 md:px-12 2xl:px-14 bg-white text-brand-navy text-lg 2xl:text-xl font-bold rounded-full hover:bg-brand-teal hover:text-white transition-all shadow-xl hover:-translate-y-1">
             Book a Free Assessment
           </Link>
         </div>

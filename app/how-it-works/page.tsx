@@ -70,7 +70,7 @@ export default function HowItWorksPage() {
       
       {/* GLOBAL CONTINUOUS ORGANIC SIDEBAR */}
       <div className="hidden lg:block absolute left-0 top-0 w-full h-[1400px] z-10 pointer-events-none overflow-hidden">
-        <svg viewBox="0 0 1440 1024" className="absolute top-0 left-[-20%] md:left-0 w-[140%] md:w-[60%] h-full opacity-95" preserveAspectRatio="none">
+        <svg viewBox="0 0 1440 1024" className="absolute top-0 left-[-20%] md:left-0 w-[140%] md:w-[60%] lg:w-[45%] xl:w-[38%] 2xl:w-[30%] 3xl:w-[26%] max-w-[820px] h-full opacity-95" preserveAspectRatio="none">
           <path d="M0,0 L800,0 C600,300 900,700 0,950 Z" fill="url(#sidebar-gradient)" />
           <defs>
             <linearGradient id="sidebar-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -82,7 +82,7 @@ export default function HowItWorksPage() {
       </div>
 
       {/* HERO SECTION */}
-      <div className="relative h-[40vh] md:h-[50vh] w-full">
+      <div className="relative h-[40vh] md:h-[50vh] 3xl:h-[55vh] w-full">
          <Image 
            src="https://images.pexels.com/photos/7599735/pexels-photo-7599735.jpeg?auto=compress&cs=tinysrgb&w=1920" 
            alt="Team working" 
@@ -95,32 +95,32 @@ export default function HowItWorksPage() {
 
       {/* MAIN CONTENT SECTION (3-Column Layout) */}
       <section className="relative pb-12 z-20">
-        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 relative pt-4 lg:pt-8">
+        <div className="max-w-[90rem] 2xl:max-w-[120rem] 3xl:max-w-[140rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 relative pt-4 lg:pt-8">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
             
             {/* 1. Left Spacer */}
-            <div className="hidden lg:block lg:w-[28%] xl:w-[28%] flex-shrink-0"></div>
+            <div className="hidden lg:block lg:w-[28%] xl:w-[28%] 2xl:w-[25%] flex-shrink-0"></div>
 
             {/* 2. Middle Text Content */}
-            <div className="w-full lg:w-[42%] xl:w-[42%]">
+            <div className="w-full lg:w-[42%] xl:w-[42%] 2xl:w-[50%]">
                {/* Breadcrumb */}
                <div className="text-[10px] text-slate-500 font-bold tracking-widest uppercase mb-12">
                  <Link href="/" className="hover:text-brand-navy transition-colors pointer-events-auto">HOME</Link> &nbsp;&gt;&nbsp; <span className="text-[#4673A6]">HOW IT WORKS</span>
                </div>
                
-               <h1 className="font-sans text-4xl md:text-5xl lg:text-[56px] font-bold text-brand-navy mb-8 leading-[1.1]">
-                 A clear path to property, minus the stress.
+               <h1 className="font-sans text-4xl md:text-5xl lg:text-[56px] 2xl:text-[64px] font-bold text-brand-navy mb-8 leading-[1.1]">
+                 Finance simplified, every step of the way.
                </h1>
                
-               <div className="space-y-6 text-slate-600 text-base leading-relaxed mb-12">
+               <div className="space-y-6 text-slate-600 text-base leading-relaxed mb-10">
                  <p>
-                   We handle the paperwork, the bank negotiations, and the endless follow-ups. Here is exactly what happens when you work with us.
+                   We know financing can feel overwhelming. That’s why we’ve built a streamlined, four-step journey designed around clarity, communication, and speed.
                  </p>
                </div>
             </div>
             
-            {/* 3. Right Media (Empty for now) */}
-            <div className="w-full lg:w-[30%]"></div>
+            {/* 3. Right Media (Empty) */}
+            <div className="w-full lg:w-[30%] 2xl:w-[25%]"></div>
           </div>
         </div>
       </section>

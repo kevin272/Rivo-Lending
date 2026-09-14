@@ -25,7 +25,7 @@ export default function AboutPage() {
       
       {/* GLOBAL CONTINUOUS ORGANIC SIDEBAR */}
       <div className="hidden lg:block absolute left-0 top-0 w-full h-[1400px] z-10 pointer-events-none overflow-hidden">
-        <svg viewBox="0 0 1440 1024" className="absolute top-0 left-[-20%] md:left-0 w-[140%] md:w-[60%] h-full opacity-95" preserveAspectRatio="none">
+        <svg viewBox="0 0 1440 1024" className="absolute top-0 left-[-20%] md:left-0 w-[140%] md:w-[60%] lg:w-[45%] xl:w-[38%] 2xl:w-[30%] 3xl:w-[26%] max-w-[820px] h-full opacity-95" preserveAspectRatio="none">
           <path d="M0,0 L800,0 C600,300 900,700 0,950 Z" fill="url(#sidebar-gradient)" />
           <defs>
             <linearGradient id="sidebar-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -37,7 +37,7 @@ export default function AboutPage() {
       </div>
 
       {/* HERO SECTION */}
-      <div className="relative h-[40vh] md:h-[50vh] w-full">
+      <div className="relative h-[40vh] md:h-[50vh] 3xl:h-[55vh] w-full">
          <Image 
            src="https://images.pexels.com/photos/8730057/pexels-photo-8730057.jpeg?auto=compress&cs=tinysrgb&w=1920" 
            alt="Rivo Lending Team" 
@@ -50,14 +50,14 @@ export default function AboutPage() {
 
       {/* MAIN CONTENT SECTION (3-Column Layout) */}
       <section className="relative pb-24 z-20">
-        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 relative pt-4 lg:pt-8">
+        <div className="max-w-[90rem] 2xl:max-w-[120rem] 3xl:max-w-[140rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 relative pt-4 lg:pt-8">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
             
-            {/* 1. Left Spacer (matches blue triangle width on desktop) */}
-            <div className="hidden lg:block lg:w-[28%] xl:w-[28%] flex-shrink-0"></div>
+            {/* 1. Left Spacer */}
+            <div className="hidden lg:block lg:w-[28%] xl:w-[28%] 2xl:w-[25%] flex-shrink-0"></div>
 
             {/* 2. Middle Text Content */}
-            <div className="w-full lg:w-[42%] xl:w-[42%]">
+            <div className="w-full lg:w-[42%] xl:w-[42%] 2xl:w-[50%]">
                {/* Breadcrumb */}
                <div className="text-[10px] text-slate-500 font-bold tracking-widest uppercase mb-12">
                  <Link href="/" className="hover:text-brand-navy transition-colors pointer-events-auto">HOME</Link> &nbsp;&gt;&nbsp; <span className="text-[#4673A6]">ABOUT US</span>
