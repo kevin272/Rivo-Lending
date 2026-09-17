@@ -188,38 +188,6 @@ export function Footer() {
                   <Link href="/disclaimer" className="hover:text-white transition-colors">Disclaimer</Link>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Facebook"
-                  title="Facebook"
-                  className="w-7 h-7 rounded-full border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-white hover:border-neutral-600 transition-colors"
-                >
-                  <Facebook className="w-3.5 h-3.5" />
-                </a>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  title="Instagram"
-                  className="w-7 h-7 rounded-full border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-white hover:border-neutral-600 transition-colors"
-                >
-                  <Instagram className="w-3.5 h-3.5" />
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  title="LinkedIn"
-                  className="w-7 h-7 rounded-full border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-white hover:border-neutral-600 transition-colors"
-                >
-                  <Linkedin className="w-3.5 h-3.5" />
-                </a>
-              </div>
             </div>
           </div>
         </div>
