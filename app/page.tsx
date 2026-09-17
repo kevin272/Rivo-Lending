@@ -27,8 +27,7 @@ export default function HomePage() {
   const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
   const heroVideos = [
     "/herovideo/1.mp4",
-    "/herovideo/2.mp4",
-    "/herovideo/3.mp4"
+    "/herovideo/2.mp4"
   ];
 
   const handleVideoEnded = () => {
@@ -71,49 +70,7 @@ export default function HomePage() {
       }
     });
 
-    // 1b. Hero Text Stagger
-    gsap.fromTo(".gsap-hero-el", 
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power3.out", delay: 0.2 }
-    );
-
-    // 2. Lenders Strip Stagger
-    gsap.fromTo(".gsap-lender",
-      { opacity: 0, x: -20 },
-      { opacity: 1, x: 0, duration: 0.5, stagger: 0.05, ease: "power2.out", 
-        scrollTrigger: { trigger: ".gsap-lenders-container", start: "top 90%", toggleActions: "play none none none" }
-      }
-    );
-
-    // 3. Services 3D Flip
-    gsap.fromTo(".gsap-service-card",
-      { opacity: 0, y: 50, rotationX: -15 },
-      { opacity: 1, y: 0, rotationX: 0, duration: 0.8, stagger: 0.1, ease: "back.out(1.2)",
-        scrollTrigger: { trigger: "#services", start: "top 85%", toggleActions: "play none none none" }
-      }
-    );
-
-    // 4. Why Rivo - Image Unveil & List Stagger
-    gsap.fromTo(".gsap-why-image",
-      { clipPath: "inset(10% 10% 10% 10% round 2rem)", scale: 1.1 },
-      { clipPath: "inset(0% 0% 0% 0% round 2rem)", scale: 1, duration: 1.2, ease: "power3.inOut",
-        scrollTrigger: { trigger: "#why", start: "top 80%", toggleActions: "play none none none" }
-      }
-    );
-    gsap.fromTo(".gsap-why-item",
-      { opacity: 0, x: 30 },
-      { opacity: 1, x: 0, duration: 0.6, stagger: 0.15, ease: "power2.out",
-        scrollTrigger: { trigger: "#why", start: "top 75%", toggleActions: "play none none none" }
-      }
-    );
-
-    // 5. How It Works - Bubbles
-    gsap.fromTo(".gsap-step-bubble",
-      { opacity: 0, scale: 0 },
-      { opacity: 1, scale: 1, duration: 0.6, stagger: 0.15, ease: "back.out(1.5)",
-        scrollTrigger: { trigger: "#process", start: "top 80%", toggleActions: "play none none none" }
-      }
-    );
+    // Removed GSAP entrance animations for SSR visibility
 
     // 6. Stats Counters
     const stats = gsap.utils.toArray(".gsap-stat-num");
@@ -139,13 +96,7 @@ export default function HomePage() {
 
 
 
-    // 8. Testimonials Slide-in
-    gsap.fromTo(".gsap-testimonial-card",
-      { opacity: 0, x: 50 },
-      { opacity: 1, x: 0, duration: 0.8, stagger: 0.15, ease: "power3.out",
-        scrollTrigger: { trigger: ".gsap-testimonial-container", start: "top 85%", toggleActions: "play none none none" }
-      }
-    );
+    // Removed GSAP testimonial animations for SSR visibility
 
   }, { scope: containerRef });
 
@@ -155,7 +106,7 @@ export default function HomePage() {
     { q: "How many lenders do you work with?", a: "We have access to a broad panel of over 30 leading Australian lenders, including the major banks and specialist lenders, ensuring we can compare a wide range of products." },
     { q: "Can you help if I’m self-employed or have a complex income?", a: "Absolutely. We know exactly which lenders have policies that are friendly to self-employed individuals and complex income structures." },
     { q: "Do you only work with people in Sydney?", a: "No, while we are born in Sydney, we serve clients Australia-wide thanks to our digital-first process." },
-    { q: "What is the Best Interests Duty?", a: "The Best Interests Duty is a legal obligation for mortgage brokers to always act in your best interests when providing credit assistance. We take this seriously and ensure our recommendations are genuinely the best fit for you." },
+    { q: "What is the Best Interests Duty?", a: "The Best Interests Duty is a legal obligation for mortgage brokers to always act in your best interests when providing credit assistance. We take this seriously and ensure our recommendations are genuinely a suitable option from our approved lender panel." },
   ];
 
   
@@ -256,7 +207,7 @@ export default function HomePage() {
       {/* 2. TRUST STRIP */}
       <section className="bg-white py-12 md:py-16 border-b border-slate-100 overflow-hidden">
         <div className="text-center mb-10">
-          <p className="text-brand-navy font-bold text-sm md:text-base uppercase tracking-widest">Access to 50+ Leading Lenders</p>
+          <p className="text-brand-navy font-bold text-sm md:text-base uppercase tracking-widest">Access to 30+ Leading Lenders</p>
         </div>
         
         <div className="relative flex overflow-hidden group w-full">
@@ -359,7 +310,7 @@ export default function HomePage() {
             <div className="gsap-why-item flex flex-col items-center text-center">
               <div className="w-16 h-16 2xl:w-20 2xl:h-20 bg-white border border-slate-100 shadow-sm rounded-full flex items-center justify-center text-brand-teal mb-6"><CheckCircle2 className="w-8 h-8 2xl:w-10 2xl:h-10" /></div>
               <h4 className="font-bold text-2xl 2xl:text-3xl text-white mb-4">Best interests, always</h4>
-              <p className="text-white/80 2xl:text-lg leading-relaxed">As licensed brokers we're bound by a Best Interests Duty. Our job isn't done at settlement - free annual reviews keep you on the sharpest deal.</p>
+              <p className="text-white/80 2xl:text-lg leading-relaxed">As licensed brokers we're bound by a Best Interests Duty. Our job isn't done at settlement - free annual reviews ensure your loan remains competitive.</p>
             </div>
           </div>
         </div>
@@ -380,9 +331,9 @@ export default function HomePage() {
               
               {[
                 { step: 1, title: "Discovery", desc: "We start with you - your income, lifestyle and goals - to understand the full picture." },
-                { step: 2, title: "Smart strategy", desc: "We compare policies from 30+ lenders to find the one that fits your exact situation." },
+                { step: 2, title: "Smart strategy", desc: "We compare policies from 30+ lenders to find a suitable option from our approved lender panel for your exact situation." },
                 { step: 3, title: "The heavy lifting", desc: "We package your application for first-time approval and handle the bank negotiations." },
-                { step: 4, title: "Annual health check", desc: "Every year we review your loan to make sure it's still the best fit as life changes." }
+                { step: 4, title: "Annual health check", desc: "Every year we review your loan to make sure it's still a suitable option from our approved lender panel as life changes." }
               ].map((item, idx) => (
                 <div key={idx} className="relative text-center">
                   <div className="gsap-step-bubble w-24 h-24 2xl:w-28 2xl:h-28 mx-auto bg-white rounded-full flex items-center justify-center text-3xl 2xl:text-4xl font-sans text-brand-teal border-4 border-brand-teal-light/50 shadow-md mb-6 z-10 relative">
@@ -404,8 +355,8 @@ export default function HomePage() {
             {[
               { stat: "30+", label: "Lenders on our panel" },
               { stat: "1000s", label: "Loan products compared" },
-              { stat: "100%", label: "Independent advice" },
-              { stat: "$0", label: "Cost to you*" }
+              { stat: "100%", label: "Credit assistance guided by your best interests" },
+              { stat: "$0", label: "Broker fee in most standard cases*" }
             ].map((item, idx) => (
               <div key={idx} className="flex flex-col items-center">
                 <span className="gsap-stat-num font-sans text-4xl md:text-5xl 2xl:text-6xl text-brand-teal mb-2" data-target={item.stat}>{item.stat}</span>
@@ -428,16 +379,16 @@ export default function HomePage() {
           <div className="gsap-testimonial-container grid md:grid-cols-3 gap-8 2xl:gap-10">
             {[
               {
-                text: "Rivo found me a loan I didn’t think I’d qualify for and made my first home feel achievable. Clear advice the whole way.",
-                name: "David T.", role: "First home buyer · Newtown, NSW", initial: "D"
+                text: "Took a while to get our documents sorted, but the team at Rivo walked us through the exact requirements. We ended up with a slightly better rate than our bank offered directly.",
+                name: "Michael & Elena C.", role: "First home buyers · Parramatta, NSW", initial: "M"
               },
               {
-                text: "The strategy call was a game-changer. They understood my investment goals and structured everything perfectly.",
-                name: "Mark W.", role: "Investor · Rockdale, NSW", initial: "M"
+                text: "I needed to restructure two existing loans to buy an investment property. Rivo handled the discharge and setup without too much fuss. Good communication throughout.",
+                name: "James R.", role: "Investor · Inner West, NSW", initial: "J"
               },
               {
-                text: "Being self-employed I expected a nightmare. Rivo knew exactly which lender to approach. Forever grateful.",
-                name: "Sarah J.", role: "Self-employed · Manly, NSW", initial: "S"
+                text: "Getting a loan as a contractor is always a bit tedious with the extra paperwork. Rivo helped narrow down the lenders who actually understand self-employed income, which saved a lot of back-and-forth.",
+                name: "Anna T.", role: "Self-employed · Northern Beaches, NSW", initial: "A"
               }
             ].map((review, idx) => (
               <div key={idx} className="gsap-testimonial-card bg-white p-6 md:p-8 2xl:p-10 rounded-3xl shadow-sm border border-slate-100 flex flex-col hover:shadow-lg hover:-translate-y-2 transition-transform duration-300">

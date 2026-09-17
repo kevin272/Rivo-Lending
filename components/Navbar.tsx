@@ -59,7 +59,7 @@ export function Navbar() {
 
       {/* Mobile Top Bar */}
       <div className={`lg:hidden w-full bg-slate-50 border-b border-slate-200 px-4 flex items-center justify-between transition-all duration-300 overflow-hidden ${isScrolled ? 'h-0 opacity-0 py-0 border-transparent' : 'h-12 py-2.5 opacity-100'}`}>
-        <Link href="tel:0451178375" className="flex items-center gap-2 text-[#4673A6] font-semibold text-sm">
+        <Link href="tel:+61451178375" className="flex items-center gap-2 text-[#4673A6] font-semibold text-sm">
           <Phone className="w-4 h-4 text-[#4673A6]" /> 0451 178 375
         </Link>
         <Link href="/contact" className="px-4 py-1.5 bg-[#4673A6] text-white text-xs font-bold rounded-full shadow-sm hover:bg-[#365b92] transition-colors">

@@ -58,7 +58,7 @@ export function Footer() {
               Premium, advice-led mortgage broking. Sydney born, serving clients right across Australia.
             </p>
             <div className="space-y-3 text-sm">
-              <a href="tel:0451178375" className="flex items-center gap-2 hover:text-white transition-colors">
+              <a href="tel:+61451178375" className="flex items-center gap-2 hover:text-white transition-colors">
                 <Phone className="w-4 h-4 text-neutral-400" /> 0451 178 375
               </a>
               <a href="mailto:info@rivolending.com.au" className="flex items-center gap-2 hover:text-white transition-colors">
@@ -173,8 +173,21 @@ export function Footer() {
             <p className="mb-8">
               This website provides general information only and does not constitute credit assistance or a credit quote. Lending criteria, fees, terms and conditions apply. Indicative rates are subject to change.
             </p>
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p>&copy; 2026 Rivo Lending Pty Ltd. All rights reserved.</p>
+            <div className="flex flex-col xl:flex-row justify-between items-center gap-6 xl:gap-4 text-center xl:text-left">
+              <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+                <p>Rivo Lending is a business name of Sanskriti Holdings Pty Ltd.</p>
+                <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 text-neutral-400">
+                  <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+                  <span className="hidden md:inline">&middot;</span>
+                  <Link href="/credit-guide" className="hover:text-white transition-colors">Credit Guide</Link>
+                  <span className="hidden md:inline">&middot;</span>
+                  <Link href="/complaints" className="hover:text-white transition-colors">Complaints</Link>
+                  <span className="hidden md:inline">&middot;</span>
+                  <Link href="/terms-and-conditions" className="hover:text-white transition-colors">Terms & Conditions</Link>
+                  <span className="hidden md:inline">&middot;</span>
+                  <Link href="/disclaimer" className="hover:text-white transition-colors">Disclaimer</Link>
+                </div>
+              </div>
               <div className="flex items-center gap-3">
                 <a
                   href="https://facebook.com"

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: '%s | Rivo Lending',
   },
   description:
-    'Sydney mortgage broker providing expert home loan, refinancing, and commercial lending advice. Compare 30+ lenders with $0 broker fee to borrowers. Free borrowing capacity assessment.',
+    'Sydney mortgage broker providing expert home loan, refinancing, and commercial lending advice. Compare 30+ lenders with no broker fee in most standard cases. Free borrowing capacity assessment.',
   keywords: [
     'mortgage broker sydney',
     'sydney mortgage broker',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Rivo Lending | Mortgage Broker Sydney & Australia-wide',
     description:
-      'Expert mortgage broking and property finance. Compare 30+ Australian lenders with $0 broker fee to borrowers.',
+      'Expert mortgage broking and property finance. Compare 30+ Australian lenders with no broker fee in most standard cases.',
     url: 'https://www.rivolending.com.au',
     siteName: 'Rivo Lending',
     locale: 'en_AU',
